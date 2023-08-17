@@ -1,12 +1,14 @@
 
-import './App.css'
+import './styles/App.css'
+import WanderPalRoutes from './routes/WanderPalRoutes'
+
 
 function App() {
   
 
   return (
     <>
-      <p>page that includes login and registration</p>
+      <WanderPalRoutes />
     </>
   )
 }

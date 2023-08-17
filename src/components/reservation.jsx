@@ -1,8 +1,8 @@
-import React from 'react'
+
 
  const Reservation = () => {
   return (
-    <h1> here goes reservations</h1>
+    <h2> here goes reservations</h2>
   )
 }
 
