@@ -1,4 +1,4 @@
-import { Route, Routes} from "react-router-dom";
+import { Navigate, Route, Routes} from "react-router-dom";
 
 import Home from "../components/Home";
 import Reservation from "../components/reservation";
@@ -13,8 +13,9 @@ const WanderPalRoutes = () => (
         <Navbar/>
 
         <Routes>
-            <Route path="/" element={<Home/>}/>
+            <Route path="Home" element={<Home/>}/>
             <Route path="/reservation" element={<Reservation/>}/>
+            <Route path="/" element={<Navigate to="/Home" />} />
         </Routes>
     </>
 );
