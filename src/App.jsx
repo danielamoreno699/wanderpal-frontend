@@ -1,6 +1,7 @@
 
 import './styles/App.css'
 import WanderPalRoutes from './routes/WanderPalRoutes'
+import CarouselSlide from './components/caroursel'
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
   return (
     <>
       <WanderPalRoutes />
+      <CarouselSlide />
     </>
   )
 }
