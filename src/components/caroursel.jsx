@@ -2,8 +2,9 @@ import { Carousel } from 'react-bootstrap';
 import '../styles/Carousel.css';
 
 import dubai from '../assets/carousel/dubai.jpg';
-import paris from '../assets/carousel/paris2.jpg';
 import tokyo from '../assets/carousel/tokyo.jpg';
+import london from '../assets/carousel/london.jpg';
+
 
 const CarouselSlide = () => {
   return (
@@ -23,7 +24,7 @@ const CarouselSlide = () => {
           </Carousel.Item>
           <Carousel.Item interval={500}>
             <img 
-                src={paris}
+                src={london}
               alt="Second slide"
               className="d-block w-100"
             />
@@ -45,7 +46,13 @@ const CarouselSlide = () => {
           </Carousel.Item>
         </Carousel>
       </div>
+
+      <div className='trip-banner'>
+
+      </div>
     </section>
+
+   
   );
 }
 
