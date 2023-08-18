@@ -2,7 +2,7 @@ import { Navigate, Route, Routes} from "react-router-dom";
 
 import Home from "../components/Home";
 import Reservation from "../components/reservation";
-import Navbar from "../components/navbar";
+import CustomNavbar from "../components/navbar";
 
 
 
@@ -10,7 +10,7 @@ import Navbar from "../components/navbar";
 const WanderPalRoutes = () => (
 
     <>
-        <Navbar/>
+        <CustomNavbar/>
 
         <Routes>
             <Route path="Home" element={<Home/>}/>
