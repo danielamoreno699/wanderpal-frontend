@@ -2,34 +2,56 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
     status: 'idle',
-    item: [],
-    stockInfo: {},
+    items: [],
+    itemInfo: {},
   
   };
+
+  // fetch items 
+  export const fetchItems = createAsyncThunk('items/fetchItems', 
+    async () => {
+    const response = await fetch('http://[::1]:3001/api/v1/items');
+    if (response.ok){
+      const data = await response.json();
+      return data.results;
+    }
+     throw new Error('Request failed!');
+  });
+
+  // fetch item info
+  export const fetchItemInfo = createAsyncThunk('items/fetchItemInfo', 
+    async (id) => {
+    const response = await fetch(`http://[::1]:3001/api/v1/items/${id}`);
+    if (response.ok){
+      const data = await response.json();
+      return data.results;
+    }
+      throw new Error('Request failed!');
+  });
   
-  export const stockSlice = createSlice({
+  export const itemsSlice = createSlice({
     name: 'items',
     initialState,
     reducers: {
-      selectItem: (state, action) => {
+      selectedItem: (state, action) => {
         const selectedItem = action.payload;
         return {
           ...state,
-          stockInfo: selectedItem,
+          itemInfo: selectedItem,
         };
       },
     },
     extraReducers: (builder) => {
       builder
-        .addCase(fetchItem.pending, (state) => {
+        .addCase(fetchItems.pending, (state) => {
           state.status = 'loading';
         })
-        .addCase(fetchItem.fulfilled, (state, action) => ({
+        .addCase(fetchItems.fulfilled, (state, action) => ({
           ...state,
           status: 'succeeded',
-          data: action.payload,
+          items: action.payload,
         }))
-        .addCase(fetchItem.rejected, (state, action) => ({
+        .addCase(fetchItems.rejected, (state, action) => ({
           ...state,
           status: 'failed',
           error: action.error.message,
@@ -37,7 +59,7 @@ const initialState = {
         .addCase(fetchItemInfo.fulfilled, (state, action) => ({
           ...state,
           status: 'succeeded',
-          stockInfo: action.payload,
+          itemInfo: action.payload,
         }))
         .addCase(fetchItemInfo.rejected, (state, action) => ({
   
