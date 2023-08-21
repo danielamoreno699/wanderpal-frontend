@@ -19,7 +19,7 @@ const Home = () => {
 
   const onHandleSelect = (id) => {
     dispatch(selectedItem(id));
-    navigate(`/Details/${id}`)
+    navigate(`/items/${id}`)
     console.log(id);
   }
 
