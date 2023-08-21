@@ -3,10 +3,12 @@ import { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import '../styles/Home.css';
-import { fetchItems } from '../redux/itemsSlice';
+import { useNavigate } from 'react-router-dom';
+import { fetchItems, selectedItem } from '../redux/itemsSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { items, status } = useSelector((state) => state.items);
 
   useEffect(() => {
@@ -14,6 +16,12 @@ const Home = () => {
       dispatch(fetchItems());
     }
   }, [status, dispatch, items]);
+
+  const onHandleSelect = (id) => {
+    dispatch(selectedItem(id));
+    navigate(`/Details/${id}`)
+    console.log(id);
+  }
 
   return (
     <div className='cards'>
@@ -25,7 +33,14 @@ const Home = () => {
             <Card.Body>
               <Card.Title>{item.name}</Card.Title>
               <Card.Text>{item.price}</Card.Text>
-              <Button variant="primary">Go to details</Button>
+              <Button 
+              variant="primary" 
+              onClick={() => onHandleSelect(item.id)}
+              >
+                
+                Go to details
+                
+                </Button>
               <Button variant="primary">Make a reservation</Button>
             </Card.Body>
           </Card>
