@@ -58,3 +58,11 @@ body {
     padding: 0 !important;
   }
 }
+
+.translucent {
+  background-color: rgba(255, 255, 255, 0.96); /* White with 50% opacity */
+}
+
+.transparent {
+  background-color: rgba(255, 255, 255, 0);
+}

@@ -116,9 +116,11 @@ const CustomNavbar = () => {
         {/* Second Navbar */}
         <Navbar
           expand="md"
-          className="bg-body-tertiary full-width justify-content-center"
+          className=" full-width justify-content-center translucent"
+          sticky="top"
+          collapseOnSelect
         >
-          <Container className="d-flex justify-content-between align-items-center full-width m-0">
+          <Container className="d-flex justify-content-between align-items-center full-width m-0 transparent">
             <Navbar.Brand href="#home" className="fit-content">
               <img
                 src="/src/assets/logo.png"
