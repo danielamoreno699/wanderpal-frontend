@@ -14,6 +14,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .grey-border {
@@ -22,4 +29,32 @@
 
 .grey-border-left {
   border-left: 1px solid #e1e1e1;
+}
+
+.logo-margin {
+  margin: 0 1em;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.fit-content {
+  width: fit-content;
+}
+
+@media (max-width: 846px) {
+  .contacts {
+    display: none;
+  }
+
+  .grey-border-left {
+    border-left: 0;
+  }
+}
+
+@media (max-width: 410px) {
+  .container-fluid {
+    padding: 0 !important;
+  }
 }
