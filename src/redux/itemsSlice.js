@@ -13,7 +13,7 @@ const initialState = {
     const response = await fetch('http://[::1]:3001/api/v1/items');
     if (response.ok){
       const data = await response.json();
-      return data.results;
+      return data;
     }
      throw new Error('Request failed!');
   });
@@ -24,7 +24,7 @@ const initialState = {
     const response = await fetch(`http://[::1]:3001/api/v1/items/${id}`);
     if (response.ok){
       const data = await response.json();
-      return data.results;
+      return data;
     }
       throw new Error('Request failed!');
   });
