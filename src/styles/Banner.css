@@ -1,0 +1,55 @@
+/* styles/Banner.css */
+.banner-trip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.banner-trip__content {
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  width: 90%;
+  background-color: #ea8e72;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.airplane-icon,
+.price-icon,
+.support-icon {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 784px) {
+  .banner-trip {
+    padding: 0;
+  }
+
+  .banner-trip__content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 3rem;
+    width: 70%;
+  }
+
+  .destinations,
+  .prices,
+  .support {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .airplane-icon,
+  .price-icon,
+  .support-icon {
+    font-size: 48px;
+    color: white;
+    margin-bottom: 10px;
+  }
+}
