@@ -24,15 +24,18 @@ const Home = () => {
   }
 
   return (
-    <div className='cards'>
-      <h2>Here displays cards</h2>
+    <>
+    <div className='cards-home'>
+      <h2 className='home-h2'>Here displays cards</h2>
       <div className='card-cont'>
         {items.map((item, index) => (
-          <Card key={index} style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={item.image} /> 
+          <Card key={index} className='card-item'>
+            <Card.Img variant="top" src={item.image}  className='card-img-item' alt='img' /> 
             <Card.Body>
-              <Card.Title>{item.name}</Card.Title>
-              <Card.Text>{item.price}</Card.Text>
+              <Card.Title className='card-title-item'>{item.name}</Card.Title>
+              <Card.Text className='card-item-price'>{item.price}</Card.Text>
+
+              <div className='card-btns'>
               <Button 
               variant="primary" 
               onClick={() => onHandleSelect(item.id)}
@@ -40,13 +43,15 @@ const Home = () => {
                 
                 Go to details
                 
-                </Button>
+              </Button>
               <Button variant="primary">Make a reservation</Button>
+              </div>
             </Card.Body>
           </Card>
         ))}
       </div>
     </div>
+    </>
   );
 };
 
