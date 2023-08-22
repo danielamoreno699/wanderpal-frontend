@@ -11,7 +11,7 @@ export const fetchReservations = createAsyncThunk("reservations/fetchReservation
   const response = await fetch("http://[::1]:3001/api/v1/reservations");
   if (response.ok) {
     const data = await response.json();
-    return data.results;
+    return data;
   }
   throw new Error("Request failed!");
 });
@@ -19,11 +19,11 @@ export const fetchReservations = createAsyncThunk("reservations/fetchReservation
 // fetch reservation info
 export const fetchReservationInfo = createAsyncThunk(
   "reservations/fetchReservationInfo",
-  async (id) => {
-    const response = await fetch(`http://[::1]:3001/api/v1/reservations/${id}`);
+  async () => {
+    const response = await fetch(`http://[::1]:3001/api/v1/reservations`);
     if (response.ok) {
       const data = await response.json();
-      return data.results;
+      return data;
     }
     throw new Error("Request failed!");
   }
