@@ -25,13 +25,14 @@ const Items = () => {
 
   return (
     <div className='details'>
-    <h2>details</h2>
-    <div>
+    <h2 className='details-h2'>More Info...</h2>
+    <hr className='hr-details' />
+    <div className='details-cont'>
       <h3>{itemInfo.name}</h3>
-      <p>{itemInfo.price}</p>
       <p>{itemInfo.description}</p>
-      <button onClick={onNavigateBack}>Back</button>
+      
     </div>
+    <button className='btn-details' onClick={onNavigateBack}>Back</button>
     </div>
   )
 }
