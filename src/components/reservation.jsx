@@ -2,13 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { useNavigate } from "react-router-dom";
 import "../styles/reservation.css";
-import { fetchReservations, selectedReservation } from "../redux/reservationsSlice";
+import { fetchReservations } from "../redux/reservationsSlice";
 
 const Reservation = () => {
   const dispatch = useDispatch();
-    const navigate = useNavigate();
   const { reservations, status } = useSelector((state) => state.reservations);
 
   useEffect(() => {
@@ -18,8 +16,7 @@ const Reservation = () => {
   }, [status, dispatch, reservations]);
 
   const onHandleSelect = (id) => {
-    dispatch(selectedReservation(id));
-    navigate(`/Reservations`);
+    console.log(id)
   };
 
   return (
@@ -46,7 +43,7 @@ const Reservation = () => {
                 <Card.Text>Here goes the name of the reservation</Card.Text>
                 <div className="card-btns">
                   <Button
-                    variant="primary"
+                    variant="danger"
                     onClick={() => onHandleSelect(reservation.id)}
                   >
                     Delete
