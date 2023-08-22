@@ -26,6 +26,7 @@ const Reservation = () => {
     <>
       <div className="cards-home">
         <h2 className="home-h2">Reservations</h2>
+        <hr className="hr-home" />
         <div className="card-cont">
           {reservations.map((reservation, index) => (
             <Card key={index} className="card-item">
