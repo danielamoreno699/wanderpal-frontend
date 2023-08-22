@@ -7,6 +7,10 @@ import CarouselSlide from '../components/caroursel'
 import Banner from '../components/banner'
 
 
+import Items from "../components/items";
+
+
+
 
 
 const WanderPalRoutes = () => (
@@ -18,6 +22,8 @@ const WanderPalRoutes = () => (
 
         <Routes>
             <Route path="Home" element={<Home/>}/>
+            <Route path="items/:id" element={<Items/>}/>
+
             <Route path="/reservation" element={<Reservation/>}/>
             <Route path="/" element={<Navigate to="/Home" />} />
         </Routes>
