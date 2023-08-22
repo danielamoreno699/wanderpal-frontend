@@ -53,3 +53,19 @@
     transition: all 0.3s ease;
 
 }
+
+.detail-name{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #eb4b4b;
+    font-family: 'REM', sans-serif;
+}
+
+.detail-desc{
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: #060000;
+    font-family: 'REM', sans-serif;
+}

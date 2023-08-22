@@ -28,8 +28,8 @@ const Items = () => {
     <h2 className='details-h2'>More Info...</h2>
     <hr className='hr-details' />
     <div className='details-cont'>
-      <h3>{itemInfo.name}</h3>
-      <p>{itemInfo.description}</p>
+      <h3 className='detail-name'>{itemInfo.name}</h3>
+      <p className='detail-desc'>{itemInfo.description}</p>
       
     </div>
     <button className='btn-details' onClick={onNavigateBack}>Back</button>
