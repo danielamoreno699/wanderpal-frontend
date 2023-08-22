@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
-// import "../styles/Home.css";
+import "../styles/reservation.css";
 import { fetchReservations, selectedReservation } from "../redux/reservationsSlice";
 
 const Reservation = () => {
@@ -19,7 +19,7 @@ const Reservation = () => {
 
   const onHandleSelect = (id) => {
     dispatch(selectedReservation(id));
-    navigate(`/Details/${id}`);
+    navigate(`/Reservations`);
   };
 
   return (
