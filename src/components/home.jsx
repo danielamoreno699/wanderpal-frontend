@@ -26,14 +26,15 @@ const Home = () => {
   return (
     <>
     <div className='cards-home'>
-      <h2 className='home-h2'>Here displays cards</h2>
+      <h2 className='home-h2'>Our Tours</h2>
+      <hr className='hr-home' />
       <div className='card-cont'>
         {items.map((item, index) => (
           <Card key={index} className='card-item'>
             <Card.Img variant="top" src={item.image}  className='card-img-item' alt='img' /> 
             <Card.Body>
               <Card.Title className='card-title-item'>{item.name}</Card.Title>
-              <Card.Text className='card-item-price'>{item.price}</Card.Text>
+              <Card.Text className='card-item-price'>{item.price}$</Card.Text>
 
               <div className='card-btns'>
               <Button 
