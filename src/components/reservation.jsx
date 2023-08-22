@@ -6,7 +6,14 @@ import Card from "react-bootstrap/Card";
 import { fetchReservations } from "../redux/reservationsSlice";
 
 const Reservation = () => {
+  const dispatch = useDispatch();
+  const { reservations, status } = useSelector((state) => state.reservations);
 
+  useEffect(() => {
+    if (status === "idle" && reservations.length === 0) {
+      dispatch(fetchReservations());
+    }
+  }, [status, dispatch, reservations]);
 
   return (
     <div className="cards">
