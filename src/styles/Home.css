@@ -1,7 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300&family=Lobster&family=REM:wght@300&family=Shadows+Into+Light&display=swap');
-.cards-home {
-    /* background-color: rgb(233, 137, 19); */
-  }
 
   .home-h2{
     text-align: center;
@@ -15,7 +12,6 @@
 
   .hr-home{
     width: 20%; 
-   
     margin-top: 6rem;
     margin-bottom: 1rem;
     border: 1px solid #ce1616;
@@ -29,7 +25,6 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 2rem;
-    /* background-color: red; */
     width: 97%;
     margin: 0 auto;
     padding: 1rem;
@@ -71,4 +66,15 @@
     display: flex;
     gap: 2rem;
   }
+
+  @media screen and (max-width: 768px) {
+    .card-cont {
+        display: block;
+    }
+    .card-item {
+      width: 21rem;
+     margin: 0 auto 1rem;
+    }
+  }
+  
   
