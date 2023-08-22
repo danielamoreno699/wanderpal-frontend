@@ -23,24 +23,40 @@ const Reservation = () => {
   };
 
   return (
-    <div className="cards">
-      <h2>Reservations</h2>
-      <div className="card-cont">
-        {reservations.map((reservation, index) => (
-          <Card key={index} style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="" alt="image" />
-            <Card.Body>
-              <Card.Title>{reservation.city}</Card.Title>
-              <Card.Text>{reservation.date}</Card.Text>
-              <Card.Text>Here goes the name of the item</Card.Text>
-              <Button variant="primary" onClick={() => onHandleSelect(reservation.id)}>
-                Delete
-              </Button>
-            </Card.Body>
-          </Card>
-        ))}
+    <>
+      <div className="cards-home">
+        <h2 className="home-h2">Reservations</h2>
+        <div className="card-cont">
+          {reservations.map((reservation, index) => (
+            <Card key={index} className="card-item">
+              <Card.Img
+                variant="top"
+                src=""
+                className="card-img-item"
+                alt="img"
+              />
+              <Card.Body>
+                <Card.Title className="card-title-item">
+                  {reservation.city}
+                </Card.Title>
+                <Card.Text className="card-item-price">
+                  {reservation.date}
+                </Card.Text>
+                <Card.Text>Here goes the name of the reservation</Card.Text>
+                <div className="card-btns">
+                  <Button
+                    variant="primary"
+                    onClick={() => onHandleSelect(reservation.id)}
+                  >
+                    Delete
+                  </Button>
+                </div>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
