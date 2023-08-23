@@ -44,7 +44,7 @@ const Reservation = () => {
         <div className="card-cont">
           {reservations.map((reservation, index) => {
             const itemDetails = reservationDetails[reservation.id];
-            console.log(itemDetails);
+            // console.log(itemDetails);
 
             return (
               <Card key={index} className="card-item">

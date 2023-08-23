@@ -19,7 +19,7 @@ export const fetchReservations = createAsyncThunk(
   }
 );
 
-//fetch reservation details
+//fetch reservation details to display name and image from the item properties
 export const fetchReservationDetails = createAsyncThunk(
   "reservations/fetchReservationDetails",
   async (reservationId) => {
