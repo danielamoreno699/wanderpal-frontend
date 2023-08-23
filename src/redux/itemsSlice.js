@@ -56,6 +56,10 @@ const initialState = {
           status: 'failed',
           error: action.error.message,
         }))
+        .addCase(fetchItemInfo.pending, (state) => {
+          state.status = 'loading';
+        })
+
         .addCase(fetchItemInfo.fulfilled, (state, action) => ({
           ...state,
           status: 'succeeded',
