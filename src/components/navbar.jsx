@@ -154,7 +154,7 @@ const CustomNavbar = () => {
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li" className="fit-content">
-                  <Nav.Link className="fit-content" href="#">
+                  <Nav.Link className="fit-content" href="/reservationform">
                     MAKE A RESERVATION
                   </Nav.Link>
                 </Nav.Item>

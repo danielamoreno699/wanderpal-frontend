@@ -8,6 +8,7 @@ import Banner from '../components/banner'
 
 
 import Items from "../components/items";
+import ReservationForm from "../components/reservation-form";
 
 
 
@@ -26,6 +27,8 @@ const WanderPalRoutes = () => (
 
             <Route path="/reservation" element={<Reservation/>}/>
             <Route path="/" element={<Navigate to="/Home" />} />
+
+            <Route path="/reservationform" element={<ReservationForm />}/>
         </Routes>
 
 
