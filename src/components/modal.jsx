@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // Don't forget to import React
+import  { useState } from 'react'; // Don't forget to import React
 import PropTypes from 'prop-types'; // Import PropTypes
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -44,6 +44,7 @@ const ModalReservation = ({ show, setShow, itemName, submitReservation }) => {
               value={reservation.date}
               onChange={onHandleChange}
               autoFocus
+              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
@@ -54,15 +55,16 @@ const ModalReservation = ({ show, setShow, itemName, submitReservation }) => {
               placeholder="City"
               value={reservation.city}
               onChange={onHandleChange}
+              required
             />
           </Form.Group>
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
+        <Button type='button' variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" >
+        <Button type='submit' variant="primary" >
           Submit
         </Button>
       </Modal.Footer>
@@ -71,7 +73,15 @@ const ModalReservation = ({ show, setShow, itemName, submitReservation }) => {
   );
 };
 
-// Prop validations
+// Prop validarequired
+ModalReservation.propTypes = {
+  show: PropTypes.bool.isRequired,
+  setShow: PropTypes.func.isRequired,
+  itemName: PropTypes.shape({
+    name: PropTypes.string.isRequired,
 
+  }).isRequired,
+  submitReservation: PropTypes.func.isRequired,
+};
 
 export default ModalReservation;
