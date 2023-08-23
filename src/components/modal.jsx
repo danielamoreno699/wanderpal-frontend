@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
- const ModalReservation = ({ show, setShow, itemName }) => {
+ const ModalReservation = ({ show, setShow, itemName, submitReservation }) => {
     const handleClose = () => setShow(false);
 
 
@@ -29,6 +29,7 @@ import Modal from 'react-bootstrap/Modal';
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('reservation', reservation)
+        submitReservation(reservation);
         handleClose();
     }
 
@@ -83,6 +84,7 @@ import Modal from 'react-bootstrap/Modal';
 ModalReservation.propTypes = {
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
+  submitReservation: PropTypes.func.isRequired,
   itemName: PropTypes.shape({
     name: PropTypes.string.isRequired,
     

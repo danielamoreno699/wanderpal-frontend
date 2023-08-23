@@ -7,6 +7,7 @@ import '../styles/Home.css';
 import { useNavigate } from 'react-router-dom';
 import { fetchItems, selectedItem } from '../redux/itemsSlice';
 import ModalReservation from './modal';
+import { createReservationApi } from '../redux/reservationCreateItemSlice';
 
 const Home = () => {
 
@@ -33,6 +34,11 @@ const Home = () => {
     console.log('item', item)
     setSelectedItemName(item);
     setShowModal(true);
+  }
+
+  const handleSubmitReservation = (reservation) => {
+    console.log('reservation', reservation)
+    dispatch(createReservationApi(reservation));
   }
 
 
@@ -73,7 +79,7 @@ const Home = () => {
         ))}
       </div>
     </div>
-    <ModalReservation show={showModal} setShow={setShowModal} itemName={selectedItemName}/>
+    <ModalReservation show={showModal} setShow={setShowModal} itemName={selectedItemName} submitReservation={handleSubmitReservation}/>
     </>
   );
 };
