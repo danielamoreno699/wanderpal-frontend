@@ -21,7 +21,6 @@ import Modal from 'react-bootstrap/Modal';
               <Form.Label>Select a date</Form.Label>
               <Form.Control
                 type="date"
-                // placeholder="name@example.com"
                 autoFocus
               />
             </Form.Group>
@@ -29,7 +28,7 @@ import Modal from 'react-bootstrap/Modal';
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
-              {/* <Form.Label>Indicate your city</Form.Label> */}
+              <Form.Label>Indicate your city</Form.Label>
               <Form.Control
               type='text'
                 placeholder='City'
