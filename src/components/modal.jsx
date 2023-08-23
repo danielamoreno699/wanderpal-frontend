@@ -1,14 +1,16 @@
-import  { useState } from 'react'; // Don't forget to import React
-import PropTypes from 'prop-types'; // Import PropTypes
+import  { useState } from 'react';
+import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-const ModalReservation = ({ show, setShow, itemName, submitReservation }) => {
+const ModalReservation = ({ show, setShow, itemName = {}, submitReservation }) => {
   const handleClose = () => setShow(false);
 
+  console.log('itemName', itemName)
   const [reservation, setReservation] = useState({
-    user_id: '',
+    itemId: itemName.id,
+    user_id: itemName.user_id,
     date: '',
     city: '',
   });
@@ -22,20 +24,19 @@ const ModalReservation = ({ show, setShow, itemName, submitReservation }) => {
   };
 
   const handleSubmit = (e) => {
+    console.log('submit from modal');
     e.preventDefault();
     submitReservation(reservation);
     handleClose();
   };
 
   return (
-    <>
-      <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-
         <Modal.Title>Reservation for {itemName.name}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form >
+        <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Select a date</Form.Label>
             <Form.Control
@@ -58,28 +59,24 @@ const ModalReservation = ({ show, setShow, itemName, submitReservation }) => {
               required
             />
           </Form.Group>
+          <Button type='button' variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button type='submit' variant="primary">
+            Submit
+          </Button>
         </Form>
       </Modal.Body>
-      <Modal.Footer>
-        <Button type='button' variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-        <Button type='submit' variant="primary" >
-          Submit
-        </Button>
-      </Modal.Footer>
     </Modal>
-    </>
   );
 };
 
-// Prop validarequired
+// Prop validations
 ModalReservation.propTypes = {
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
   itemName: PropTypes.shape({
     name: PropTypes.string.isRequired,
-
   }).isRequired,
   submitReservation: PropTypes.func.isRequired,
 };

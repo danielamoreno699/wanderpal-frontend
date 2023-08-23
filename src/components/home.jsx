@@ -32,13 +32,15 @@ const Home = () => {
 
   const onHandleReserve = (item) => {
     console.log('item', item)
+    
     setSelectedItemName(item);
     setShowModal(true);
   }
 
   const handleSubmitReservation = (reservation) => {
+    const itemId = selectedItemName.id;
     console.log('reservation', reservation)
-    dispatch(createReservationApi(reservation));
+    dispatch(createReservationApi({ ...reservation, itemId }));
   }
 
 
@@ -79,7 +81,12 @@ const Home = () => {
         ))}
       </div>
     </div>
-    <ModalReservation show={showModal} setShow={setShowModal} itemName={selectedItemName} submitReservation={handleSubmitReservation}/>
+    <ModalReservation 
+    show={showModal} 
+    setShow={setShowModal} 
+    itemName={selectedItemName} 
+    submitReservation={handleSubmitReservation}
+    />
     </>
   );
 };
