@@ -1,12 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import '../styles/Home.css';
 import { useNavigate } from 'react-router-dom';
 import { fetchItems, selectedItem } from '../redux/itemsSlice';
+import ModalReservation from './modal';
 
 const Home = () => {
+
+  const [showModal, setShowModal] = useState(false);
+
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { items, status } = useSelector((state) => state.items);
@@ -22,6 +28,12 @@ const Home = () => {
     navigate(`/items/${id}`)
     console.log(id);
   }
+
+  const onHandleReserve = (id) => {
+    console.log(id);
+    setShowModal(true);
+  }
+
 
   return (
     <>
@@ -45,13 +57,22 @@ const Home = () => {
                 Go to details
                 
               </Button>
-              <Button variant="primary">Make a reservation</Button>
+              <Button variant="primary"
+              onClick={() => onHandleReserve(item.id)}
+              
+              >
+                
+                Make a reservation
+              
+              
+              </Button>
               </div>
             </Card.Body>
           </Card>
         ))}
       </div>
     </div>
+    <ModalReservation show={showModal} setShow={setShowModal} />
     </>
   );
 };
