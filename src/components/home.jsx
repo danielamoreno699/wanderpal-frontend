@@ -40,7 +40,7 @@ const Home = () => {
   const handleSubmitReservation = (reservation) => {
     const itemId = selectedItemName.id;
     console.log('reservation', reservation)
-    dispatch(createReservationApi({ ...reservation, itemId }));
+    dispatch(createReservationApi({itemId, ...reservation }));
   }
 
 
