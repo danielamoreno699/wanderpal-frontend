@@ -2,8 +2,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
- const ModalReservation = ({ show, setShow }) => {
+ const ModalReservation = ({ show, setShow, itemName }) => {
     const handleClose = () => setShow(false);
+
+    console.log('itemNameModal', itemName)
 
   return (
     <>
@@ -11,7 +13,7 @@ import Modal from 'react-bootstrap/Modal';
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Reservation for {itemName.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>

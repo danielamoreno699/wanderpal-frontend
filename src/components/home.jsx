@@ -11,6 +11,7 @@ import ModalReservation from './modal';
 const Home = () => {
 
   const [showModal, setShowModal] = useState(false);
+  const [selectedItemName, setSelectedItemName] = useState('');
 
 
   const dispatch = useDispatch();
@@ -26,11 +27,11 @@ const Home = () => {
   const onHandleSelect = (id) => {
     dispatch(selectedItem(id));
     navigate(`/items/${id}`)
-    console.log(id);
   }
 
-  const onHandleReserve = (id) => {
-    console.log(id);
+  const onHandleReserve = (item) => {
+    console.log('item', item)
+    setSelectedItemName(item);
     setShowModal(true);
   }
 
@@ -58,7 +59,7 @@ const Home = () => {
                 
               </Button>
               <Button variant="primary"
-              onClick={() => onHandleReserve(item.id)}
+              onClick={() => onHandleReserve(item)}
               
               >
                 
@@ -72,7 +73,7 @@ const Home = () => {
         ))}
       </div>
     </div>
-    <ModalReservation show={showModal} setShow={setShowModal} />
+    <ModalReservation show={showModal} setShow={setShowModal} itemName={selectedItemName}/>
     </>
   );
 };
