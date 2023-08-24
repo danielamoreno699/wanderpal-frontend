@@ -9,8 +9,7 @@ const ModalReservation = ({ show, setShow, itemName = {}, submitReservation }) =
 
   console.log('itemName', itemName)
   const [reservation, setReservation] = useState({
-    itemId: itemName.id,
-    user_id: itemName.user_id,
+    // user_id: itemName.user_id,
     date: '',
     city: '',
   });
@@ -33,6 +32,7 @@ const ModalReservation = ({ show, setShow, itemName = {}, submitReservation }) =
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
+        <p>{itemName.id}</p>
         <Modal.Title>Reservation for {itemName.name}</Modal.Title>
       </Modal.Header>
       <Modal.Body>

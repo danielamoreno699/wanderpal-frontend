@@ -13,8 +13,12 @@ export const createReservationApi = createAsyncThunk(
     
     "reservationCreateItem/createReservationItem",
     
-    async ({ itemId, ...reservationData }) => {
-        const response = await axios.post(`http://127.0.0.1:3001/api/v1/items/${itemId}/reservations`, reservationData);
+    async ( itemId, userId, date, city) => {
+        const response = await axios.post(`http://127.0.0.1:3001/api/v1/items/${itemId}/reservations`, {
+            user_id: userId, 
+            date,
+            city
+        });
         return response.data;
     }
     )

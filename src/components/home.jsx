@@ -39,8 +39,12 @@ const Home = () => {
 
   const handleSubmitReservation = (reservation) => {
     const itemId = selectedItemName.id;
+    const { date, city } = reservation;
+    const userId = selectedItemName.user_id;
     console.log('reservation', reservation)
-    dispatch(createReservationApi({itemId, ...reservation }));
+    console.log('itemId', itemId)
+    console.log('userId', userId)
+    dispatch(createReservationApi( itemId, date, city, userId));
   }
 
 
