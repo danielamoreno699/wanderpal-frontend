@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "../styles/reservation.css";
 import { fetchReservations, fetchReservationDetails } from "../redux/reservationsSlice";
+import { deleteReservationApi } from "../redux/reservationDeleteSlice";
 
 const Reservation = () => {
  
@@ -32,8 +33,11 @@ const Reservation = () => {
   
 
 
-  const onHandleSelect = (id) => {
-    console.log(id);
+  const onHandleSelect = (reservationId, itemId) => {
+    console.log('id', reservationId);
+    console.log('itemid', itemId )
+
+    dispatch(deleteReservationApi({ reservationId, itemId }));
   };
 
   return (
@@ -67,7 +71,7 @@ const Reservation = () => {
                   <div className="card-btns">
                     <Button
                       variant="danger"
-                      onClick={() => onHandleSelect(reservation.id)}
+                      onClick={() => onHandleSelect(reservation.id, itemDetails?.id)}
                     >
                       Delete
                     </Button>

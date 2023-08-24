@@ -12,7 +12,10 @@ export const deleteReservationApi = createAsyncThunk(
 
     "reservationDeleteItem/deleteReservationItem",
 
-    async ( {itemId, reservationId}) => {
+
+    async ( {reservationId, itemId}) => {
+        console.log("Deleting reservation with reservationId:", reservationId);
+        console.log("Deleting item with itemId:", itemId);
         const response = await axios.delete(` http://127.0.0.1:3001/api/v1/items/${itemId}/reservations/${reservationId}`);
         return response.data;
     })
@@ -21,17 +24,21 @@ export const deleteReservationApi = createAsyncThunk(
         name: "reservationDeleteItem",
         initialState,
         reducers: {
-            ReservationItemsPending(state){
+           
+        },
+        extraReducers: (builder) => {
+            builder
+              .addCase(deleteReservationApi.pending, (state) => {
                 state.loading = true;
-            },
-            ReservationItemsSuccess(state, action){
+              })
+              .addCase(deleteReservationApi.fulfilled, (state, action) => {
                 state.loading = false;
                 state.deletedItems = action.payload.data;
-            },
-            ReservationItemsError(state){
+              })
+              .addCase(deleteReservationApi.rejected, (state) => {
                 state.loading = false;
-            }
-        }
+              });
+          },
     })
 
 export const { reducers } = deleteReservationItemSlice.actions;
