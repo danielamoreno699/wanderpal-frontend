@@ -9,7 +9,6 @@ const ModalReservation = ({ show, setShow, itemName = {}, submitReservation }) =
 
   console.log('itemName', itemName)
   const [reservation, setReservation] = useState({
-    // user_id: itemName.user_id,
     date: '',
     city: '',
   });
