@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-const ModalReservation = ({ show, setShow, itemName = {}, submitReservation }) => {
+const ModalReservation = ({ show, setShow, itemName, submitReservation }) => {
   const handleClose = () => setShow(false);
 
   const [reservation, setReservation] = useState({
@@ -30,7 +30,6 @@ const ModalReservation = ({ show, setShow, itemName = {}, submitReservation }) =
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <p>{itemName.id}</p>
         <Modal.Title>Reservation for {itemName.name}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
