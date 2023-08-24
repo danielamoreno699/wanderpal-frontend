@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import reservationsReducer from "./reservationsSlice";
-import itemsReducer from './itemsSlice';
+import itemsReducer from "./itemsSlice";
+import reservationCreateReducer from "./ReservationCreateSlice";
 
 const store = configureStore({
   reducer: {
     reservations: reservationsReducer,
-    items: itemsReducer
+    items: itemsReducer,
+    reservationCreate: reservationCreateReducer,
   },
 });
 
