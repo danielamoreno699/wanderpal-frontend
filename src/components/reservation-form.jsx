@@ -1,11 +1,31 @@
+import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import { FloatingLabel, Button } from "react-bootstrap";
 import "../styles/reservation.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createReservation } from "../redux/ReservationCreateSlice";
 
 const ReservationForm = () => {
   const dispatch = useDispatch();
+  const [tourOptions, setTourOptions] = useState([]);
+  const [selectedTour, setSelectedTour] = useState("");
+
+  useEffect(() => {
+    // Fetch the data from the API
+    fetch("http://[::1]:3001/api/v1/items")
+      .then((response) => response.json())
+      .then((data) => {
+        // Extract the 'name' field from each item and set it as options
+        const options = data.map((item) => ({
+          value: item.id.toString(),
+          label: item.name,
+        }));
+        setTourOptions(options);
+      })
+      .catch((error) => {
+        console.error("Error fetching data from the API:", error);
+      });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +39,11 @@ const ReservationForm = () => {
     // Dispatch the createReservation action
     dispatch(createReservation(formData));
   };
+
+  const handleTourChange = (e) => {
+    setSelectedTour(e.target.value);
+  };
+
   return (
     <>
       <div className="cards-home">
@@ -26,13 +51,16 @@ const ReservationForm = () => {
         <hr className="hr-home" />
         <br />
         <Form className="form-width" onSubmit={handleSubmit}>
-          <Form.Select aria-label="Default select example" className="mb-3">
+          <Form.Select
+            aria-label="Select a Tour"
+            className="mb-3"
+            onChange={handleTourChange}
+            value={selectedTour}
+          >
             <option>Pick a Tour</option>
-            <option value="1">Tour 1</option>
-            <option value="2">Tour 2</option>
-            <option value="3">Tour 3</option>
-            <option value="3">Tour 4</option>
-            <option value="3">Tour 5</option>
+            {tourOptions.map((option) => (
+              <option key={option.value} value={option.value}>{option.label}</option>
+            ))}
           </Form.Select>
           <br />
           <FloatingLabel label="City" className="mb-3">
