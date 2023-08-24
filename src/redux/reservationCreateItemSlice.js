@@ -7,6 +7,7 @@ export const initialState = {
     reservedItems:{},
     loading: false,
     error: null,
+    reservationSuccess: false,
 }
 
 export const createReservationApi = createAsyncThunk(
@@ -33,15 +34,18 @@ export const createReservationApi = createAsyncThunk(
         ReservationItemsPending(state){
             state.loading = true;
             state.error = null;
+            state.reservationSuccess = false;
         },
         ReservationItemsSuccess(state, action){
             state.loading = false;
             state.error = null;
             state.reservedItems = action.payload.data;
+            state.reservationSuccess = true;
         },
         ReservationItemsError(state, action){
             state.loading = false;
             state.error = action.payload;
+            state.reservationSuccess = false;
 
 
         }

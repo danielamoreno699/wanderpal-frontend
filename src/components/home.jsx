@@ -18,6 +18,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { items, status } = useSelector((state) => state.items);
+  const { reservationSuccess } = useSelector((state) => state.reservationCreateItem);
 
   useEffect(() => {
     if (status === 'idle' && items.length === 0) {
@@ -50,6 +51,9 @@ const Home = () => {
 
   return (
     <>
+     {reservationSuccess ? (
+      <div className="success-message">Successfully created a reservation!</div>
+    ) : null}
     <div className='cards-home'>
       <h2 className='home-h2'>Our Tours</h2>
       <hr className='hr-home' />
