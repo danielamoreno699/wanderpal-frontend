@@ -1,15 +1,28 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import '../styles/Home.css';
 import { useNavigate } from 'react-router-dom';
 import { fetchItems, selectedItem } from '../redux/itemsSlice';
+import ModalReservation from './modal';
+import { createReservationApi } from '../redux/reservationCreateItemSlice';
+import Swal from 'sweetalert2';
 
 const Home = () => {
+
+  const [showModal, setShowModal] = useState(false);
+  const [selectedItemName, setSelectedItemName] = useState('');
+  // eslint-disable-next-line no-unused-vars
+  const [reservationSuccess, setReservationSuccess] = useState(false);
+
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const { items, status } = useSelector((state) => state.items);
+ 
 
   useEffect(() => {
     if (status === 'idle' && items.length === 0) {
@@ -17,11 +30,46 @@ const Home = () => {
     }
   }, [status, dispatch, items]);
 
+ 
+
   const onHandleSelect = (id) => {
     dispatch(selectedItem(id));
     navigate(`/items/${id}`)
-    console.log(id);
   }
+
+  const onHandleReserve = (item) => {
+    console.log('item', item)
+    
+    setSelectedItemName(item);
+    setShowModal(true);
+  }
+
+  const handleSubmitReservation =  (reservation) => {
+    const itemId = selectedItemName.id;
+    const { date, city } = reservation;
+    const userId = selectedItemName.user_id;
+  
+
+      const response =  dispatch(createReservationApi({ itemId, userId, date, city }));
+      console.log('Reservation Response:', response); 
+  
+      if (response) {
+        setReservationSuccess(true);
+        Swal.fire({
+          icon: 'success',
+          title: 'Reservation Successful!',
+          text: 'Your reservation has been created successfully.',
+        });
+      }else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        });
+      }
+
+  };
+  
 
   return (
     <>
@@ -45,13 +93,27 @@ const Home = () => {
                 Go to details
                 
               </Button>
-              <Button variant="primary">Make a reservation</Button>
+              <Button variant="primary"
+              onClick={() => onHandleReserve(item)}
+              
+              >
+                
+                Make a reservation
+              
+              
+              </Button>
               </div>
             </Card.Body>
           </Card>
         ))}
       </div>
     </div>
+    <ModalReservation 
+    show={showModal} 
+    setShow={setShowModal} 
+    itemName={selectedItemName} 
+    submitReservation={handleSubmitReservation}
+    />
     </>
   );
 };
