@@ -93,4 +93,7 @@ const reservationCreateSlice = createSlice({
   },
 });
 
+// Define the selectTourOptions selector
+export const selectTourOptions = (state) => state.reservationCreate.tourOptions;
+
 export default reservationCreateSlice.reducer;
