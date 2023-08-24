@@ -13,18 +13,22 @@ const Home = () => {
 
   const [showModal, setShowModal] = useState(false);
   const [selectedItemName, setSelectedItemName] = useState('');
+  const [reservationSuccess, setReservationSuccess] = useState(false);
 
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const { items, status } = useSelector((state) => state.items);
-  const { reservationSuccess } = useSelector((state) => state.reservationCreateItem);
+  // const { reservationSuccess } = useSelector((state) => state.createReservationItem);
 
   useEffect(() => {
     if (status === 'idle' && items.length === 0) {
       dispatch(fetchItems());
     }
   }, [status, dispatch, items]);
+
+ 
 
   const onHandleSelect = (id) => {
     dispatch(selectedItem(id));
@@ -45,15 +49,18 @@ const Home = () => {
     console.log('reservation', reservation)
     console.log('itemId', itemId)
     console.log('userId', userId)
-    dispatch(createReservationApi( {itemId, userId, date, city}));
+    if(dispatch(createReservationApi( {itemId, userId, date, city})))
+      setReservationSuccess(true);
   }
 
 
   return (
     <>
-     {reservationSuccess ? (
-      <div className="success-message">Successfully created a reservation!</div>
-    ) : null}
+    <div className="success-container">
+        {reservationSuccess && (
+          <div className="success-message">Successfully created a reservation!</div>
+        )}
+      </div>
     <div className='cards-home'>
       <h2 className='home-h2'>Our Tours</h2>
       <hr className='hr-home' />

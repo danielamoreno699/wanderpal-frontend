@@ -56,9 +56,7 @@ const ModalReservation = ({ show, setShow, itemName, submitReservation }) => {
               required
             />
           </Form.Group>
-          <Button type='button' variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
+          
           <Button type='submit' variant="primary">
             Submit
           </Button>
