@@ -34,10 +34,10 @@ export const fetchTourOptions = createAsyncThunk(
 // Define the async thunk to create a reservation
 export const createReservation = createAsyncThunk(
   "reservationCreate/createReservation",
-  async (formData, { rejectWithValue }) => {
+  async ({ formData, userId }, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        "http://127.0.0.1:3001/api/v1/users/1/reservations",
+        `http://127.0.0.1:3001/api/v1/users/${userId}/reservations`,
         {
           method: "POST",
           headers: {

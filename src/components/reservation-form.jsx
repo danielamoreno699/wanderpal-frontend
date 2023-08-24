@@ -9,6 +9,7 @@ const ReservationForm = () => {
   const dispatch = useDispatch();
   const tourOptions = useSelector(selectTourOptions);
   const [selectedTour, setSelectedTour] = useState("");
+  const userId = 1;
 
   // Fetch tour options when the component mounts
   useEffect(() => {
@@ -20,12 +21,12 @@ const ReservationForm = () => {
 
     // Get the form data
     const formData = {
-      name: "", // Example name
-      city: "", // Example city
-      date: "", // Example date
+      name: selectedTour,
+      city: e.target.elements.city.value,
+      date: e.target.elements.date.value,
     };
     // Dispatch the createReservation action
-    dispatch(createReservation(formData));
+    dispatch(createReservation({ formData, userId }));
 
     // Clear the selected tour
     setSelectedTour("");
