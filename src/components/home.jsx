@@ -60,6 +60,12 @@ const Home = () => {
           title: 'Reservation Successful!',
           text: 'Your reservation has been created successfully.',
         });
+      }else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        });
       }
 
   };
