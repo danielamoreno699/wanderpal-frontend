@@ -44,7 +44,7 @@ const Home = () => {
     console.log('reservation', reservation)
     console.log('itemId', itemId)
     console.log('userId', userId)
-    dispatch(createReservationApi( itemId, date, city, userId));
+    dispatch(createReservationApi( itemId, userId, date, city));
   }
 
 

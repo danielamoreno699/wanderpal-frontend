@@ -7,7 +7,6 @@ import Modal from 'react-bootstrap/Modal';
 const ModalReservation = ({ show, setShow, itemName = {}, submitReservation }) => {
   const handleClose = () => setShow(false);
 
-  console.log('itemName', itemName)
   const [reservation, setReservation] = useState({
     date: '',
     city: '',
