@@ -8,11 +8,13 @@ import { useNavigate } from 'react-router-dom';
 import { fetchItems, selectedItem } from '../redux/itemsSlice';
 import ModalReservation from './modal';
 import { createReservationApi } from '../redux/reservationCreateItemSlice';
+import Swal from 'sweetalert2';
 
 const Home = () => {
 
   const [showModal, setShowModal] = useState(false);
   const [selectedItemName, setSelectedItemName] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [reservationSuccess, setReservationSuccess] = useState(false);
 
 
@@ -20,7 +22,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const { items, status } = useSelector((state) => state.items);
-  // const { reservationSuccess } = useSelector((state) => state.createReservationItem);
+ 
 
   useEffect(() => {
     if (status === 'idle' && items.length === 0) {
@@ -42,25 +44,29 @@ const Home = () => {
     setShowModal(true);
   }
 
-  const handleSubmitReservation = (reservation) => {
+  const handleSubmitReservation =  (reservation) => {
     const itemId = selectedItemName.id;
     const { date, city } = reservation;
     const userId = selectedItemName.user_id;
-    console.log('reservation', reservation)
-    console.log('itemId', itemId)
-    console.log('userId', userId)
-    if(dispatch(createReservationApi( {itemId, userId, date, city})))
-      setReservationSuccess(true);
-  }
+  
 
+      const response =  dispatch(createReservationApi({ itemId, userId, date, city }));
+      console.log('Reservation Response:', response); 
+  
+      if (response) {
+        setReservationSuccess(true);
+        Swal.fire({
+          icon: 'success',
+          title: 'Reservation Successful!',
+          text: 'Your reservation has been created successfully.',
+        });
+      }
+
+  };
+  
 
   return (
     <>
-    <div className="success-container">
-        {reservationSuccess && (
-          <div className="success-message">Successfully created a reservation!</div>
-        )}
-      </div>
     <div className='cards-home'>
       <h2 className='home-h2'>Our Tours</h2>
       <hr className='hr-home' />
