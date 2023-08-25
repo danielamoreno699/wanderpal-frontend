@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "../styles/reservation.css";
 import { fetchReservations, fetchReservationDetails } from "../redux/reservationsSlice";
-import { deleteReservationApi } from "../redux/reservationDeleteSlice";
+import { deleteReservationApi} from "../redux/reservationDeleteSlice";
 import Swal from 'sweetalert2';
 
 const Reservation = () => {
@@ -12,7 +12,7 @@ const Reservation = () => {
   
   const dispatch = useDispatch();
   const { status, reservations, reservationDetails } = useSelector((state) => state.reservations);
-  const { deletedItems } = useSelector((state) => state.reservationDelete);
+  const { items } = useSelector((state) => state.reservationDelete);
 
   
 
@@ -38,27 +38,31 @@ const Reservation = () => {
   
 
 
-   const onHandleSelect = (reservationId, itemId) => {
+   const onHandleSelect = async(reservationId, itemId) => {
     console.log('id', reservationId);
     console.log('itemid', itemId);
-
-    const response = dispatch(deleteReservationApi({ reservationId, itemId }))
-    if(response) {
+  
+    try {
+      await dispatch(deleteReservationApi({reservationId, itemId}));
+      
+      
       Swal.fire({
         icon: 'success',
         title: 'Reservation Deleted!',
         showConfirmButton: false,
         timer: 1500
-      })
-    }else{
+      });
+    } catch (error) {
+      console.error("Delete error:", error);
+  
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Something went wrong!',
       });
     }
-     
   };
+  
 
   return (
     <>
@@ -71,7 +75,7 @@ const Reservation = () => {
         <div className="card-cont">
           {reservations.map((reservation, index) => {
             const itemDetails = reservationDetails[reservation.id];
-            const isDeleted = deletedItems.includes(itemDetails?.item_id);
+            const isDeleted = items.includes(itemDetails?.item_id);
 
           if (isDeleted) {
             return null; 
