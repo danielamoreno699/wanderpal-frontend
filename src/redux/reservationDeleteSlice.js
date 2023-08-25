@@ -49,6 +49,7 @@ const deleteReservationItemSlice = createSlice({
                 console.log('Deleted reservation ID:', reservationId);
                 console.log('Deleted item ID:', itemId);
                 state.deletedItems.push({ itemId, reservationId });
+                console.log('Deleted items:', state.deletedItems);
                
             })
             .addCase(deleteReservationApi.rejected, (state) => {

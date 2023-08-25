@@ -75,11 +75,15 @@ const Reservation = () => {
         <div className="card-cont">
           {reservations.map((reservation, index) => {
             const itemDetails = reservationDetails[reservation.id];
-            const isDeleted = deletedItems.includes(itemDetails?.item_id && reservation.id);
-
-          if (isDeleted) {
-            return null; 
-          }
+            
+            const isDeleted = deletedItems.some(
+              (item) => item.reservationId === reservation.id && item.itemId === itemDetails?.item_id
+            );
+        
+            if (isDeleted) {
+              return null; 
+            }
+        
 
 
             return (
