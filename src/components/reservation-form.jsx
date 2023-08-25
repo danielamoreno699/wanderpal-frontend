@@ -3,13 +3,14 @@ import Form from "react-bootstrap/Form";
 import { FloatingLabel, Button } from "react-bootstrap";
 import "../styles/reservation.css";
 import { useDispatch, useSelector } from "react-redux";
-import { createReservation, selectTourOptions, fetchTourOptions } from "../redux/ReservationCreateSlice";
+import { createReservation, fetchTourOptions } from "../redux/ReservationCreateSlice";
 
 const ReservationForm = () => {
   const dispatch = useDispatch();
-  const tourOptions = useSelector(selectTourOptions);
+  const { reservations } = useSelector((state) => state.reservations);
+  const { items } = useSelector((state) => state.items);
   const [selectedTour, setSelectedTour] = useState("");
-  const userId = 1;
+  const userId = reservations.map((reservation) => reservation.user_id);
 
   // Fetch tour options when the component mounts
   useEffect(() => {
@@ -21,12 +22,14 @@ const ReservationForm = () => {
 
     // Get the form data
     const formData = {
+      user_id: userId,
       name: selectedTour,
       city: e.target.elements.city.value,
       date: e.target.elements.date.value,
     };
     // Dispatch the createReservation action
     dispatch(createReservation({ formData, userId }));
+    console.log(formData);
 
     // Clear the selected tour
     setSelectedTour("");
@@ -50,9 +53,9 @@ const ReservationForm = () => {
             value={selectedTour}
           >
             <option>Pick a Tour</option>
-            {tourOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
+            {items.map((item) => (
+              <option key={item.id} value={item.name}>
+                {item.name}
               </option>
             ))}
           </Form.Select>

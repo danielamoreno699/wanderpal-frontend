@@ -1,5 +1,6 @@
 // ReservationCreateSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from 'axios';
 
 // Define the initial state
 const initialState = {
@@ -33,29 +34,20 @@ export const fetchTourOptions = createAsyncThunk(
 
 // Define the async thunk to create a reservation
 export const createReservation = createAsyncThunk(
-  "reservationCreate/createReservation",
-  async ({ formData, userId }, { rejectWithValue }) => {
-    try {
-      const response = await fetch(
-        `http://127.0.0.1:3001/api/v1/users/${userId}/reservations`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+  "reservationCreateItem/createReservationItem",
 
-      if (!response.ok) {
-        throw new Error("Failed to create reservation");
-      }
-
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
+  async ({ name, userId, date, city }) => {
+    const payload = {
+      user_id: userId,
+      date,
+      city,
+    };
+    console.log(payload);
+    const response = await axios.post(
+      `http://127.0.0.1:3001/api/v1/items/${name}/reservations`,
+      payload
+    );
+    return response.data;
   }
 );
 
