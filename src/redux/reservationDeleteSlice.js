@@ -46,7 +46,7 @@ export const deleteReservationApi = createAsyncThunk(
                 state.loading = false;
                 const deletedItemId = action.payload;
                 console.log('Deleted item ID from slice:', deletedItemId);
-                 state.deletedItems = state.items.filter(item => item.item_id !== deletedItemId);
+                 state.deletedItems = state.items.filter(itemId => itemId !== deletedItemId);
                
               })
            
