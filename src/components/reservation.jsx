@@ -12,7 +12,7 @@ const Reservation = () => {
   
   const dispatch = useDispatch();
   const { status, reservations, reservationDetails } = useSelector((state) => state.reservations);
-  const { items } = useSelector((state) => state.reservationDelete);
+  const { deletedItems } = useSelector((state) => state.reservationDelete);
 
   
 
@@ -75,7 +75,7 @@ const Reservation = () => {
         <div className="card-cont">
           {reservations.map((reservation, index) => {
             const itemDetails = reservationDetails[reservation.id];
-            const isDeleted = items.includes(itemDetails?.item_id);
+            const isDeleted = deletedItems.includes(itemDetails?.item_id && reservation.id);
 
           if (isDeleted) {
             return null; 

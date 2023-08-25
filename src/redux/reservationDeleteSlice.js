@@ -3,9 +3,9 @@ import axios from 'axios';
 
 const initialState = {
     status: "idle",
-    items:[],
+    deletedItems:[],
     loading: false,
-    deletedItem: {}
+   
 }
 
 export const deleteReservationApi = createAsyncThunk(
@@ -34,7 +34,7 @@ const deleteReservationItemSlice = createSlice({
     initialState,
     reducers: {
         resetDeletedItems: (state) => {
-            state.items = [];
+            state.deletedItems = [];
         }
     },
 
@@ -48,6 +48,7 @@ const deleteReservationItemSlice = createSlice({
                 const { itemId, reservationId } = action.payload;
                 console.log('Deleted reservation ID:', reservationId);
                 console.log('Deleted item ID:', itemId);
+                state.deletedItems.push({ itemId, reservationId });
                
             })
             .addCase(deleteReservationApi.rejected, (state) => {
