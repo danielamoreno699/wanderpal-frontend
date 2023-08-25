@@ -5,12 +5,17 @@ import Card from "react-bootstrap/Card";
 import "../styles/reservation.css";
 import { fetchReservations, fetchReservationDetails } from "../redux/reservationsSlice";
 import { deleteReservationApi } from "../redux/reservationDeleteSlice";
+import Swal from 'sweetalert2';
 
 const Reservation = () => {
  
   
   const dispatch = useDispatch();
   const { status, reservations, reservationDetails } = useSelector((state) => state.reservations);
+  const { deletedItems } = useSelector((state) => state.reservationDelete);
+
+  
+
 
   useEffect(() => {
     if (status === "idle") {
@@ -33,22 +38,45 @@ const Reservation = () => {
   
 
 
-  const onHandleSelect = (reservationId, itemId) => {
+   const onHandleSelect = (reservationId, itemId) => {
     console.log('id', reservationId);
-    console.log('itemid', itemId )
+    console.log('itemid', itemId);
 
-    dispatch(deleteReservationApi({ reservationId, itemId }));
+    const response = dispatch(deleteReservationApi({ reservationId, itemId }))
+    if(response) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Reservation Deleted!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+      });
+    }
+     
   };
 
   return (
     <>
+
       <div className="cards-home">
         <h2 className="home-h2">Reservations</h2>
         <hr className="hr-home" />
+
+      
         <div className="card-cont">
           {reservations.map((reservation, index) => {
             const itemDetails = reservationDetails[reservation.id];
-            // console.log(itemDetails);
+            const isDeleted = deletedItems.includes(itemDetails?.item_id);
+
+          if (isDeleted) {
+            return null; 
+          }
+
 
             return (
               <Card key={index} className="card-item">
@@ -71,7 +99,7 @@ const Reservation = () => {
                   <div className="card-btns">
                     <Button
                       variant="danger"
-                      onClick={() => onHandleSelect(reservation.id, itemDetails?.id)}
+                      onClick={() => onHandleSelect(reservation.id, itemDetails?.item_id)}
                     >
                       Delete
                     </Button>
@@ -81,6 +109,7 @@ const Reservation = () => {
             );
           })}
         </div>
+        
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const initialState = {
     status: "idle",
-    deletedItems:{},
+    deletedItems:[],
     loading: false
 }
 
@@ -24,8 +24,11 @@ export const deleteReservationApi = createAsyncThunk(
         name: "reservationDeleteItem",
         initialState,
         reducers: {
-           
-        },
+            resetDeletedItems: (state) => {
+              state.deletedItems = [];
+            }
+          },
+        
         extraReducers: (builder) => {
             builder
               .addCase(deleteReservationApi.pending, (state) => {
@@ -33,7 +36,10 @@ export const deleteReservationApi = createAsyncThunk(
               })
               .addCase(deleteReservationApi.fulfilled, (state, action) => {
                 state.loading = false;
-                state.deletedItems = action.payload.data;
+                const deletedItemId = action.payload.itemId;
+
+                 state.deletedItems = state.deletedItems.filter(itemId => itemId !== deletedItemId);
+               
               })
               .addCase(deleteReservationApi.rejected, (state) => {
                 state.loading = false;
@@ -41,5 +47,5 @@ export const deleteReservationApi = createAsyncThunk(
           },
     })
 
-export const { reducers } = deleteReservationItemSlice.actions;
+export const { resetDeletedItems } = deleteReservationItemSlice.actions;
 export default deleteReservationItemSlice.reducer;

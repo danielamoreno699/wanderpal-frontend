@@ -9,7 +9,7 @@ const store = configureStore({
     reservations: reservationsReducer,
     items: itemsReducer,
     createReservationItem: createReservationReducer,
-    deleteReservationItem: deleteReservationReducer
+    reservationDelete: deleteReservationReducer
     
   },
 });
