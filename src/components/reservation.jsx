@@ -38,12 +38,12 @@ const Reservation = () => {
   
 
 
-   const onHandleSelect = async(reservationId, itemId) => {
+   const onHandleSelect = (reservationId, itemId) => {
     console.log('id', reservationId);
     console.log('itemid', itemId);
   
     try {
-      await dispatch(deleteReservationApi({reservationId, itemId}));
+      dispatch(deleteReservationApi({reservationId, itemId}));
       
       
       Swal.fire({
