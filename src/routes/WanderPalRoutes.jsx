@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes} from "react-router-dom";
 
-import Home from "../components/Home";
+
 import Reservation from "../components/reservation";
 import CustomNavbar from "../components/navbar";
 import CarouselSlide from '../components/caroursel'
@@ -9,6 +9,7 @@ import Banner from '../components/banner'
 
 import Items from "../components/items";
 import ReservationForm from "../components/reservation-form";
+import Home from "../components/home";
 
 
 
