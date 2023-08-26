@@ -1,11 +1,11 @@
-import {useRef, useState, useEffect, useContext} from 'react'
+import {useRef, useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthProvider';
+import useAuth from '../hooks/useAuth';
 
 
 const Login = () => {
 
-    const {setAuth} = useContext(AuthContext);
+    const {setAuth} = useAuth();
 
     const navigate = useNavigate();
     const userRef = useRef();
@@ -30,6 +30,7 @@ const Login = () => {
         if(user && pwd){
             navigate('/Home')
             setAuth(true);
+            
         }else{
             setErrMsg('Invalid username or password');
             userRef.current.focus();
