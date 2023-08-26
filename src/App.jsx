@@ -1,22 +1,26 @@
-
-import './styles/App.css'
-// import WanderPalRoutes from './routes/WanderPalRoutes'
-import Login from './components/login'
-// import RegistrationForm from './components/registration-form'
-
-
+import './styles/App.css';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
+import RegistrationForm from './components/registration-form';
+import Login from './components/login';
+import WanderPalRoutes from './routes/WanderPalRoutes';
 
 function App() {
-  
-
   return (
-    <>
-    <Login />
-    {/* <RegistrationForm /> */}
-      {/* <WanderPalRoutes /> */}
-  
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        {/*public routes */}
+        <Route path="login" element={<Login />} />
+        <Route path="registration" element={<RegistrationForm />} />
+
+        {/*private routes */}
+        <WanderPalRoutes /> 
+
+        
+
+      </Route>
+    </Routes>
+  );
 }
 
-export default App
+export default App;
