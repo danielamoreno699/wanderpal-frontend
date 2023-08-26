@@ -1,0 +1,11 @@
+.valid {
+    color: green; /* Or any other styling for valid icons */
+  }
+  
+  .invalid {
+    color: red; /* Or any other styling for invalid icons */
+  }
+  
+  .hide {
+    display: none; /* Hide the icon */
+  }

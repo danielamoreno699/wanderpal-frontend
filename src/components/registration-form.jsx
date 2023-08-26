@@ -1,18 +1,23 @@
 import {useRef, useState, useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import '../styles/registration.css'
 
 
 
 const USER_REGEX = /^[a-zA-Z0-9]{3,20}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9]{6,20}$/;
+
+
+const PWD_REGEX = /.{6,}/
+
+
 
 
 const RegistrationForm = () => {
 
 
-    const userRef = userRef()
-    const errRef = useRef()
+    const userRef = useRef();
+    const errRef = useRef();
 
     const [user, setUser] = useState('');
     const [validName, setValidName] = useState(false);
@@ -40,25 +45,41 @@ const RegistrationForm = () => {
         setValidName(result)
     }, [user])
 
-    useEffect(()=>{
+    useEffect(() => {
+        console.log("pwd:", pwd);
+        console.log("matchPwd:", matchPwd);
+        
         const result = PWD_REGEX.test(pwd);
-        console.log(result);
-        console.log(pwd);
+        console.log("pwd validity:", result);
+      
+        const match = pwd.trim() === matchPwd.trim();
+        console.log("pwd match:", match);
+        
         setValidPwd(result);
-        const match = pwd === matchPwd;
-        setValidMatch(match)
-    }, [pwd,matchPwd])
+        setValidMatch(match);
+      }, [pwd, matchPwd]);
 
     useEffect(()=>{
         setErrMsg('');
     }, [pwd, matchPwd])
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const v1 = USER_REGEX.test(user);
+        const v2 = PWD_REGEX.test(pwd);
+        if(!v1 || !v2){
+            setErrMsg('Invalid username or password');
+            return;
+        }
+    }
+
   return ( 
     <section> 
-        <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMesg}</p>
+        <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
 
         <h1>Register</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
             <label htmlFor='username'>
                 Username:
                 <span className={validName ? "valid" : "hide"}>
@@ -83,14 +104,12 @@ const RegistrationForm = () => {
             onBlur={() => setUserFocus(false)}
             />
 
-            <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
-                <FontAwesomeIcon icon="fa-solid fa-circle-info" />
-                4 to 24 characters <br/>
-                Must begin with letter <br/>
+        <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
+        <FontAwesomeIcon icon={faInfoCircle} />
+            4 to 24 characters <br/>
+        Must begin with a letter <br/>
+        </p>
 
-
-
-            </p>
 
             <label htmlFor='password'>
                 Password:
@@ -115,7 +134,7 @@ const RegistrationForm = () => {
             />
 
             <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
-                <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                <FontAwesomeIcon icon={faInfoCircle}  />
                 4 to 24 characters <br/>
                 Must begin with letter <br/>
             </p>
@@ -143,12 +162,22 @@ const RegistrationForm = () => {
             />
 
             <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
-                <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                <FontAwesomeIcon icon={faInfoCircle}  />
                 must match the password <br/>
                 
             </p>
 
-          
+          <button disabled={!validName || !validPwd || !validMatch ? true : false}>
+                Sign up
+          </button>
+
+                <p>
+                    Already registered? <br/>
+                    <span className="line">
+                        <a href="/login">Login</a>
+                    </span>
+
+                </p>
 
         </form>
 
