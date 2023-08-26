@@ -1,21 +1,22 @@
 import {useRef, useState, useEffect} from 'react'
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import '../styles/registration.css'
+import { createUsersApi } from '../redux/createUsersSlice';
+import Swal from 'sweetalert2';
 
 
 
 const USER_REGEX = /^[a-zA-Z0-9]{3,20}$/;
+// const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+// const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-
-const PWD_REGEX = /.{6,}/
-
-
-
+const PWD_REGEX = /.{6,}/;
 
 const RegistrationForm = () => {
-
-
+    
+    const dispatch = useDispatch();
     const userRef = useRef();
     const errRef = useRef();
 
@@ -32,6 +33,7 @@ const RegistrationForm = () => {
     const [matchFocus, setMatchFocus] = useState(false);
 
     const [errMsg, setErrMsg] = useState('');
+    // eslint-disable-next-line no-unused-vars
     const [success, setSuccess] = useState(false)
 
     useEffect(()=>{
@@ -63,7 +65,7 @@ const RegistrationForm = () => {
         setErrMsg('');
     }, [pwd, matchPwd])
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
 
         const v1 = USER_REGEX.test(user);
@@ -72,7 +74,23 @@ const RegistrationForm = () => {
             setErrMsg('Invalid username or password');
             return;
         }
+
+    const response =  await dispatch(createUsersApi({user, pwd}));
+      console.log('User Response:', response); 
+  
+      if (response) {
+        setSuccess(true);
+        Swal.fire({
+          icon: 'success', 
+          text: 'User created successfully!',
+        });
+      }else if (errMsg.response?.status === 409) {
+        setErrMsg('Username already exists!');
+    } else {
+        setErrMsg('Something went wrong!');
     }
+    errRef.current.focus();
+}
 
   return ( 
     <section> 
@@ -185,4 +203,4 @@ const RegistrationForm = () => {
   )
 }
 
-export default RegistrationForm
+export default RegistrationForm;
