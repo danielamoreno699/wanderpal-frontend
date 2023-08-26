@@ -1,6 +1,11 @@
-import {useRef, useState, useEffect} from 'react'
+import {useRef, useState, useEffect, useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthProvider';
+
+
 const Login = () => {
+
+    const {setAuth} = useContext(AuthContext);
 
     const navigate = useNavigate();
     const userRef = useRef();
@@ -9,7 +14,7 @@ const Login = () => {
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
-    const [success] = useState(false)
+  
 
     useEffect(()=>{
         userRef.current.focus();
@@ -21,21 +26,21 @@ const Login = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        if(success){
+
+        if(user && pwd){
             navigate('/Home')
+            setAuth(true);
+        }else{
+            setErrMsg('Invalid username or password');
+            userRef.current.focus();
         }
-      
-    
+
     }
 
   return (
     <>
-
-   
-
     <section>
         
-       
         <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
         <h1>login</h1>
         <form onSubmit={handleSubmit}>
