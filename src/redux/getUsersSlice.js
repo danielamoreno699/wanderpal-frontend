@@ -9,9 +9,6 @@ export const initialState = {
     users: [],
     loading: false,
     error: null,
-    isLoggedIn: false,
-    user: null,
-    accessToken: null,
     roles: [],
 }
 
@@ -51,18 +48,6 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
                 state.loading = false;
                 state.error = action.payload;
             },
-            userLoggedIn(state, action) {
-              state.isLoggedIn = true;
-              state.user = action.payload.user;
-              state.accessToken = action.payload.accessToken;
-              state.roles = action.payload.roles;
-            },
-            userLoggedOut(state) {
-              state.isLoggedIn = false;
-              state.user = null;
-              state.accessToken = null;
-              state.roles = [];
-            }
         }
     })
     

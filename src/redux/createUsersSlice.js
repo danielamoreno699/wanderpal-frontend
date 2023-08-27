@@ -83,20 +83,8 @@ const handleAuthError = (error) => {
   }
 };
 
-
-
-export const axiosPrivate = axios.create({
-    baseURL: 'http://127.0.0.1:3001', 
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    withCredentials: true,
-});
-
-
-
     const createUserSlice = createSlice({
-        name: "reservationCreateItem",
+        name: "userCreate",
         initialState,
         reducers: {
             UsersPending(state){

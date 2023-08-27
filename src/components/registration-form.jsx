@@ -75,7 +75,7 @@ const RegistrationForm = () => {
             return;
         }
 
-    const response =  await dispatch(createUsersApi({user, pwd}));
+    const response =  await dispatch(createUsersApi({user, pwd, matchPwd}));
       console.log('User Response:', response); 
   
       if (response) {
