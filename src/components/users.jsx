@@ -1,4 +1,4 @@
-import { useEffect } from 'react'; // Added React import
+import { useEffect } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from '../redux/getUsersSlice';
 import { useNavigate, useLocation } from 'react-router-dom';

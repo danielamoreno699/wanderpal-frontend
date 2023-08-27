@@ -10,6 +10,9 @@ export const initialState = {
     loading: false,
     error: null,
     roles: [],
+    isAuthenticated: false,
+    loggingIn: false,  
+    loggingOut: false,
 }
 
 
@@ -48,10 +51,19 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
                 state.loading = false;
                 state.error = action.payload;
             },
+            LoggingIn(state) {
+                state.loggingIn = true;
+                state.isAuthenticated = true;
+            },
+            LoggingOut(state) {
+                state.loggingOut = true;
+                state.isAuthenticated = false;
+            }
         }
     })
     
-    export const { UsersPending, UsersSuccess, UsersError, userLoggedIn, userLoggedOut } = getUserSlice.actions;
+
+    export const { UsersPending, UsersSuccess, UsersError, loggingIn, loggingOut } = getUserSlice.actions;
 
     
     export default getUserSlice.reducer;
