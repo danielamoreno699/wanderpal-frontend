@@ -11,16 +11,14 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
 
-        {/*public routes */}
+        {/* Public routes */}
         <Route path="login" element={<Login />} />
         <Route path="registration" element={<RegistrationForm />} />
 
-        {/*private routes */}
+        {/* Private routes */}
         <Route element={<RequiredAuth />}> 
-        <WanderPalRoutes /> 
+          <Route path="/*" element={<WanderPalRoutes />} />
         </Route>
-
-        
 
       </Route>
     </Routes>

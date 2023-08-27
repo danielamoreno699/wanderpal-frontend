@@ -1,11 +1,13 @@
 import {useRef, useState, useEffect} from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,  useLocation } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 
 
 const Login = () => {
 
     const {setAuth} = useAuth();
+    const location = useLocation();
+    const from = location.state?.from || {pathname: '/Home'};
 
     const navigate = useNavigate();
     const userRef = useRef();
@@ -28,7 +30,7 @@ const Login = () => {
         e.preventDefault();
 
         if(user && pwd){
-            navigate('/Home')
+            navigate(from, {replace: true})
             setAuth(true);
             
         }else{
@@ -73,7 +75,7 @@ const Login = () => {
         <p>
             Dont have an account? <br/>
             <span className='line'>
-                <a href='/register'>Register</a>
+                <a href='/registration'>Register</a>
 
             </span>
         </p>
