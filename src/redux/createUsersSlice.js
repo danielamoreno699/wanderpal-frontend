@@ -12,10 +12,11 @@ export const initialState = {
 
 export const createUsersApi = createAsyncThunk(
   'createUsers/createUsers',
-  async ({ name, password }) => {
+  async ({ name, password, password_confirmation}) => {
     const payload = {
       name,
       password,
+      password_confirmation
     };
 
     const headers = {
@@ -41,11 +42,11 @@ export const createUsersApi = createAsyncThunk(
 
 export const userAuthApi = createAsyncThunk(
   'createUsers/userAuth',
-  async ({ user, password, password_confirmation }) => {
+  async ({ user, password }) => {
     const payload = {
       user,
-      password,
-      password_confirmation,
+      password
+  
     };
 
     try {
@@ -81,6 +82,17 @@ const handleAuthError = (error) => {
     return error;
   }
 };
+
+
+
+export const axiosPrivate = axios.create({
+    baseURL: 'http://127.0.0.1:3001', 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    withCredentials: true,
+});
+
 
 
     const createUserSlice = createSlice({

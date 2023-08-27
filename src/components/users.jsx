@@ -2,11 +2,14 @@ import  { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from '../redux/getUsersSlice';
 
+
 const Users = () => {
     const dispatch = useDispatch();
     const users = useSelector(state => state.getUsers.users);
+    
 
     useEffect(() => {
+        // eslint-disable-next-line no-unused-vars
         let mounted = true;
         const controller = new AbortController();
 
