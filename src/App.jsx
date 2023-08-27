@@ -13,6 +13,7 @@ function App() {
 
         {/* Public routes */}
         <Route index element={<Login />} />
+        <Route path="login" element={<Login />} />
         <Route path="registration" element={<RegistrationForm />} />
 
         {/* Private routes */}
