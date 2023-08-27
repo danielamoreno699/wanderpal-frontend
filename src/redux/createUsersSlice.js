@@ -12,9 +12,9 @@ export const initialState = {
 
 export const createUsersApi = createAsyncThunk(
   'createUsers/createUsers',
-  async ({ name, password, password_confirmation}) => {
+  async ({ user, password, password_confirmation}) => {
     const payload = {
-      name,
+      name: user,
       password,
       password_confirmation
     };
