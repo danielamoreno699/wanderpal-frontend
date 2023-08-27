@@ -45,12 +45,12 @@ export const createUsersApi = createAsyncThunk(
 export const userAuthApi = createAsyncThunk(
   'createUsers/userAuth',
   async ({ user, password }) => {
-    try {
-      const payload = {
-        user,
-        password,
-      };
+    const payload = {
+      user,
+      password,
+    };
 
+    try {
       const response = await axios.post(
         'http://127.0.0.1:3001/api/v1/users/session',
         payload,
@@ -69,16 +69,21 @@ export const userAuthApi = createAsyncThunk(
         roles,
       };
     } catch (error) {
-     if (error.response?.status === 400){
-        throw new Error('missing username or password');
-     } else if (error.response?.status === 401){
-        throw new Error('invalid username or password');
-     } else {
-      throw error; 
+      throw handleAuthError(error);
     }
   }
-}
 );
+
+const handleAuthError = (error) => {
+  if (error.response?.status === 400) {
+    return new Error('Missing username or password');
+  } else if (error.response?.status === 401) {
+    return new Error('Invalid username or password');
+  } else {
+    return error;
+  }
+};
+
 
     const createUserSlice = createSlice({
         name: "reservationCreateItem",
@@ -114,6 +119,7 @@ export const userAuthApi = createAsyncThunk(
         }
     })
     
-    export const { reducers } = createUserSlice.actions;
+    export const { UsersPending, UsersSuccess, UsersError, userLoggedIn, userLoggedOut } = createUserSlice.actions;
+
     
     export default createUserSlice.reducer;
