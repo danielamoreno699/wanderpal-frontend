@@ -1,5 +1,8 @@
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
+
+
 
 export const initialState = {
     status: "idle",
@@ -14,14 +17,18 @@ export const initialState = {
 
 
  
-export const fetchUsers = createAsyncThunk('items/fetchItems', 
-     async () => {
-    const response = await fetch('http://127.0.0.1:3001/api/v1/users');
-    if (response.ok){
-    const data = await response.json();
-         return data;
+export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
+    try {
+        const response = await useAxiosPrivate.get('http://127.0.0.1:3001/api/v1/users');
+        
+        if (response.status === 200) {
+            return response.data;
+        } else {
+            throw new Error('Request failed with status: ' + response.status);
+        }
+    } catch (error) {
+        throw new Error('Request failed: ' + error.message);
     }
-    throw new Error('Request failed!');
 });
 
 

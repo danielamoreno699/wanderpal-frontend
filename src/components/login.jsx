@@ -7,7 +7,7 @@ const Login = () => {
 
     const {setAuth} = useAuth();
     const location = useLocation();
-    const from = location.state?.from || {pathname: '/Home'};
+    const home = location.state?.from || {pathname: '/'};
 
     const navigate = useNavigate();
     const userRef = useRef();
@@ -30,7 +30,7 @@ const Login = () => {
         e.preventDefault();
 
         if(user && pwd){
-            navigate(from, {replace: true})
+            navigate(home, {replace: true})
             setAuth(true);
             
         }else{
