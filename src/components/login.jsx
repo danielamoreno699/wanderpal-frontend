@@ -1,13 +1,13 @@
-import {useRef, useState, useEffect} from 'react'
-import { useNavigate,  useLocation } from 'react-router-dom';
+import  { useRef, useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux'; 
 import useAuth from '../hooks/useAuth';
-
+import { userAuthApi } from '../redux/createUsersSlice';
 
 const Login = () => {
-
-    const {setAuth} = useAuth();
+    const { setAuth } = useAuth();
     const location = useLocation();
-    const home = location.state?.from || {pathname: '/'};
+    const home = location.state?.from || { pathname: '/' };
 
     const navigate = useNavigate();
     const userRef = useRef();
@@ -16,75 +16,79 @@ const Login = () => {
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
-  
 
-    useEffect(()=>{
+    useEffect(() => {
         userRef.current.focus();
-    }, [])
+    }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         setErrMsg('');
-    }, [user, pwd])
+    }, [user, pwd]);
 
-    const handleSubmit = async(e) => {
+    const dispatch = useDispatch(); 
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if(user && pwd){
-            navigate(home, {replace: true})
-            setAuth(true);
-            
-        }else{
-            setErrMsg('Invalid username or password');
+        if (user && pwd) {
+            try {
+               
+                const response = await dispatch(userAuthApi({ user, password: pwd }));
+                console.log('response:', response);
+                if (response) {
+                    setAuth(true);
+                    navigate(home, { replace: true });
+                }
+            } catch (error) {
+                setErrMsg('Invalid username or password');
+                
+            }
+        } else {
+            setErrMsg('Please enter both username and password');
             userRef.current.focus();
         }
+    };
 
-    }
+    return (
+        <>
+            <section>
+                <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live="assertive">
+                    {errMsg}
+                </p>
+                <h1>Login</h1>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        ref={userRef}
+                        autoComplete="off"
+                        onChange={(e) => setUser(e.target.value)}
+                        value={user}
+                        required
+                    />
 
-  return (
-    <>
-    <section>
-        
-        <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-        <h1>login</h1>
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username</label>
-            <input 
-            type="text" 
-            id="username" 
-            ref={userRef} 
-            autoComplete='off'
-            onChange={(e)=>setUser(e.target.value)} 
-            value={user} 
-            required
-            />
+                    <label htmlFor="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        ref={pwd} 
+                        onChange={(e) => setPwd(e.target.value)}
+                        value={pwd}
+                        required
+                    />
+                    <button>Sign in</button>
+                </form>
 
-            <label htmlFor="password">Password</label>
-            <input 
-            type="password" 
-            id="password" 
-            ref={userRef} 
-            onChange={(e)=>setPwd(e.target.value)} 
-            value={pwd} 
-            required
-            />
-            <button>
-                Sign in
-            </button>
-        </form>
+                <p>
+                    Dont have an account? <br />
+                    <span className="line">
+                        <a href="/registration">Register</a>
+                    </span>
+                </p>
+            </section>
+        </>
+    );
+};
 
-        <p>
-            Dont have an account? <br/>
-            <span className='line'>
-                <a href='/registration'>Register</a>
-
-            </span>
-        </p>
-
-
-    </section>
-  
-    </>
-  )
-}
-
-export default Login
+export default Login;
