@@ -12,7 +12,7 @@ function App() {
       <Route path="/" element={<Layout />}>
 
         {/* Public routes */}
-        <Route path="login" element={<Login />} />
+        <Route index element={<Login />} />
         <Route path="registration" element={<RegistrationForm />} />
 
         {/* Private routes */}
