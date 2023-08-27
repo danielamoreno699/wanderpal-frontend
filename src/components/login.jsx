@@ -3,8 +3,14 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux'; 
 import useAuth from '../hooks/useAuth';
 import { userAuthApi } from '../redux/createUsersSlice';
+import { useSelector } from 'react-redux';
+
 
 const Login = () => {
+
+    const { loggingIn } = useSelector((state) => state.getUsers);
+
+
     const { setAuth } = useAuth();
     const location = useLocation();
     const home = location.state?.from || { pathname: '/' };
@@ -32,11 +38,12 @@ const Login = () => {
 
         if (user && pwd) {
             try {
-               
+                dispatch(loggingIn());
                 const response = await dispatch(userAuthApi({ user, password: pwd }));
                 console.log('response:', response);
                 if (response) {
                     setAuth(true);
+                    loggingIn
                     navigate(home, { replace: true });
                 }
             } catch (error) {
