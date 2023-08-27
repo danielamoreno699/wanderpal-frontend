@@ -1,11 +1,19 @@
 .valid {
-    color: green; /* Or any other styling for valid icons */
+    color: green; 
   }
   
   .invalid {
-    color: red; /* Or any other styling for invalid icons */
+    color: red; 
   }
   
   .hide {
-    display: none; /* Hide the icon */
+    display: none; 
+  }
+
+  .instructions {
+    color: red; 
+  }
+  
+  .offscreen {
+    display: none; 
   }
