@@ -9,14 +9,13 @@ export const initialState = {
     
 }
 
-
+// creates user
 export const createUsersApi = createAsyncThunk(
   'createUsers/createUsers',
-  async ({ user, password, password_confirmation}) => {
+  async ({ user}) => {
     const payload = {
       name: user,
-      password,
-      password_confirmation
+
     };
 
     const headers = {
@@ -33,38 +32,37 @@ export const createUsersApi = createAsyncThunk(
     );
 
     console.log(response.data);
-    console.log(response.accessToken);
     return response.data;
   }
 );
 
 
-
+// login user 
 export const userAuthApi = createAsyncThunk(
   'createUsers/userAuth',
-  async ({ user, password }) => {
+  async ({ name, userid}) => {
     const payload = {
-      user,
-      password
+      name: name,
+      userid,
+     
   
     };
 
     try {
       const response = await axios.post(
-        'http://127.0.0.1:3001/api/v1/users/session',
+        `http://127.0.0.1:3001/api/v1/users/${userid}`,
         payload,
         {
           headers: { 'Content-Type': 'application/json' },
-          withCredentials: true,
+      
         }
       );
 
-      const accessToken = response.data.accessToken;
+      
       const roles = response.data.roles;
       console.log(response.data);
       return {
         responseData: response.data,
-        accessToken,
         roles,
       };
     } catch (error) {

@@ -1,6 +1,6 @@
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import axios from 'axios';
 
 
 
@@ -10,14 +10,14 @@ export const initialState = {
     loading: false,
     error: null,
     roles: [],
-    token: null,
+   
 }
 
 
  
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
     try {
-        const response = await useAxiosPrivate.get('http://127.0.0.1:3001/api/v1/users');
+        const response = await axios.get('http://127.0.0.1:3001/api/v1/users');
         
         if (response.status === 200) {
             return response.data;
@@ -35,9 +35,6 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
         initialState,
         reducers: {
 
-            setToken(state, action) {
-                state.token = action.payload;
-            },
 
             UsersPending(state){
                 state.loading = true;

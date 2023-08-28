@@ -1,6 +1,6 @@
 import  { useRef, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { userAuthApi } from '../redux/createUsersSlice';
 
 import useAuth from '../hooks/useAuth';
@@ -15,44 +15,41 @@ const Login = () => {
     const errRef = useRef();
 
     const [user, setUser] = useState('');
-    const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
 
-    const { setToken } = useSelector((state) => state.getUsers);
+    const [userId, setUserId] = useState('');
 
     useEffect(() => {
         userRef.current.focus();
     }, []);
 
-    useEffect(() => {
-        setErrMsg('');
-    }, [user, pwd]);
+
 
     const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (user && pwd) {
+        if (user, userId ) {
             try {
                 
 
-                const response = await dispatch(userAuthApi({ name: user, password: pwd }));
+                const response = await dispatch(userAuthApi({ name: user, userId }));
     
                 console.log('response:', response);
 
                 if (response) {
-                    dispatch(setToken(response.accessToken));
+                   
                     setAuth(true);
                     navigate(home, { replace: true });
                 }
             } catch (error) {
-                setErrMsg('Invalid username or password');
+                setErrMsg('Invalid username');
             } finally {
                 setAuth(false);
             }
         } else {
-            setErrMsg('Please enter both username and password');
+            setErrMsg('Please enter both username');
             userRef.current.focus();
         }
     };
@@ -76,14 +73,6 @@ const Login = () => {
                         required
                     />
 
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        onChange={(e) => setPwd(e.target.value)}
-                        value={pwd}
-                        required
-                    />
                     <button >Sign in</button>
                 </form>
 
