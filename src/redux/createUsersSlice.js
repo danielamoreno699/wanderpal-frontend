@@ -17,18 +17,9 @@ export const createUsersApi = createAsyncThunk(
       name: user,
 
     };
-
-    const headers = {
-      'Content-Type': 'application/json',
-    };
-
     const response = await axios.post(
       'http://127.0.0.1:3001/api/v1/users',
       payload,
-      {
-        headers,
-        withCredentials: true,
-      }
     );
 
     console.log(response.data);

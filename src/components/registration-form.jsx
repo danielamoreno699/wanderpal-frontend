@@ -23,7 +23,7 @@ const RegistrationForm = () => {
 
 
 
-    const [errMsg, setErrMsg] = useState('');
+    const [errMsg] = useState('');
     // eslint-disable-next-line no-unused-vars
     const [success, setSuccess] = useState(false)
 
@@ -47,7 +47,8 @@ const RegistrationForm = () => {
 
         
 
-    const response =  await dispatch(createUsersApi({user}));
+        const response = await dispatch(createUsersApi({ user: user }));
+
       console.log('User Response:', response); 
   
       if (response) {
@@ -56,10 +57,11 @@ const RegistrationForm = () => {
           icon: 'success', 
           text: 'User created successfully!',
         });
-      }else if (errMsg.response?.status === 409) {
-        setErrMsg('Username already exists!');
     } else {
-        setErrMsg('Something went wrong!');
+        Swal.fire({
+            icon: 'danger', 
+            text: 'User was not created!',
+          });
     }
     errRef.current.focus();
 }
