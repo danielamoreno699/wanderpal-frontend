@@ -88,3 +88,12 @@
 .button-width {
   width: 100%;
 }
+
+.reservation-bg {
+  background-color: #95bf02;
+}
+
+.oval-button {
+  width: 20%;
+  border-radius: 100px;
+}

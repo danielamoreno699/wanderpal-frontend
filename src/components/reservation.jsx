@@ -38,7 +38,7 @@ const Reservation = () => {
   
 
 
-   const onHandleSelect = (reservationId, itemId) => {
+  const onHandleSelect = (reservationId, itemId) => {
     console.log('id', reservationId);
     console.log('itemid', itemId);
   

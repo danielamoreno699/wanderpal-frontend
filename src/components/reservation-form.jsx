@@ -45,7 +45,7 @@ const ReservationForm = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center">
+    <div className="reservation-bg d-flex justify-content-center align-items-center">
       <div className="cards-home form-width">
         <h2 className="home-h2">Reservation Form</h2>
         <hr className="hr-home" />
@@ -73,7 +73,7 @@ const ReservationForm = () => {
             )}
           </Form.Select>
 
-          <FloatingLabel label="Date" className="mb-3">
+          <FloatingLabel label="Date" className="mb-3 ">
             <Form.Control
               type="Date"
               name="date"
@@ -97,9 +97,15 @@ const ReservationForm = () => {
 
           <br />
 
-          <Button variant="primary" type="submit" className="button-width">
-            Submit
-          </Button>
+          <div className="d-flex justify-content-center mb-5">
+            <Button
+              variant="light"
+              type="submit"
+              className="button-width oval-button text-sucess"
+            >
+              Submit
+            </Button>
+          </div>
         </Form>
       </div>
     </div>
