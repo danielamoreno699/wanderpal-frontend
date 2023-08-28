@@ -41,7 +41,7 @@ const ReservationForm = () => {
     e.preventDefault();
     dispatch(createReservation(selectedTour));
     console.log(selectedTour);
-    navigate("/Home");
+    navigate("/reservation");
   };
 
   return (
