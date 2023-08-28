@@ -8,7 +8,7 @@ import { deleteReservationApi} from "../redux/reservationDeleteSlice";
 import Swal from 'sweetalert2';
 
 const Reservation = () => {
- 
+
   
   const dispatch = useDispatch();
   const { status, reservations, reservationDetails } = useSelector((state) => state.reservations);
@@ -20,21 +20,21 @@ const Reservation = () => {
   useEffect(() => {
     if (status === "idle") {
       dispatch(fetchReservations());
-     
+    
     }
   }, [status, dispatch]);
 
 
   useEffect(() => {
-     if (status === "succeeded" && reservations.length > 0) {
-       console.log("Fetching reservation details...");
-       reservations.forEach((reservation) => {
-         if (!reservationDetails[reservation.id] || !reservationDetails[reservation.id].detailsFetched) {
-           dispatch(fetchReservationDetails(reservation.id));
-         }
-       });
-     }
-   }, [status, dispatch, reservations, reservationDetails]);
+    if (status === "succeeded" && reservations.length > 0) {
+      console.log("Fetching reservation details...");
+      reservations.forEach((reservation) => {
+        if (!reservationDetails[reservation.id] || !reservationDetails[reservation.id].detailsFetched) {
+          dispatch(fetchReservationDetails(reservation.id));
+        }
+      });
+    }
+  }, [status, dispatch, reservations, reservationDetails]);
   
 
 
