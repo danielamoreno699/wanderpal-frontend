@@ -1,13 +1,21 @@
-import { createContext, useState } from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
-const AuthProvider = ({ children }) => {
-    const [auth, useAuth] = useState(null);
+export const AuthProvider = ({ children }) => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+    const login = () => {
+      setIsLoggedIn(true);
+    };
+  
+    const logout = () => {
+      setIsLoggedIn(false);
+    };
     return (
-        <AuthContext.Provider value={{ auth, useAuth }}>
+        <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
             {children}
         </AuthContext.Provider>
     );
@@ -17,4 +25,7 @@ AuthProvider.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-export { AuthContext, AuthProvider };
+export const useAuth = () => {
+    return useContext(AuthContext);
+  };
+

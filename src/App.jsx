@@ -1,27 +1,24 @@
-import './styles/App.css';
-import { Route, Routes } from 'react-router-dom';
-import Layout from './components/Layout';
+
+import { Routes, Route } from 'react-router-dom';
 import RegistrationForm from './components/registration-form';
 import Login from './components/login';
 import WanderPalRoutes from './routes/WanderPalRoutes';
-import RequiredAuth from './components/RequiredAuth';
+import PrivateRoute from './components/privateRoute';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      {/* Public routes */}
+      <Route index element={<Login />} />
+      <Route path="login" element={<Login />} />
+      <Route path="registration" element={<RegistrationForm />} />
 
-        {/* Public routes */}
-        <Route index element={<Login />} />
-        <Route path="login" element={<Login />} />
-        <Route path="registration" element={<RegistrationForm />} />
-
-        {/* Private routes */}
-        <Route element={<RequiredAuth />}> 
+      {/* Private routes */}
+      <Route element={<PrivateRoute />}> 
+      
           <Route path="/*" element={<WanderPalRoutes />} />
         </Route>
-
-      </Route>
+      
     </Routes>
   );
 }

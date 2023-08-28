@@ -2,17 +2,21 @@ import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchUsers } from '../redux/getUsersSlice';
+import { useAuth } from '../context/AuthProvider';
 
-import useAuth from '../hooks/useAuth';
+
+
+
 
 const Login = () => {
    
+    const { login } = useAuth();
+    
 
     const dispatch = useDispatch();
 
 
-    const { setAuth } = useAuth();
-    const home = location.state?.from || { pathname: '/' };
+ 
     const navigate = useNavigate();
     const userRef = useRef();
     const errRef = useRef();
@@ -23,11 +27,6 @@ const Login = () => {
         userRef.current.focus();
     }, []);
 
-   
-
-    
-
-   
 
 
     const handleSubmit = async (e) => {
@@ -38,12 +37,16 @@ const Login = () => {
            
             const fetchUsersResponse = await dispatch(fetchUsers());
       
+            console.log('fetchUser', fetchUsersResponse)
             const usernames = fetchUsersResponse.payload.map((user) => user.name);
             const usernameExists = usernames.includes(user);
+
+            console.log('usernameExist', usernameExists)
       
             if (usernameExists) {
-              setAuth(true);
-              navigate(home, { replace: true });
+            localStorage.setItem('user_id', user.id);
+                login(); 
+              navigate('/Home');
             } else {
               setErrMsg('Username does not exist');
             }
