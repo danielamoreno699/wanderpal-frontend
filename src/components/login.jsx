@@ -1,63 +1,63 @@
-import  { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch} from 'react-redux';
-import { useSelector } from 'react-redux';
-import { userAuthApi } from '../redux/createUsersSlice';
+import { useDispatch } from 'react-redux';
+import { fetchUsers } from '../redux/getUsersSlice';
 
 import useAuth from '../hooks/useAuth';
 
 const Login = () => {
+   
 
+    const dispatch = useDispatch();
 
-    const userId = useSelector((state) => state.createUsers.userId);
 
     const { setAuth } = useAuth();
-
     const home = location.state?.from || { pathname: '/' };
-
     const navigate = useNavigate();
     const userRef = useRef();
     const errRef = useRef();
-
     const [user, setUser] = useState('');
     const [errMsg, setErrMsg] = useState('');
-
-
 
     useEffect(() => {
         userRef.current.focus();
     }, []);
 
+   
 
+    
 
-    const dispatch = useDispatch();
+   
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (user, userId ) {
-            try {
-                
-
-                const response = await dispatch(userAuthApi({ name: user, userId }));
-    
-                console.log('response:', response);
-
-                if (response) {
-                   
-                    setAuth(true);
-                    navigate(home, { replace: true });
-                }
-            } catch (error) {
-                setErrMsg('Invalid username');
-            } finally {
-                setAuth(false);
+      
+        if (user) {
+          try {
+           
+            const fetchUsersResponse = await dispatch(fetchUsers());
+      
+            const usernames = fetchUsersResponse.payload.map((user) => user.name);
+            const usernameExists = usernames.includes(user);
+      
+            if (usernameExists) {
+              setAuth(true);
+              navigate(home, { replace: true });
+            } else {
+              setErrMsg('Username does not exist');
             }
+          } catch (error) {
+            console.error('Error fetching users:', error);
+            setErrMsg('Error occurred');
+          }
         } else {
-            setErrMsg('Please enter both username');
-            userRef.current.focus();
+          setErrMsg('Please enter both username and userId');
+          userRef.current.focus();
         }
-    };
+      };
+      
+      
 
     return (
         <>
@@ -77,10 +77,8 @@ const Login = () => {
                         value={user}
                         required
                     />
-
-                    <button >Sign in</button>
+                    <button>Sign in</button>
                 </form>
-
                 <p>
                     Dont have an account? <br />
                     <span className="line">

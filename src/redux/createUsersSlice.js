@@ -28,46 +28,6 @@ export const createUsersApi = createAsyncThunk(
 );
 
 
-// login user 
-export const userAuthApi = createAsyncThunk(
-  'createUsers/userAuth',
-  async ({ name, userId}) => {
-    const payload = {
-      name: name,
-      userId,
-     
-  
-    };
-
-    try {
-      const response = await axios.post(
-        `http://127.0.0.1:3001/api/v1/users/${userId}`,
-        payload
-      );
-
-      
-      const roles = response.data.roles;
-      console.log(response.data);
-      return {
-        responseData: response.data,
-        roles,
-      };
-    } catch (error) {
-      throw handleAuthError(error);
-    }
-  }
-);
-
-const handleAuthError = (error) => {
-  if (error.response?.status === 400) {
-    return new Error('Missing username or password');
-  } else if (error.response?.status === 401) {
-    return new Error('Invalid username or password');
-  } else {
-    return error;
-  }
-};
-
     const createUserSlice = createSlice({
         name: "userCreate",
         initialState,

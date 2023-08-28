@@ -4,6 +4,7 @@ import itemsReducer from './itemsSlice';
 import createReservationReducer from './reservationCreateItemSlice';
 import deleteReservationReducer from './reservationDeleteSlice';
 import createUsersReducer from './createUsersSlice';
+import usersReducer from './getUsersSlice';
 
 
 const store = configureStore({
@@ -12,7 +13,8 @@ const store = configureStore({
     items: itemsReducer,
     createReservationItem: createReservationReducer,
     reservationDelete: deleteReservationReducer,
-    createUsers: createUsersReducer
+    createUsers: createUsersReducer,
+    users: usersReducer 
     
   },
 });
