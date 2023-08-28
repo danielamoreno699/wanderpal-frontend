@@ -5,9 +5,13 @@ import "../styles/reservation.css";
 import { useDispatch, useSelector } from "react-redux";
 import { createReservation } from "../redux/ReservationCreateSlice";
 import { fetchItems } from "../redux/itemsSlice";
+import { useNavigate } from "react-router-dom";
+
 
 const ReservationForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
 
   const { items } = useSelector((state) => state.items);
 
@@ -37,6 +41,7 @@ const ReservationForm = () => {
     e.preventDefault();
     dispatch(createReservation(selectedTour));
     console.log(selectedTour);
+    navigate("/Home");
   };
 
   return (
