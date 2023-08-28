@@ -3,6 +3,8 @@ import '../styles/Navbar.css';
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Offcanvas from "react-bootstrap/Offcanvas";
+
 
 const CustomNavbar = () => {
     return (
@@ -134,9 +136,9 @@ const CustomNavbar = () => {
               aria-controls="second-navbar-nav"
               className="hamburger fit-content"
             />
-            <Navbar.Collapse
+            <Navbar.Offcanvas
               id="second-navbar-nav"
-              className="fit-content justify-content-end "
+              className="fit-content p-4"
             >
               <Nav
                 className="_second-navbar d-flex justify-content-end fit-content"
@@ -159,7 +161,7 @@ const CustomNavbar = () => {
                   </Nav.Link>
                 </Nav.Item>
               </Nav>
-            </Navbar.Collapse>
+            </Navbar.Offcanvas>
           </Container>
         </Navbar>
       </>
