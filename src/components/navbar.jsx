@@ -5,7 +5,6 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
-
 const CustomNavbar = () => {
     return (
       <>
@@ -140,27 +139,32 @@ const CustomNavbar = () => {
               id="second-navbar-nav"
               className="fit-content p-4"
             >
-              <Nav
-                className="_second-navbar d-flex justify-content-end fit-content"
-                as="ul"
-                variant="underline"
-              >
-                <Nav.Item as="li" className="fit-content">
-                  <Nav.Link className="fit-content" href="/">
-                    HOME
-                  </Nav.Link>
-                </Nav.Item>
-                <Nav.Item as="li" className="fit-content">
-                  <Nav.Link className="fit-content" href="/reservation">
-                    RESERVATIONS
-                  </Nav.Link>
-                </Nav.Item>
-                <Nav.Item as="li" className="fit-content">
-                  <Nav.Link className="fit-content" href="/reservationform">
-                    MAKE A RESERVATION
-                  </Nav.Link>
-                </Nav.Item>
-              </Nav>
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title>WanderPal</Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                <Nav
+                  className="_second-navbar d-flex justify-content-end fit-content"
+                  as="ul"
+                  variant="underline"
+                >
+                  <Nav.Item as="li" className="fit-content">
+                    <Nav.Link className="fit-content" href="/">
+                      HOME
+                    </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item as="li" className="fit-content">
+                    <Nav.Link className="fit-content" href="/reservation">
+                      RESERVATIONS
+                    </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item as="li" className="fit-content">
+                    <Nav.Link className="fit-content" href="/reservationform">
+                      MAKE A RESERVATION
+                    </Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
         </Navbar>
