@@ -2,6 +2,7 @@ import  { useRef, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userAuthApi } from '../redux/createUsersSlice';
+
 import useAuth from '../hooks/useAuth';
 
 const Login = () => {
@@ -11,14 +12,13 @@ const Login = () => {
 
     const navigate = useNavigate();
     const userRef = useRef();
-    const pwdRef = useRef();
     const errRef = useRef();
 
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
 
-    const { loggingIn, loggingOut } = useSelector((state) => state.getUsers);
+    const { setToken } = useSelector((state) => state.getUsers);
 
     useEffect(() => {
         userRef.current.focus();
@@ -35,18 +35,21 @@ const Login = () => {
 
         if (user && pwd) {
             try {
-                dispatch(loggingIn());
+                
 
-                const response = await dispatch(userAuthApi({ user, password: pwd }));
+                const response = await dispatch(userAuthApi({ name: user, password: pwd }));
+    
                 console.log('response:', response);
+
                 if (response) {
+                    dispatch(setToken(response.accessToken));
                     setAuth(true);
                     navigate(home, { replace: true });
                 }
             } catch (error) {
                 setErrMsg('Invalid username or password');
             } finally {
-                dispatch(loggingOut());
+                setAuth(false);
             }
         } else {
             setErrMsg('Please enter both username and password');
@@ -77,12 +80,11 @@ const Login = () => {
                     <input
                         type="password"
                         id="password"
-                        ref={pwdRef}
                         onChange={(e) => setPwd(e.target.value)}
                         value={pwd}
                         required
                     />
-                    <button disabled={loggingIn}>Sign in</button>
+                    <button >Sign in</button>
                 </form>
 
                 <p>
