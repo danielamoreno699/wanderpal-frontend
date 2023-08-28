@@ -1,13 +1,18 @@
 import  { useRef, useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { userAuthApi } from '../redux/createUsersSlice';
 
 import useAuth from '../hooks/useAuth';
 
 const Login = () => {
+
+
+    const userId = useSelector((state) => state.createUsers.userId);
+
     const { setAuth } = useAuth();
-    const location = useLocation();
+
     const home = location.state?.from || { pathname: '/' };
 
     const navigate = useNavigate();
@@ -17,7 +22,7 @@ const Login = () => {
     const [user, setUser] = useState('');
     const [errMsg, setErrMsg] = useState('');
 
-    const [userId, setUserId] = useState('');
+
 
     useEffect(() => {
         userRef.current.focus();

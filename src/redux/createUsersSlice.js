@@ -31,22 +31,18 @@ export const createUsersApi = createAsyncThunk(
 // login user 
 export const userAuthApi = createAsyncThunk(
   'createUsers/userAuth',
-  async ({ name, userid}) => {
+  async ({ name, userId}) => {
     const payload = {
       name: name,
-      userid,
+      userId,
      
   
     };
 
     try {
       const response = await axios.post(
-        `http://127.0.0.1:3001/api/v1/users/${userid}`,
-        payload,
-        {
-          headers: { 'Content-Type': 'application/json' },
-      
-        }
+        `http://127.0.0.1:3001/api/v1/users/${userId}`,
+        payload
       );
 
       
@@ -91,8 +87,14 @@ const handleAuthError = (error) => {
                 state.loading = false;
                 state.error = action.payload;
             },
+          
 
-        }
+        },
+        extraReducers: (builder) => {
+          builder.addCase(createUsersApi.fulfilled, (state, action) => {
+            state.userId = action.payload.userId; 
+          });
+        },
     })
     
     export const { UsersPending, UsersSuccess, UsersError } = createUserSlice.actions;
