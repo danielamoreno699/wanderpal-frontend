@@ -45,12 +45,12 @@ const ReservationForm = () => {
   };
 
   return (
-    <>
-      <div className="cards-home">
+    <div className="d-flex justify-content-center align-items-center">
+      <div className="cards-home form-width">
         <h2 className="home-h2">Reservation Form</h2>
         <hr className="hr-home" />
         <br />
-        <Form className="form-width" onSubmit={handleSubmit}>
+        <Form className="" onSubmit={handleSubmit}>
           <Form.Select
             aria-label="Select a Tour"
             className="mb-3"
@@ -97,12 +97,12 @@ const ReservationForm = () => {
 
           <br />
 
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" className="button-width">
             Submit
           </Button>
         </Form>
       </div>
-    </>
+    </div>
   );
 };
 
