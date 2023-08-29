@@ -66,8 +66,10 @@ details {
 }
 
 .detail-img {
-  width: 60rem; 
-  height: 70%; 
+  /* width: 60rem; 
+  height: 70%;  */
+  /* width: 100%; */
+  width: fit-content;
   object-fit: cover;
   border-radius: 1rem;
 
@@ -185,9 +187,29 @@ details {
 
 }
 
-@media (min-width: 768px) and (max-width: 1439px) {
-  .card-item {
-    width: 21rem;
-    margin: 0 auto;
+
+@media (min-width: 768px) and (max-width: 1000px) {
+
+  .details-cont{
+    display:block
+  }
+}
+
+
+@media (min-width: 1001px) and (max-width: 1439px) {
+  .detail-img{
+    width: 40rem;
+    height: 30rem;
+  }
+
+  .details-cont{
+    height: 90vh;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .div-ref{
+    height: auto;
   }
 }
