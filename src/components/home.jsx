@@ -9,9 +9,13 @@ import { fetchItems, selectedItem } from '../redux/itemsSlice';
 import ModalReservation from './modal';
 import { createReservationApi } from '../redux/reservationCreateItemSlice';
 import Swal from 'sweetalert2';
+import { useAuth } from '../context/AuthProvider';
+import CarouselSlide from '../components/caroursel'
+import Banner from '../components/banner'
 
 const Home = () => {
 
+  const { isLoggedIn } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [selectedItemName, setSelectedItemName] = useState('');
   // eslint-disable-next-line no-unused-vars
@@ -47,7 +51,8 @@ const Home = () => {
   const handleSubmitReservation =  (reservation) => {
     const itemId = selectedItemName.id;
     const { date, city } = reservation;
-    const userId = selectedItemName.user_id;
+    const userId = localStorage.getItem('user_id');
+    console.log('User ID:', userId);
   
 
       const response =  dispatch(createReservationApi({ itemId, userId, date, city }));
@@ -73,6 +78,8 @@ const Home = () => {
 
   return (
     <>
+     <CarouselSlide />
+        < Banner />
     <div className='cards-home'>
       <h2 className='home-h2'>Our Tours</h2>
       <hr className='hr-home' />
@@ -88,6 +95,7 @@ const Home = () => {
               <Button 
               variant="primary" 
               onClick={() => onHandleSelect(item.id)}
+              disabled={!isLoggedIn} 
               >
                 
                 Go to details
@@ -95,6 +103,7 @@ const Home = () => {
               </Button>
               <Button variant="primary"
               onClick={() => onHandleReserve(item)}
+              disabled={!isLoggedIn} 
               
               >
                 
