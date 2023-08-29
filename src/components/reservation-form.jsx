@@ -25,11 +25,11 @@ const ReservationForm = () => {
   const onHandleChange = (e) => {
     const { name, value } = e.target;
     const parsedValue = name === "itemId" ? parseInt(value, 10) : value;
-    const selectedUserId = items.find((item) => item.user_id);
+   
     setSelectedTour((prev) => ({
       ...prev,
       [name]: parsedValue,
-      user_id: selectedUserId.user_id,
+      user_id: localStorage.getItem('user_id'),
     }));
   };
 
