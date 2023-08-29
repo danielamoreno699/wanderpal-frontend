@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import '../styles/Home.css';
@@ -73,56 +74,47 @@ const Home = () => {
 
   };
   
-
   return (
-    <>
-     <CarouselSlide />
-        < Banner />
-    <div className='cards-home'>
-      <h2 className='home-h2'>Our Tours</h2>
-      <hr className='hr-home' />
-      <div className='card-cont'>
-        {items.map((item, index) => (
-          <Card key={index} className='card-item'>
-            <Card.Img variant="top" src={item.image}  className='card-img-item' alt='img' /> 
+    <Carousel data-bs-theme="dark">
+      {items.map((item, index) => (
+        <Carousel.Item key={index}>
+          <Card>
+            <Card.Img variant="top" src={item.image} className='card-img-item' alt='img' />
             <Card.Body>
               <Card.Title className='card-title-item'>{item.name}</Card.Title>
               <Card.Text className='card-item-price'>{item.price}$</Card.Text>
 
               <div className='card-btns'>
-              <Button 
-              variant="primary" 
-              onClick={() => onHandleSelect(item.id)}
-              disabled={!isLoggedIn} 
-              >
-                
-                Go to details
-                
-              </Button>
-              <Button variant="primary"
-              onClick={() => onHandleReserve(item)}
-              disabled={!isLoggedIn} 
-              
-              >
-                
-                Make a reservation
-              
-              
-              </Button>
+                <Button
+                  variant="primary"
+                  onClick={() => onHandleSelect(item.id)}
+                  disabled={!isLoggedIn}
+                >
+                  Go to details
+                </Button>
+                <Button
+                  variant="primary"
+                  onClick={() => onHandleReserve(item)}
+                  disabled={!isLoggedIn}
+                >
+                  Make a reservation
+                </Button>
               </div>
             </Card.Body>
           </Card>
-        ))}
-      </div>
-    </div>
-    <ModalReservation 
-    show={showModal} 
-    setShow={setShowModal} 
-    itemName={selectedItemName} 
-    submitReservation={handleSubmitReservation}
-    />
-    </>
+        </Carousel.Item>
+      ))}
+
+      <ModalReservation
+        show={showModal}
+        setShow={setShowModal}
+        itemName={selectedItemName}
+        submitReservation={handleSubmitReservation}
+      />
+    </Carousel>
   );
+
+
 };
 
 export default Home;
