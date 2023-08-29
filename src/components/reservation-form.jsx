@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
-import { FloatingLabel, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "../styles/reservation.css";
 import { useDispatch, useSelector } from "react-redux";
 import { createReservation } from "../redux/ReservationCreateSlice";
