@@ -2,13 +2,16 @@
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useAuth } from '../context/AuthProvider'; 
+import { useNavigate } from 'react-router-dom';
 
 const CustomNavbar = () => {
   
+  const navigate = useNavigate();
   const { isLoggedIn, logout } = useAuth(); 
 
   const onLogout = () => {
     logout();
+    navigate('/Home');
     localStorage.removeItem('user_id');
 
   };

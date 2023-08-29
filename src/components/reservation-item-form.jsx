@@ -1,17 +1,13 @@
+import { useState } from 'react';
 import { Form, FloatingLabel, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { createReservationApi } from '../redux/reservationCreateItemSlice';
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
-
+import { useParams, useNavigate } from 'react-router-dom';
 
 export const ReserveItem = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const { id } = useParams(); 
+  const { id } = useParams();
 
   const [reservation, setReservation] = useState({
     date: '',
@@ -37,38 +33,20 @@ export const ReserveItem = () => {
     const itemId = id;
     const userId = localStorage.getItem('user_id');
 
-    try {
-      const response = await dispatch(createReservationApi({ itemId, userId, date, city }));
-      console.log('Reservation Response:', response);
+    const response = await dispatch(createReservationApi({ itemId, userId, date, city }));
+    console.log('Reservation Response:', response);
+    navigate('/reservations');
 
-      if (response) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Reservation Successful!',
-          text: 'Your reservation has been created successfully.',
-        });
-        navigate('/reservations');
-      } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong!',
-        });
-      }
-    } catch (error) {
-      console.error('Error creating reservation:', error);
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'An error occurred while creating the reservation.',
-      });
+    // Remove the extra curly brace here
+    if (response) {
+      navigate('/reservations');
     }
   };
 
   return (
     <div className="d-flex justify-content-center align-items-center">
       <div className="cards-home form-width">
-        <h2 className="home-h2">Create Item Form</h2>
+        <h2 className="home-h2">Reservation form</h2>
         <hr className="hr-home" />
         <br />
 
