@@ -10,6 +10,8 @@ import ModalReservation from './modal';
 import { createReservationApi } from '../redux/reservationCreateItemSlice';
 import Swal from 'sweetalert2';
 import { useAuth } from '../context/AuthProvider';
+import CarouselSlide from '../components/caroursel'
+import Banner from '../components/banner'
 
 const Home = () => {
 
@@ -76,6 +78,8 @@ const Home = () => {
 
   return (
     <>
+     <CarouselSlide />
+        < Banner />
     <div className='cards-home'>
       <h2 className='home-h2'>Our Tours</h2>
       <hr className='hr-home' />
