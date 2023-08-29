@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const AuthContext = createContext();
 
@@ -27,5 +28,8 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired, 
+};
 
 export const useAuth = () => useContext(AuthContext);
