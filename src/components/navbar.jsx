@@ -1,79 +1,135 @@
-
-import Nav from 'react-bootstrap/Nav';
+import React, { useState } from 'react';  // Asegúrate de tener "useState" aquí
 import Navbar from 'react-bootstrap/Navbar';
-import { useAuth } from '../context/AuthProvider'; 
-import { useNavigate } from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
+import { useAuth } from '../context/AuthProvider';
+import { useNavigate, useLocation } from 'react-router-dom';
+import "../styles/CustomNavbar.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const CustomNavbar = () => {
-  
   const navigate = useNavigate();
-  const { isLoggedIn, logout } = useAuth(); 
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar el menú desplegable
+  const { isLoggedIn, logout } = useAuth();
+  const location = useLocation(); // Obtén la ruta actual
+  
   const onLogout = () => {
     logout();
     navigate('/Home');
     localStorage.removeItem('user_id');
-
   };
 
   return (
-    <>
-      <Navbar className="_my-top-navbar navbar grey-border p-0 full-width">
-      
-        <div className="d-flex login justify-content-end grey-border-left fit-content">
-          <Nav as="ul" className="m-2 justify-content-end fit-content">
+    <header className="nav-container">
+      <Navbar className="p-0 d-flex">
+        <div className="sidebar">
+        <FontAwesomeIcon
+      icon={faBars}
+      className={`burger-icon ${isMenuOpen ? 'active' : ''}`}
+      onClick={() => setIsMenuOpen(!isMenuOpen)}
+    />
+          <Nav as="ul" className={`m-3 d-flex flex-column ${isMenuOpen ? 'active' : ''}`}>
             {isLoggedIn ? (
-
               <>
-                <Nav.Item as="li" className="fit-content">
-                  <Nav.Link className="fit-content" onClick={onLogout}>
+                <Nav.Item as="li" className="
+                ">
+                  <Nav.Link className="
+                  " onClick={onLogout}>
                     <img
                       src="/src/assets/padlock.png"
                       width="17"
                       height="17"
-                      className="flaticon-nav m-1 fit-content"
+                      className="flaticon-nav m-1 
+                      "
                       alt="logout"
                     />
                     Log out
                   </Nav.Link>
                 </Nav.Item>
-                <Nav.Item as="li" className="fit-content">
-                    <Nav.Link className="fit-content" href="/Home">
-                      HOME
-                    </Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item as="li" className="fit-content">
-                    <Nav.Link className="fit-content" href="/reservation">
-                      RESERVATIONS
-                    </Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item as="li" className="fit-content">
-                    <Nav.Link className="fit-content" href="/reservationform">
-                      MAKE A RESERVATION
-                    </Nav.Link>
-                  </Nav.Item>
+                <Nav.Item as="li" className="
+                ">
+                  <Nav.Link
+                    className={`
+                     ${location.pathname === '/Home' ? 'active-link' : ''}`}
+                    href="/Home"
+                  >
+                    HOME
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li" className="
+                ">
+                  <Nav.Link
+                    className={`
+                     ${location.pathname === '/reservation' ? 'active-link' : ''}`}
+                    href="/reservation"
+                  >
+                    RESERVATIONS
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li" className="
+                ">
+                  <Nav.Link
+                    className={`
+                     ${location.pathname === '/reservationform' ? 'active-link' : ''}`}
+                    href="/reservationform"
+                  >
+                    MAKE A RESERVATION
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li" className="
+                ">
+                  <Nav.Link
+                    className={`
+                     ${location.pathname === '/reservationform' ? 'active-link' : ''}`}
+                    href="/reservationform"
+                  >
+                    ADD ITEM
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li" className="
+                ">
+                  <Nav.Link
+                    className={`
+                     ${location.pathname === '/reservationform' ? 'active-link' : ''}`}
+                    href="/reservationform"
+                  >
+                    DELETE ITEM
+                  </Nav.Link>
+                </Nav.Item>
               </>
             ) : (
               <>
-                <Nav.Item as="li" className="fit-content">
-                  <Nav.Link className="fit-content" href="/login">
+                <Nav.Item as="li" className="
+                ">
+                  <Nav.Link
+                    className={`
+                     ${location.pathname === '/login' ? 'active-link' : ''}`}
+                    href="/login"
+                  >
                     <img
                       src="/src/assets/padlock.png"
                       width="17"
                       height="17"
-                      className="flaticon-nav m-1 fit-content"
+                      className="flaticon-nav m-1 
+                      "
                       alt="login"
                     />
                     Login
                   </Nav.Link>
                 </Nav.Item>
-                <Nav.Item as="li" className="fit-content">
-                  <Nav.Link className="fit-content" href="/registration">
+                <Nav.Item as="li" className="
+                ">
+                  <Nav.Link
+                    className={`
+                     ${location.pathname === '/registration' ? 'active-link' : ''}`}
+                    href="/registration"
+                  >
                     <img
                       src="/src/assets/user.png"
                       width="17"
                       height="17"
-                      className="flaticon-nav m-1 fit-content"
+                      className="flaticon-nav m-1 
+                      "
                       alt="signup"
                     />
                     Sign Up
@@ -83,10 +139,8 @@ const CustomNavbar = () => {
             )}
           </Nav>
         </div>
-       
       </Navbar>
-
-    </>
+    </header>
   );
 };
 

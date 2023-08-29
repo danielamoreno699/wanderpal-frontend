@@ -76,6 +76,7 @@ const Home = () => {
 
   return (
     <>
+    <div className='flex-basis'>
      <CarouselSlide />
         < Banner />
     <div className='cards-home'>
@@ -121,6 +122,7 @@ const Home = () => {
     itemName={selectedItemName} 
     submitReservation={handleSubmitReservation}
     />
+    </div>
     </>
   );
 };
