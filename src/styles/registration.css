@@ -1,19 +1,19 @@
 .valid {
-    color: green; 
-  }
-  
-  .invalid {
-    color: red; 
-  }
-  
-  .hide {
-    display: none; 
-  }
+  color: green;
+}
 
-  .instructions {
-    color: red; 
-  }
-  
-  .offscreen {
-    display: none; 
-  }
+.invalid {
+  color: red;
+}
+
+.hide {
+  display: none;
+}
+
+.instructions {
+  color: red;
+}
+
+.offscreen {
+  display: none;
+}
