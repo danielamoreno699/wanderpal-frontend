@@ -42,8 +42,6 @@ const Home = () => {
   }
 
   const onHandleReserve = (item) => {
-    console.log('item', item)
-    
     setSelectedItemName(item);
     setShowModal(true);
   }
@@ -52,11 +50,11 @@ const Home = () => {
     const itemId = selectedItemName.id;
     const { date, city } = reservation;
     const userId = localStorage.getItem('user_id');
-    console.log('User ID:', userId);
+   
   
 
       const response =  dispatch(createReservationApi({ itemId, userId, date, city }));
-      console.log('Reservation Response:', response); 
+      
   
       if (response) {
         setReservationSuccess(true);

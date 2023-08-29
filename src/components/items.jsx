@@ -17,7 +17,7 @@ const Items = () => {
   
 
   const onHandleReserve = (id) => {
-    console.log('id', id)
+  
 
     navigate(`/reservationItemForm/${id}`)
   }

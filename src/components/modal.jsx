@@ -21,7 +21,6 @@ const ModalReservation = ({ show, setShow, itemName, submitReservation }) => {
   };
 
   const handleSubmit = (e) => {
-    console.log('submit from modal');
     e.preventDefault();
     submitReservation(reservation);
     handleClose();

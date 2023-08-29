@@ -37,7 +37,7 @@ export const ReserveItem = () => {
   
     try {
       const response = await dispatch(createReservationApi({ itemId, userId, date, city }));
-      console.log('Reservation Response:', response);
+      
   
       if (response) {
         Swal.fire({

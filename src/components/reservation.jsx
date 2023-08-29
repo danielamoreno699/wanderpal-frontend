@@ -27,7 +27,6 @@ const Reservation = () => {
 
   useEffect(() => {
     if (status === "succeeded" && reservations.length > 0) {
-      console.log("Fetching reservation details...");
       reservations.forEach((reservation) => {
         if (!reservationDetails[reservation.id] || !reservationDetails[reservation.id].detailsFetched) {
           dispatch(fetchReservationDetails(reservation.id));
@@ -39,8 +38,7 @@ const Reservation = () => {
 
 
    const onHandleSelect = (reservationId, itemId) => {
-    console.log('id', reservationId);
-    console.log('itemid', itemId);
+
   
     try {
       dispatch(deleteReservationApi({reservationId, itemId}));

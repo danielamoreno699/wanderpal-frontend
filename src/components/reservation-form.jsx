@@ -79,8 +79,6 @@ const ReservationForm = () => {
 
             {items.map(
               (item) => (
-                console.log(item.name),
-                console.log("this is the user id", item.user_id),
                 (
                   <option key={item.id} value={item.id}>
                     {item.name}

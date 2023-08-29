@@ -23,7 +23,6 @@ export const fetchReservations = createAsyncThunk(
 export const fetchReservationDetails = createAsyncThunk(
   "reservations/fetchReservationDetails",
   async (reservationId) => {
-    console.log("Fetching details for reservation:", reservationId);
     const response = await fetch(`http://[::1]:3001/api/v1/reservations/${reservationId}/item_details`);
     if (response.ok) {
       const data = await response.json();
@@ -55,7 +54,6 @@ export const reservationsSlice = createSlice({
       })
       .addCase(fetchReservationDetails.fulfilled, (state, action) => {
         const { reservationId, item } = action.payload;
-        console.log("Details fetched for reservation:", reservationId);
         state.reservationDetails[reservationId] = { ...item, detailsFetched: true };
       })
       .addCase(fetchReservationDetails.rejected, (state, action) => {

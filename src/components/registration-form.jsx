@@ -33,8 +33,6 @@ const RegistrationForm = () => {
 
     useEffect(()=>{
         const result = USER_REGEX.test(user);
-        console.log(result);
-        console.log(user);
         setValidName(result)
     }, [user])
 
@@ -49,7 +47,7 @@ const RegistrationForm = () => {
 
         const response = await dispatch(createUsersApi({ user: user }));
 
-      console.log('User Response:', response); 
+    
   
       if (response) {
         setSuccess(true);
