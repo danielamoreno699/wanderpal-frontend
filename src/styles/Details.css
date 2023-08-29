@@ -66,8 +66,8 @@ details {
 }
 
 .detail-img {
-  width: 60rem; /* Image occupies all available width */
-  height: 70%; /* Image takes up 60% of the container height */
+  width: 60rem; 
+  height: 70%; 
   object-fit: cover;
   border-radius: 1rem;
 
@@ -129,4 +129,58 @@ details {
   color: #333;
   margin-bottom: 0.5rem;
   margin-left: 10px;
+}
+
+
+@media screen and (max-width: 767px) {
+ 
+  details {
+   display: block;
+    width: 100%;
+  }
+
+ 
+
+  .details-cont {
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .div-ref {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    gap: 1rem;
+    margin: 0 auto;
+  }
+
+ 
+
+  .image-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+
+  .detail-img{
+    width:20rem;
+    height: 20rem;
+ 
+
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .card-item {
+    width: 21rem;
+    margin: 0 auto;
+  }
 }
