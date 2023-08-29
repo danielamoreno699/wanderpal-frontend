@@ -8,16 +8,10 @@ import WanderPalRoutes from './routes/WanderPalRoutes';
 function App() {
   return (
     <Routes>
-      {/* Public routes */}
-      <Route index element={<Login />} />
+  
       <Route path="login" element={<Login />} />
       <Route path="registration" element={<RegistrationForm />} />
-
-      {/* Private routes */}
-      
-      
-          <Route path="/*" element={<WanderPalRoutes />} />
-  
+      <Route path="/*" element={<WanderPalRoutes />} />
       
     </Routes>
   );

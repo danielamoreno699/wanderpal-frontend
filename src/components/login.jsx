@@ -88,6 +88,12 @@ const Login = () => {
                         <a href="/registration">Register</a>
                     </span>
                 </p>
+                <p>
+                   <br />
+                    <span className="line">
+                        <a href="/">home</a>
+                    </span>
+                </p>
             </section>
         </>
     );
