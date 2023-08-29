@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import '../styles/Details.css';
 import { useEffect } from 'react'; 
 import { fetchItemInfo } from '../redux/itemsSlice';
+// import { selectedItem } from '../redux/itemsSlice';
 
 
 const Items = () => {
@@ -13,8 +14,16 @@ const Items = () => {
   const navigate = useNavigate();
 
   const { itemInfo } = useSelector((state) => state.items);
+  
+
+  const onHandleReserve = (id) => {
+    console.log('id', id)
+
+    navigate(`/reservationItemForm/${id}`)
+  }
 
   const onNavigateBack = () => {
+    
     navigate(-1);
   };
 
@@ -33,6 +42,7 @@ const Items = () => {
       
     </div>
     <button className='btn-details' onClick={onNavigateBack}>Back</button>
+    <button className='reserve-btn' onClick={() => onHandleReserve(id)}>Reserve</button>
     </div>
   )
 }
