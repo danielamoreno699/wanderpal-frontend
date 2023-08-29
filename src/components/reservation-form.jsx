@@ -6,14 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { createReservation } from "../redux/ReservationCreateSlice";
 import { fetchItems } from "../redux/itemsSlice";
 import { useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2';
-
-
+import Swal from "sweetalert2";
 
 const ReservationForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
 
   const { items } = useSelector((state) => state.items);
 
@@ -27,11 +24,11 @@ const ReservationForm = () => {
   const onHandleChange = (e) => {
     const { name, value } = e.target;
     const parsedValue = name === "itemId" ? parseInt(value, 10) : value;
-   
+
     setSelectedTour((prev) => ({
       ...prev,
       [name]: parsedValue,
-      user_id: localStorage.getItem('user_id'),
+      user_id: localStorage.getItem("user_id"),
     }));
   };
 
@@ -41,81 +38,87 @@ const ReservationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       await dispatch(createReservation(selectedTour));
       Swal.fire({
-        icon: 'success',
-        title: 'Reservation Successful!',
-        text: 'Your reservation has been created successfully.',
+        icon: "success",
+        title: "Reservation Successful!",
+        text: "Your reservation has been created successfully.",
       });
-      navigate('/reservation');
+      navigate("/reservation");
     } catch (error) {
-      console.error('Error creating reservation:', error);
+      console.error("Error creating reservation:", error);
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'An error occurred while creating the reservation.',
+        icon: "error",
+        title: "Oops...",
+        text: "An error occurred while creating the reservation.",
       });
     }
   };
-  
 
   return (
     <div className="d-flex justify-content-center align-items-center">
-      <div className="cards-home form-width">
-        <h2 className="home-h2">Reservation Form</h2>
-        <hr className="hr-home" />
-        <br />
-        <Form className="" onSubmit={handleSubmit}>
-          <Form.Select
-            aria-label="Select a Tour"
-            className="mb-3"
-            onChange={onHandleChange}
-            value={selectedTour.itemId}
-            name="itemId"
-          >
-            <option>Pick a Tour</option>
+      <div className="form-width reservation-page">
+        <div className="transparent-layer">
+          <div className="form-container">
+            <h2 className="reservation-h2">Reservation Form</h2>
+            <hr className="hr-reservation" />
+            <p className="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos culpa
+              enim quos unde, itaque nesciunt magnam laborum eum explicabo
+              aperiam necessitatibus fugit, modi recusandae exercitationem quod
+              obcaecati blanditiis reprehenderit in cum debitis vero aut?
+            </p>
+            <br />
+            <Form className="create-reservation-form" onSubmit={handleSubmit}>
+              <div className="date-city">
+                <Form.Control
+                  type="Date"
+                  name="date"
+                  className="bg-color rounded-border date-width"
+                  placeholder="Date"
+                  value={selectedTour.date}
+                  onChange={onHandleChange}
+                />
 
-            {items.map(
-              (item) => (
-                (
-                  <option key={item.id} value={item.id}>
-                    {item.name}
-                  </option>
-                )
-              )
-            )}
-          </Form.Select>
+                <Form.Control
+                  type="text"
+                  name="city"
+                  className="bg-color rounded-border"
+                  placeholder="City"
+                  onChange={onHandleChange}
+                  value={selectedTour.city}
+                />
+              </div>
+              <div className="date-city">
+                <Form.Select
+                  aria-label="Select a Tour"
+                  className="bg-color rounded-border"
+                  onChange={onHandleChange}
+                  value={selectedTour.itemId}
+                  name="itemId"
+                >
+                  <option>Pick a Tour</option>
 
-          <FloatingLabel label="Date" className="mb-3">
-            <Form.Control
-              type="Date"
-              name="date"
-              placeholder="Date"
-              value={selectedTour.date}
-              onChange={onHandleChange}
-            />
-          </FloatingLabel>
+                  {items.map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.name}
+                    </option>
+                  ))}
+                </Form.Select>
 
-          <br />
-          <FloatingLabel label="City" className="mb-3">
-            <Form.Control
-              type="text"
-              name="city"
-              placeholder="City"
-              onChange={onHandleChange}
-              value={selectedTour.city}
-            />
-          </FloatingLabel>
-          <br />
-
-          <br />
-
-          <Button variant="primary" type="submit" className="button-width">
-            Submit
-          </Button>
-        </Form>
+                <Button
+                  variant="light"
+                  type="submit"
+                  className="button-width rounded-border"
+                >
+                  Book Now
+                </Button>
+              </div>
+            </Form>
+          </div>
+        </div>
       </div>
     </div>
   );
