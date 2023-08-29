@@ -95,6 +95,17 @@ const Home = () => {
         scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          992: {
+            slidesPerView: 3,
+          },
+        }}
       >
         {items.map((item, index) => (
           <SwiperSlide key={index} className='swiper-slide'>

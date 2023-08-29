@@ -26,17 +26,7 @@
   padding: 1rem;
 }
 
-.card-item {
-  width: 16%;
-  height: 20%;
-  /* margin-top: 3rem;
-  width: calc(25% - 1rem);
-  height: 20rem;
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
-}
+
 
 .card-item card{
   width: 16%;
@@ -90,8 +80,13 @@
   }
 
   .card-item {
-    width: 21rem;
-    margin: 0 auto 1rem;
+    width: auto;
+    
+  }
+
+  .swiper {
+    width: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -104,8 +99,8 @@
 
 
 .swiper {
-  width: 70%; /* Adjust to your desired width */
-  margin: 0 auto; /* Center the container */
+  width: 70%; 
+  margin: 0 auto; 
   height: 50vh;
 }
 
@@ -113,7 +108,7 @@
   text-align: center;
  
   background: #fff;
-  /* Center slide text vertically */
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,4 +116,11 @@
 
 .card-item{
   width: auto;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: white;
+  fill: white;
+  width: 1rem;
 }
