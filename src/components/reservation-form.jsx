@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { createReservation } from "../redux/ReservationCreateSlice";
 import { fetchItems } from "../redux/itemsSlice";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
+
 
 
 const ReservationForm = () => {
@@ -37,12 +39,27 @@ const ReservationForm = () => {
     dispatch(fetchItems());
   }, [dispatch]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(createReservation(selectedTour));
-    console.log(selectedTour);
-    navigate("/reservation");
+  
+    try {
+      await dispatch(createReservation(selectedTour));
+      Swal.fire({
+        icon: 'success',
+        title: 'Reservation Successful!',
+        text: 'Your reservation has been created successfully.',
+      });
+      navigate('/reservation');
+    } catch (error) {
+      console.error('Error creating reservation:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'An error occurred while creating the reservation.',
+      });
+    }
   };
+  
 
   return (
     <div className="d-flex justify-content-center align-items-center">

@@ -3,6 +3,8 @@ import { Form, FloatingLabel, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { createReservationApi } from '../redux/reservationCreateItemSlice';
 import { useParams, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 
 export const ReserveItem = () => {
   const dispatch = useDispatch();
@@ -28,20 +30,40 @@ export const ReserveItem = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const { date, city } = reservation;
     const itemId = id;
     const userId = localStorage.getItem('user_id');
-
-    const response = await dispatch(createReservationApi({ itemId, userId, date, city }));
-    console.log('Reservation Response:', response);
-    navigate('/reservations');
-
-    // Remove the extra curly brace here
-    if (response) {
-      navigate('/reservations');
+  
+    try {
+      const response = await dispatch(createReservationApi({ itemId, userId, date, city }));
+      console.log('Reservation Response:', response);
+  
+      if (response) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Reservation Successful!',
+          text: 'Your reservation has been created successfully.',
+        });
+      
+        navigate('/reservation');
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        });
+      }
+    } catch (error) {
+      console.error('Error creating reservation:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'An error occurred while creating the reservation.',
+      });
     }
   };
+  
 
   return (
     <div className="d-flex justify-content-center align-items-center">
