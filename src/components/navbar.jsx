@@ -10,6 +10,7 @@ const CustomNavbar = () => {
 
   const onLogout = () => {
     logout();
+    localStorage.removeItem('user_id');
     navigate('/login');
   };
 
@@ -20,6 +21,7 @@ const CustomNavbar = () => {
         <div className="d-flex login justify-content-end grey-border-left fit-content">
           <Nav as="ul" className="m-2 justify-content-end fit-content">
             {isLoggedIn ? (
+
               <>
                 <Nav.Item as="li" className="fit-content">
                   <Nav.Link className="fit-content" onClick={onLogout}>
