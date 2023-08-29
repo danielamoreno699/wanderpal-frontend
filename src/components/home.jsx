@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import '../styles/Home.css';
+
 import { useNavigate } from 'react-router-dom';
 import { fetchItems, selectedItem } from '../redux/itemsSlice';
 import ModalReservation from './modal';
@@ -19,6 +19,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import '../styles/Home.css';
 
 const Home = () => {
 
@@ -87,8 +88,8 @@ const Home = () => {
       <hr className='hr-home' />
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={0}
-        slidesPerView={5}
+        spaceBetween={20}
+        slidesPerView={4}
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
@@ -96,7 +97,7 @@ const Home = () => {
         onSlideChange={() => console.log('slide change')}
       >
         {items.map((item, index) => (
-          <SwiperSlide key={index} className='swiper-slide'> {/* Wrap in SwiperSlide */}
+          <SwiperSlide key={index} className='swiper-slide'>
             <Card className='card-item'>
               <Card.Img variant='top' src={item.image} className='card-img-item' alt='img' />
               <Card.Body>

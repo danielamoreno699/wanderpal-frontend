@@ -101,3 +101,24 @@
     margin: 0 auto;
   }
 }
+
+
+.swiper {
+  width: 70%; /* Adjust to your desired width */
+  margin: 0 auto; /* Center the container */
+  height: 50vh;
+}
+
+.swiper-slide {
+  text-align: center;
+ 
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-item{
+  width: auto;
+}
