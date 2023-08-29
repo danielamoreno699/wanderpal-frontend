@@ -34,17 +34,33 @@ const Items = () => {
 
   return (
     <div className='details'>
-    <h2 className='details-h2'>More Info...</h2>
-    <hr className='hr-details' />
-    <div className='details-cont'>
-      <h3 className='detail-name'>{itemInfo.name}</h3>
-      <p className='detail-desc'>{itemInfo.description}</p>
+      <h2 className='details-h2'>More Info...</h2>
+      <hr className='hr-details' />
+      <div className='details-cont'>
+
+    <div className='div-ref'>
+    <div className='img-title'>
+          <img className='detail-img' src={itemInfo.image} alt={itemInfo.name} />
+          <h3 className='detail-name'>{itemInfo.name}</h3>
+        </div>
+
+        <div className='desc-price'>
+          <p className='detail-price'>Price: {itemInfo.price}$</p>
+          <p className='detail-desc'>{itemInfo.description}</p>
+
+          <div className='btns-details'>
+            <button className='btn-details' onClick={onNavigateBack}>Back</button>
+            <button className='reserve-btn' onClick={onHandleReserve}>Reserve</button>
+          </div>
+
+        </div>
+
+    </div>
       
+
+      </div>
     </div>
-    <button className='btn-details' onClick={onNavigateBack}>Back</button>
-    <button className='reserve-btn' onClick={() => onHandleReserve(id)}>Reserve</button>
-    </div>
-  )
+  );
 }
 
 export default Items

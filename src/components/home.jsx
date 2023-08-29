@@ -10,8 +10,7 @@ import ModalReservation from './modal';
 import { createReservationApi } from '../redux/reservationCreateItemSlice';
 import Swal from 'sweetalert2';
 import { useAuth } from '../context/AuthProvider';
-import CarouselSlide from '../components/caroursel'
-import Banner from '../components/banner'
+
 
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
