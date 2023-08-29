@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchUsers } from '../redux/getUsersSlice';
-import { useAuth } from '../context/AuthProvider';
+
 
 
 
@@ -10,7 +10,7 @@ import { useAuth } from '../context/AuthProvider';
 
 const Login = () => {
    
-    const { login } = useAuth();
+   
     
 
     const dispatch = useDispatch();
@@ -45,7 +45,7 @@ const Login = () => {
       
             if (usernameExists) {
             localStorage.setItem('user_id', user.id);
-                login(); 
+               
               navigate('/Home');
             } else {
               setErrMsg('Username does not exist');

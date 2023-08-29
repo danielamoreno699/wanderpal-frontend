@@ -14,9 +14,9 @@ import Home from "../components/home";
 
 
 
-
 const WanderPalRoutes = () => (
 
+    
     <>
         <CustomNavbar/>
         <CarouselSlide />
@@ -25,9 +25,10 @@ const WanderPalRoutes = () => (
         <Routes>
             <Route path="Home" element={<Home/>}/>
             <Route path="items/:id" element={<Items/>}/>
+            <Route path="/" element={<Navigate to="/Home" />} />
 
             <Route path="/reservation" element={<Reservation/>}/>
-            <Route path="/" element={<Navigate to="/Home" />} />
+            
 
             <Route path="/reservationform" element={<ReservationForm />}/>
         </Routes>

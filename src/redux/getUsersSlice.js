@@ -6,6 +6,9 @@ export const initialState = {
   users: [],
   loading: false,
   error: null,
+  isAuthenticated : false,
+  logout: true,
+  
 };
 
 // fetching users
@@ -17,7 +20,14 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
 const usersSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {},
+  reducers: {
+    login: (state) => {
+      state.isAuthenticated = true;
+    },
+    logout: (state) => {
+      state.isAuthenticated = false;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchUsers.pending, (state) => {
@@ -26,6 +36,7 @@ const usersSlice = createSlice({
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.users = action.payload;
+        state.isAuthenticated = true;
       })
       .addCase(fetchUsers.rejected, (state, action) => {
         state.status = 'failed';
@@ -35,6 +46,6 @@ const usersSlice = createSlice({
 });
 
 
-
+export const { login, logout } = usersSlice.actions;
 
 export default usersSlice.reducer;
