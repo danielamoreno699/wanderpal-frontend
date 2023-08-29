@@ -24,6 +24,7 @@ const WanderPalRoutes = () => (
         < Banner />
 
         <Routes>
+            
             <Route path="Home" element={<Home/>}/>
             <Route path="items/:id" element={<Items/>}/>
             <Route path="/" element={<Navigate to="/Home" />} />

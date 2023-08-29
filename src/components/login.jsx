@@ -29,23 +29,50 @@ const Login = () => {
 
 
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+      
+    //     if (user) {
+    //       try {
+           
+    //         const fetchUsersResponse = await dispatch(fetchUsers());
+      
+    //         console.log('fetchUser', fetchUsersResponse)
+    //         const usernames = fetchUsersResponse.payload.map((user) => user.name);
+    //         const usernameExists = usernames.includes(user);
+
+    //         console.log('usernameExist', usernameExists)
+    //         console.log('usernameId', usernameExists.id)
+      
+    //         if (usernameExists) {
+    //         localStorage.setItem('user_id of user', usernameExists.id);
+               
+    //           navigate('/Home');
+    //         } else {
+    //           setErrMsg('Username does not exist');
+    //         }
+    //       } catch (error) {
+    //         console.error('Error fetching users:', error);
+    //         setErrMsg('Error occurred');
+    //       }
+    //     } else {
+    //       setErrMsg('Please enter both username and userId');
+    //       userRef.current.focus();
+    //     }
+    //   };
+      
     const handleSubmit = async (e) => {
         e.preventDefault();
       
         if (user) {
           try {
-           
             const fetchUsersResponse = await dispatch(fetchUsers());
+            const users = fetchUsersResponse.payload;
       
-            console.log('fetchUser', fetchUsersResponse)
-            const usernames = fetchUsersResponse.payload.map((user) => user.name);
-            const usernameExists = usernames.includes(user);
-
-            console.log('usernameExist', usernameExists)
+            const matchedUser = users.find((u) => u.name === user);
       
-            if (usernameExists) {
-            localStorage.setItem('user_id', user.id);
-               
+            if (matchedUser) {
+              localStorage.setItem('user_id', matchedUser.id);
               navigate('/Home');
             } else {
               setErrMsg('Username does not exist');
@@ -59,7 +86,6 @@ const Login = () => {
           userRef.current.focus();
         }
       };
-      
       
 
     return (

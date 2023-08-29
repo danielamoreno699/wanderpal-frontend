@@ -1,5 +1,5 @@
 
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router';
 const CustomNavbar = () => {
 
   const navigate = useNavigate();
-  const isAuthenticated = useSelector((state) => state.users.isAuthenticated);
+  // const isAuthenticated = useSelector((state) => state.users.isAuthenticated);
  
 
   const onLogout = () => {
@@ -143,8 +143,8 @@ const CustomNavbar = () => {
           
           {/* Second Navbar */}
 
-          <>
-      {isAuthenticated && (
+          {/* <>
+      {isAuthenticated && ( */}
         <>
           {/* Second Navbar */}
           <Navbar
@@ -190,8 +190,8 @@ const CustomNavbar = () => {
             </Container>
           </Navbar>
         </>
-      )}
-    </>
+      {/* )} */}
+    {/* </> */}
 
           
         </>

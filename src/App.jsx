@@ -11,6 +11,8 @@ function App() {
   
       <Route path="login" element={<Login />} />
       <Route path="registration" element={<RegistrationForm />} />
+
+
       <Route path="/*" element={<WanderPalRoutes />} />
       
     </Routes>

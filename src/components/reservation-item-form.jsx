@@ -1,25 +1,18 @@
 import { Form, FloatingLabel, Button } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { createReservationApi  } from '../redux/reservationCreateItemSlice';
+import { useDispatch } from 'react-redux';
+import { createReservationApi } from '../redux/reservationCreateItemSlice';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
+
 export const ReserveItem = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { id } = useParams(); 
 
-  const items = useSelector((state) => state.items.items);
-
-  
-  const selectedItem = items.map((item) => item.id === parseInt(id));
-
-
-
-  const { id } = useParams();
- 
   const [reservation, setReservation] = useState({
     date: '',
     city: '',
@@ -34,31 +27,27 @@ export const ReserveItem = () => {
   };
 
   const handleBack = () => {
-    navigate(-1); 
+    navigate(-1);
   };
 
   const handleSubmit = async (e) => {
-
-
     e.preventDefault();
 
     const { date, city } = reservation;
     const itemId = id;
-    const userId = selectedItem.user_id;
-    
+    const userId = localStorage.getItem('user_id');
 
     try {
       const response = await dispatch(createReservationApi({ itemId, userId, date, city }));
       console.log('Reservation Response:', response);
 
       if (response) {
-        
         Swal.fire({
           icon: 'success',
           title: 'Reservation Successful!',
           text: 'Your reservation has been created successfully.',
         });
-        navigate('/reservations')
+        navigate('/reservations');
       } else {
         Swal.fire({
           icon: 'error',

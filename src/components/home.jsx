@@ -47,7 +47,8 @@ const Home = () => {
   const handleSubmitReservation =  (reservation) => {
     const itemId = selectedItemName.id;
     const { date, city } = reservation;
-    const userId = selectedItemName.user_id;
+    const userId = localStorage.getItem('user_id');
+    console.log('User ID:', userId);
   
 
       const response =  dispatch(createReservationApi({ itemId, userId, date, city }));
