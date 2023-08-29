@@ -5,15 +5,19 @@ import Login from './components/login';
 import WanderPalRoutes from './routes/WanderPalRoutes';
 
 
+
+
 function App() {
   return (
     <Routes>
   
+      <Route index element={<Login />} />
       <Route path="login" element={<Login />} />
       <Route path="registration" element={<RegistrationForm />} />
-
-
+      
       <Route path="/*" element={<WanderPalRoutes />} />
+     
+    
       
     </Routes>
   );

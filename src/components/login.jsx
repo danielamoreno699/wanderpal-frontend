@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchUsers } from '../redux/getUsersSlice';
+import { useAuth } from '../context/AuthProvider';
 
 
 
@@ -10,7 +11,7 @@ import { fetchUsers } from '../redux/getUsersSlice';
 
 const Login = () => {
    
-   
+    const {  login } = useAuth();
     
 
     const dispatch = useDispatch();
@@ -27,39 +28,6 @@ const Login = () => {
         userRef.current.focus();
     }, []);
 
-
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-      
-    //     if (user) {
-    //       try {
-           
-    //         const fetchUsersResponse = await dispatch(fetchUsers());
-      
-    //         console.log('fetchUser', fetchUsersResponse)
-    //         const usernames = fetchUsersResponse.payload.map((user) => user.name);
-    //         const usernameExists = usernames.includes(user);
-
-    //         console.log('usernameExist', usernameExists)
-    //         console.log('usernameId', usernameExists.id)
-      
-    //         if (usernameExists) {
-    //         localStorage.setItem('user_id of user', usernameExists.id);
-               
-    //           navigate('/Home');
-    //         } else {
-    //           setErrMsg('Username does not exist');
-    //         }
-    //       } catch (error) {
-    //         console.error('Error fetching users:', error);
-    //         setErrMsg('Error occurred');
-    //       }
-    //     } else {
-    //       setErrMsg('Please enter both username and userId');
-    //       userRef.current.focus();
-    //     }
-    //   };
       
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -73,6 +41,7 @@ const Login = () => {
       
             if (matchedUser) {
               localStorage.setItem('user_id', matchedUser.id);
+                login();
               navigate('/Home');
             } else {
               setErrMsg('Username does not exist');
