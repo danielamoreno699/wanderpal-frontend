@@ -16,7 +16,7 @@ const CustomNavbar = () => {
   return (
     <>
       <Navbar className="_my-top-navbar navbar grey-border p-0 full-width">
-        {/* ... Existing code ... */}
+      
         <div className="d-flex login justify-content-end grey-border-left fit-content">
           <Nav as="ul" className="m-2 justify-content-end fit-content">
             {isLoggedIn ? (
