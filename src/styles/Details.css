@@ -193,6 +193,10 @@ details {
   .details-cont{
     display:block
   }
+
+  .detail-img{
+    max-width: 30rem;
+  }
 }
 
 
