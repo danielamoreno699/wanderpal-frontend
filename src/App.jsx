@@ -11,7 +11,6 @@ function App() {
   return (
     <Routes>
   
-      <Route index element={<Login />} />
       <Route path="login" element={<Login />} />
       <Route path="registration" element={<RegistrationForm />} />
       

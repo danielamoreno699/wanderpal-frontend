@@ -9,9 +9,11 @@ import { fetchItems, selectedItem } from '../redux/itemsSlice';
 import ModalReservation from './modal';
 import { createReservationApi } from '../redux/reservationCreateItemSlice';
 import Swal from 'sweetalert2';
+import { useAuth } from '../context/AuthProvider';
 
 const Home = () => {
 
+  const { isLoggedIn } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [selectedItemName, setSelectedItemName] = useState('');
   // eslint-disable-next-line no-unused-vars
@@ -89,6 +91,7 @@ const Home = () => {
               <Button 
               variant="primary" 
               onClick={() => onHandleSelect(item.id)}
+              disabled={!isLoggedIn} 
               >
                 
                 Go to details
@@ -96,6 +99,7 @@ const Home = () => {
               </Button>
               <Button variant="primary"
               onClick={() => onHandleReserve(item)}
+              disabled={!isLoggedIn} 
               
               >
                 
