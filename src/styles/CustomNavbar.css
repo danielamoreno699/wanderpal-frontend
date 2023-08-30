@@ -1,9 +1,10 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  background-color: #f8f9fa;
+  background-color: #fff;
   width: 250px;
   height: 100vh;
+  border-right: 1px solid #ececec;
   justify-content: space-between;
 }
 
@@ -22,7 +23,7 @@ a.active-link.nav-link {
 
 .content-container {
   flex: 1;
-  background-color: #f8f9fa;
+  background-color: #fff;
   margin-left: 0;
   overflow: auto;
 }
@@ -51,7 +52,7 @@ a.active-link.nav-link {
     position: fixed;
     top: 0;
     bottom: 0;
-    background-color: #ecebeafb;
+    background-color: #fff;
     z-index: 10;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
@@ -60,7 +61,7 @@ a.active-link.nav-link {
   .content-container {
     padding: 20px;
     overflow: auto;
-    background-color: #f8f8f8;
+    background-color: #fff;
     margin-left: 0;
   }
 
