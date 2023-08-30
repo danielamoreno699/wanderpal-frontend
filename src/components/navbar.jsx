@@ -1,4 +1,3 @@
-import { useState } from 'react';  
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { useAuth } from '../context/AuthProvider';
@@ -23,7 +22,7 @@ const CustomNavbar = ({isMenuOpen}) => {
         <img
         src="src/assets/logo.png"
         alt="wanderpal logo"
-        style={{ maxWidth: '150px', margin: '0 auto' }} // Ajusta el valor según tus necesidades
+        style={{ maxWidth: '150px', margin: '0 auto' }} 
       />
           <Nav as="ul" className={`m-3 d-flex flex-column ${isMenuOpen ? 'active' : ''}`}>
             {isLoggedIn ? (
