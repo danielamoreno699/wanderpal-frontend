@@ -1,4 +1,4 @@
-import React, { useState } from 'react';  // Asegúrate de tener "useState" aquí
+import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { useAuth } from '../context/AuthProvider';
@@ -7,12 +7,11 @@ import "../styles/CustomNavbar.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-const CustomNavbar = () => {
+const CustomNavbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const navigate = useNavigate();
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar el menú desplegable
   const { isLoggedIn, logout } = useAuth();
-  const location = useLocation(); // Obtén la ruta actual
-  
+  const location = useLocation();
+
   const onLogout = () => {
     logout();
     navigate('/Home');
@@ -21,13 +20,8 @@ const CustomNavbar = () => {
 
   return (
     <header className="nav-container">
-      <Navbar className="p-0 d-flex">
+      <Navbar className={`p-0 d-flex ${isMenuOpen ? 'menu-open' : ''}`}>
         <div className="sidebar">
-        <FontAwesomeIcon
-      icon={faBars}
-      className={`burger-icon ${isMenuOpen ? 'active' : ''}`}
-      onClick={() => setIsMenuOpen(!isMenuOpen)}
-    />
           <Nav as="ul" className={`m-3 d-flex flex-column ${isMenuOpen ? 'active' : ''}`}>
             {isLoggedIn ? (
               <>
