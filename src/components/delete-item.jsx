@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { fetchItems, deleteItemReducer, deleteItem } from '../redux/itemsSlice'; // Import the deleteItem and deleteItemReducer actions
 import Swal from 'sweetalert2';
-
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -58,9 +58,12 @@ const DeleteItems = () => {
         <hr className='hr-home' />
         <div className='card-cont'>
           <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={20}
             slidesPerView={4}
             navigation
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log('slide change')}
           >

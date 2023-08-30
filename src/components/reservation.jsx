@@ -6,6 +6,7 @@ import "../styles/reservation.css";
 import { fetchReservations, fetchReservationDetails } from "../redux/reservationsSlice";
 import { deleteReservationApi } from "../redux/reservationDeleteSlice";
 import Swal from "sweetalert2";
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -68,6 +69,7 @@ const Reservation = () => {
         <hr className="hr-home" />
 
         <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={20}
           slidesPerView={4}
           navigation

@@ -142,12 +142,7 @@ const Home = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <ModalReservation
-        show={showModal}
-        setShow={setShowModal}
-        itemName={selectedItemName}
-        submitReservation={handleSubmitReservation}
-      />
+
     </div>
 
     <ModalReservation 
