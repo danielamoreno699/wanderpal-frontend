@@ -11,6 +11,9 @@ import { createReservationApi } from '../redux/reservationCreateItemSlice';
 import Swal from 'sweetalert2';
 import { useAuth } from '../context/AuthProvider';
 
+// import CarouselSlide from './caroursel';
+// import Banner from './banner';
+
 
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -82,7 +85,12 @@ const Home = () => {
 
   
   return (
+   
+   
+
     <div className='cards-home'>
+      {/* {!isLoggedIn && <CarouselSlide />}
+      {!isLoggedIn && <Banner />} */}
       <h2 className='home-h2'>Our Tours</h2>
       <hr className='hr-home' />
       <Swiper
