@@ -81,7 +81,7 @@ const CustomNavbar = () => {
                   <Nav.Link
                     className={`
                      ${location.pathname === '/create-item' ? 'active-link' : ''}`}
-                    href="/reservationform"
+                    href="/create-item"
                   >
                     ADD ITEM
                   </Nav.Link>

@@ -2,9 +2,12 @@ import  { useState } from 'react';
 import { Form, FloatingLabel, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { createItem } from '../redux/itemsSlice';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export const CreateItem = () => {
 
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
   const [Item, setItem] = useState({
@@ -17,17 +20,33 @@ export const CreateItem = () => {
 
   const onHandleChange = (e) => {
     const { name, value } = e.target;
+    const newValue = name === 'price' ? parseInt(value) : value;
     setItem((prevItem) => ({
       ...prevItem,
-      [name]: value,
+      [name]: newValue,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-      const response = await dispatch(createItem(Item)); 
-      console.log('Item created:', response);
+    const response = await dispatch(createItem(Item));
+  
+    if (response) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Item Created',
+        text: 'Your item has been created successfully.',
+      }).then(() => {
+        navigate('/Home');
+      });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Something went wrong. Please try again.',
+      });
+    }
   };
 
   return (
