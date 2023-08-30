@@ -77,7 +77,7 @@ In essence, the "WanderPal Tours Front-End" app appears to be a web application 
 
 ### Initial State
 
-![image](./app/assets/initial%20state.png)
+![image](./src/assets/initial%20state.png)
 
 <br>
 
