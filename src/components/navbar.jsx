@@ -17,12 +17,12 @@ const CustomNavbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
   return (
     <header className="nav-container">
-      <Navbar className={`p-0 d-flex ${isMenuOpen ? 'menu-open' : ''}`}>
+      <Navbar className={` p-0 d-flex  ${isMenuOpen ? 'menu-open' : ''}`}>
         <div className="sidebar">
         <img
         src="src/assets/logo.png"
         alt="wanderpal logo"
-        style={{ maxWidth: '150px', margin: '30px' }} // Ajusta el valor según tus necesidades
+        style={{ maxWidth: '150px', margin: '0 auto' }} // Ajusta el valor según tus necesidades
       />
           <Nav as="ul" className={`m-3 d-flex flex-column ${isMenuOpen ? 'active' : ''}`}>
             {isLoggedIn ? (
@@ -134,6 +134,39 @@ const CustomNavbar = ({ isMenuOpen, setIsMenuOpen }) => {
                 </Nav.Item>
               </>
             )}
+            
+          </Nav>
+          <footer>
+            {/* Contacts */}
+            <div className="contacts flex-fill fit-content">
+                <Nav as="ul" className="m-1 fit-content flex-column">
+                  <Nav.Item as="li" className="fit-content">
+                    <Nav.Link href="#" disabled className="fit-content">
+                      <img
+                        src="/src/assets/phone-call.png"
+                        width="17"
+                        height="17"
+                        className="flaticon-nav m-1 fit-content"
+                        alt="icon"
+                      />
+                      0.703.1352.411
+                    </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item as="li" className="fit-content">
+                    <Nav.Link className="fit-content" href="#" disabled>
+                      <img
+                        src="/src/assets/envelope.png"
+                        width="20"
+                        height="20"
+                        className="flaticon-nav m-1 fit-content"
+                        alt="icon"
+                      />
+                      Contact@WanderPalTour.com
+                    </Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </div>
+
             {/* Socials */}
             <div className="socials fit-content">
                 <Nav as="ul" className="m-1">
@@ -172,7 +205,7 @@ const CustomNavbar = ({ isMenuOpen, setIsMenuOpen }) => {
                   </Nav.Item>
                 </Nav>
               </div>
-          </Nav>
+              </footer>
         </div>
       </Navbar>
     </header>

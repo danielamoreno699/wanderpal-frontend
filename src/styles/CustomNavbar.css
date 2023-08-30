@@ -1,41 +1,43 @@
-.app-container {
-  display: flex;
-  flex-direction: row;
-}
-
 .sidebar {
   display: flex;
   flex-direction: column;
-  background-color: #f8f9fa; /* Color de fondo de la barra de navegación */
+  background-color: #f8f9fa;
+  width: 250px;
   height: 100vh;
+  justify-content: space-between
 }
 
 a.active-link.nav-link  {
-  font-weight: bold; /* Puedes aplicar cualquier estilo que desees */
+  font-weight: bold;
   color: rgb(255, 255, 255);
   background-color: #5bbd23;
-  /* Otros estilos para resaltar el enlace activo */
+}
+
+.app-container {
+  display: flex;
+  height: 100vh; 
 }
 
 .content-container {
   flex: 1;
-  background-color: #f8f9fa; /* Cambia el color de fondo según tu diseño */
+  background-color: #f8f9fa; 
   margin-left: 250px;
+  overflow: auto;
 }
 
 .burger-icon {
   font-size: 24px;
   cursor: pointer;
-  display: none; /* Ocultar en pantallas grandes */
+  display: none; 
 }
 
 @media (max-width: 768px) {
   .app-container {
-    flex-direction: column; /* Cambiar a disposición en columna para apilar los elementos */
+    flex-direction: column;
   }
 
   .burger-icon {
-    display: block; /* Mostrar el ícono del menú hamburguesa */
+    display: block;
     position: fixed;
     top: 10px;
     right: 10px;
@@ -43,14 +45,14 @@ a.active-link.nav-link  {
   }
 
   .sidebar {
-    width: 100%; /* Ocupar todo el ancho en pantallas pequeñas */
+    width: 100%; 
     position: fixed;
     top: 0;
-    bottom: 0; /* Ocupar todo el alto de la pantalla */
+    bottom: 0;
     background-color: #ecebeafb;
-    z-index: 10; /* Asegurar que el Navbar esté por encima del contenido */
-    transform: translateX(-100%); /* Ocultar el Navbar */
-    transition: transform 0.3s ease-in-out; /* Agregar una transición suave */
+    z-index: 10;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
   }
 
   .content-container {
@@ -61,15 +63,15 @@ a.active-link.nav-link  {
 
   .menu-open {
     .sidebar {
-      transform: translateX(0); /* Mostrar el Navbar */
+      transform: translateX(0);
     }
   
     .content-container {
-      margin-left: 0px; /* Dar espacio para el Navbar */
+      margin-left: 0px;
     }
   }
 
   .content-container {
-    margin-left: 0px; /* Dar espacio para el Navbar */
+    margin-left: 0px;
   }
 }

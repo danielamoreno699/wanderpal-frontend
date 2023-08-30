@@ -13,7 +13,7 @@ const WanderPalRoutes = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div>
+    <div className="app-container">
       <FontAwesomeIcon
         icon={faBars}
         className={`burger-icon ${isMenuOpen ? 'active' : ''}`}
