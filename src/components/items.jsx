@@ -16,7 +16,7 @@ const Items = () => {
   const { itemInfo } = useSelector((state) => state.items);
   
 
-  const onHandleReserve = (id) => {
+  const onHandleReserve = () => {
   
 
     navigate(`/reservationItemForm/${id}`)
