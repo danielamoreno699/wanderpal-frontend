@@ -10,13 +10,9 @@
 a.active-link.nav-link {
   font-weight: bold;
   color: rgb(255, 255, 255);
-<<<<<<< HEAD
   background-color: #06913b;
 
   /* Otros estilos para resaltar el enlace activo */
-=======
-  background-color: #5bbd23;
->>>>>>> 6968ac5caa62c7091b1f85705d6c4fcce2572bd9
 }
 
 .app-container {
@@ -49,37 +45,4 @@ a.active-link.nav-link {
     right: 10px;
     z-index: 20;
   }
-<<<<<<< HEAD
 }
-=======
-
-  .sidebar {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    background-color: #ecebeafb;
-    z-index: 10;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .content-container {
-    padding: 20px;
-    overflow: auto;
-    background-color: #f8f8f8;
-    margin-left: 0;
-  }
-
-  .menu-open {
-    .sidebar {
-      transform: translateX(0);
-    }
-
-    .content-container {
-      margin-left: 0;
-    }
-  }
-}
-
->>>>>>> 6968ac5caa62c7091b1f85705d6c4fcce2572bd9
