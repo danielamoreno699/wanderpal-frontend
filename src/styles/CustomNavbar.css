@@ -1,7 +1,6 @@
 .app-container {
   display: flex;
-  height: 100vh;
-  overflow: hidden; /* Evitar que el contenido desborde en pantallas pequeñas */
+  flex-direction: row;
 }
 
 .sidebar {
@@ -18,22 +17,9 @@ a.active-link.nav-link  {
   /* Otros estilos para resaltar el enlace activo */
 }
 
-a.nav-link {
-  display: flex;
-  justificontent: space-between;
-  color: #212529;
-  font-weight: bold;
-}
-.app-container {
-  display: flex;
-  height: 100vh; /* Ajusta según tus necesidades */
-}
-
 .content-container {
   flex: 1;
-  padding: 20px;
-  overflow: auto; /* Agrega desplazamiento si el contenido es largo */
-  background-color: #f8f8f8; /* Cambia el color de fondo según tu diseño */
+  background-color: #f8f9fa; /* Cambia el color de fondo según tu diseño */
   margin-left: 250px;
 }
 

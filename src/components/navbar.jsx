@@ -129,9 +129,49 @@ const CustomNavbar = ({ isMenuOpen, setIsMenuOpen }) => {
                     />
                     Sign Up
                   </Nav.Link>
+                   
+
                 </Nav.Item>
               </>
             )}
+            {/* Socials */}
+            <div className="socials fit-content">
+                <Nav as="ul" className="m-1">
+                  <Nav.Item as="li">
+                    <Nav.Link href="#">
+                      <img
+                        src="/src/assets/facebook.png"
+                        width="20"
+                        height="20"
+                        className="flaticon-nav m-2 fit-content"
+                        alt="facebook-icon"
+                      />
+                    </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item as="li">
+                    <Nav.Link href="#">
+                      <img
+                        src="/src/assets/google.png"
+                        width="20"
+                        height="20"
+                        className="flaticon-nav m-2 fit-content"
+                        alt="google-plus"
+                      />
+                    </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item as="li">
+                    <Nav.Link href="#">
+                      <img
+                        src="/src/assets/twitter.png"
+                        width="20"
+                        height="20"
+                        className="flaticon-nav m-2 fit-content"
+                        alt="twitter"
+                      />
+                    </Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </div>
           </Nav>
         </div>
       </Navbar>
