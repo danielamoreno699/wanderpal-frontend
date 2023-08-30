@@ -112,7 +112,7 @@ export const CreateItem = () => {
                 type="submit"
                 className="button-width rounded-border submit-btn"
               >
-                Book Now
+                Create new Tour
               </Button>
             </Form>
           </div>
