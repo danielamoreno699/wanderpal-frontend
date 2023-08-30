@@ -90,8 +90,8 @@ const CustomNavbar = () => {
                 ">
                   <Nav.Link
                     className={`
-                     ${location.pathname === '/reservationform' ? 'active-link' : ''}`}
-                    href="/reservationform"
+                     ${location.pathname === '/delete-items' ? 'active-link' : ''}`}
+                    href="/delete-items"
                   >
                     DELETE ITEM
                   </Nav.Link>

@@ -7,6 +7,7 @@ import ReservationForm from "../components/reservation-form";
 import Home from "../components/home";
 import ReserveItem from "../components/reservation-item-form";
 import CreateItem from "../components/add-item";
+import DeleteItems from "../components/delete-item";
 
 
 
@@ -30,6 +31,7 @@ const WanderPalRoutes = () => (
                 <Route path = "/reservationItemForm/:id" element={<ReserveItem/>} />
 
                 <Route path= "/create-item" element = { <CreateItem/>}/>
+                <Route path="/delete-items" element = {<DeleteItems/>}/>
             </Routes>
         </div>
 
