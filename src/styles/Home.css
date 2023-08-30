@@ -26,11 +26,9 @@
   padding: 1rem;
 }
 
-
-
-.card-item card{
+.card-item card {
   width: 16%;
-    height: 20%;
+  height: 20%;
 }
 
 .card-img-item {
@@ -81,7 +79,6 @@
 
   .card-item {
     width: auto;
-    
   }
 
   .swiper {
@@ -97,24 +94,21 @@
   }
 }
 
-
 .swiper {
-  width: 90%; 
-  margin: 0 auto; 
+  width: 90%;
+  margin: 0 auto;
   height: 50vh;
 }
 
 .swiper-slide {
   text-align: center;
- 
   background: #fff;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.card-item{
+.card-item {
   width: auto;
 }
 
