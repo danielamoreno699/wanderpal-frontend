@@ -4,7 +4,7 @@
 
 # Application 
 <!-- <img src="../wanderpal-frontend/src/assets/user.png" width="1000" height="500"> -->
-![Wanderpal Image](../wanderpal-frontend/src/assets/wanderpal.png)
+<img src="src/assets/wanderpal.png" alt="logo" width="1000"  height="400" />
 
 
 
