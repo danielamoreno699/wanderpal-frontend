@@ -5,7 +5,8 @@ details {
   flex-direction: center;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  /* width: 100%;
+  background-color: #ce1616; */
  
 
 
@@ -14,7 +15,7 @@ details {
 .details-cont {
  
   
-  height: 90vh;
+
   display: grid;
   gap: 1rem;
   align-items: center;
@@ -24,7 +25,6 @@ details {
 
 .div-ref {
  
-  /* height: 68%; */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   background-color: rgb(236, 244, 244);
   border-radius: 10px;
@@ -37,6 +37,7 @@ details {
 
 
 .detail-price {
+
   font-size: 18px;
   font-weight: bold;
   color: #ce1616;
@@ -57,7 +58,8 @@ details {
   flex-direction: column;
   align-items: center;
   margin-top: 2%;
-  width: 80%;
+  width: 90%;
+  
 }
 
 .details-h2 {
@@ -76,12 +78,12 @@ details {
 }
 
 .detail-img {
-  /* width: 60rem; 
-  height: 70%;  */
-  /* width: 100%; */
-  /* width: fit-content; */
-  max-width: 80%;
-  max-height: 20%;
+
+
+
+  width: 55rem;
+  height: 30rem;
+
   object-fit: cover;
   border-radius: 1rem;
 
@@ -92,6 +94,8 @@ details {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  margin-top: 3rem;
+  margin-right: 4rem;
 }
 
 .btns-details{
@@ -100,10 +104,6 @@ details {
   align-items: flex-start;
   justify-content: center;
   gap: 1rem;
-}
-
-.desc-price{
-  margin-top: 3rem;
 }
 
 .btns-details {
@@ -206,9 +206,21 @@ details {
     display:block
   }
 
+  .div-ref{
+  display: block;
+  }
+
   .detail-img{
     max-width: 30rem;
   }
+
+  .img-title{
+    display:block;
+  }
+
+  .detail-img {
+    width: auto;
+}
 }
 
 

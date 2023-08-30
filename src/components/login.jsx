@@ -1,3 +1,5 @@
+import '../styles/login.css';
+
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -59,7 +61,8 @@ const Login = () => {
 
     return (
         <>
-            <section>
+             <div className="center-container">
+            <section className="login-section">
                 <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live="assertive">
                     {errMsg}
                 </p>
@@ -77,6 +80,7 @@ const Login = () => {
                     />
                     <button>Sign in</button>
                 </form>
+                <div className="p-container">
                 <p>
                     Dont have an account? <br />
                     <span className="line">
@@ -89,7 +93,9 @@ const Login = () => {
                         <a href="/">home</a>
                     </span>
                 </p>
+                </div>
             </section>
+            </div>
         </>
     );
 };

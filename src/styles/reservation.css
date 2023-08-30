@@ -2,7 +2,7 @@
 
 .reservation-page {
   margin: auto;
-  background-image: url("/dist/assets/dubai-1e3223ea.jpg");
+  background-image: url("../assets/carousel/dubai.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(178 255 90 / 74%);
+  background-color: rgba(199, 161, 136, 0.74);
   height: 100vh;
   padding: 0;
 }
@@ -25,8 +25,11 @@
   flex-wrap: wrap;
 }
 
+.submit-btn{
+  background-color: aqua;
+}
+
 .bg-color {
-  background-color: rgb(178 255 90 / 74%) !important;
   cursor: pointer;
 }
 

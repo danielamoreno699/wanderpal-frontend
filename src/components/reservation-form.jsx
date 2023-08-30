@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import "../styles/reservation.css";
@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createReservation } from "../redux/ReservationCreateSlice";
 import { fetchItems } from "../redux/itemsSlice";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 const ReservationForm = () => {
   const dispatch = useDispatch();
@@ -74,7 +74,7 @@ const ReservationForm = () => {
             <Form className="create-reservation-form" onSubmit={handleSubmit}>
               <div className="date-city">
                 <Form.Control
-                  type="Date"
+                  type="date"
                   name="date"
                   className="bg-color rounded-border date-width"
                   placeholder="Date"
@@ -109,9 +109,9 @@ const ReservationForm = () => {
                 </Form.Select>
 
                 <Button
-                  variant="light"
+                  variant="primary"
                   type="submit"
-                  className="button-width rounded-border"
+                  className="button-width rounded-border submit-btn"
                 >
                   Book Now
                 </Button>

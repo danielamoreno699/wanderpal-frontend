@@ -6,6 +6,7 @@ import Items from "../components/items";
 import ReservationForm from "../components/reservation-form";
 import Home from "../components/home";
 import ReserveItem from "../components/reservation-item-form";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -28,10 +29,12 @@ const WanderPalRoutes = () => {
           <Route path="/reservation" element={<Reservation/>}/>
           <Route path="/reservationform" element={<ReservationForm />}/>
           <Route path = "/reservationItemForm/:id" element={<ReserveItem/>} />
-        </Routes>
+        
+          <Route path= "/create-item" element = { <CreateItem/>}/>
+          <Route path="/delete-items" element = {<DeleteItems/>}/>
+         </Routes>
       </div>
-    </div>
-  );
-};
+    </div >
+);
 
 export default WanderPalRoutes;

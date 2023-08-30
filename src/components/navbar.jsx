@@ -1,3 +1,4 @@
+import { useState } from 'react';  
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { useAuth } from '../context/AuthProvider';
@@ -9,7 +10,6 @@ const CustomNavbar = ({isMenuOpen}) => {
   const navigate = useNavigate();
   const { isLoggedIn, logout } = useAuth();
   const location = useLocation();
-
   const onLogout = () => {
     logout();
     navigate('/Home');
@@ -76,8 +76,9 @@ const CustomNavbar = ({isMenuOpen}) => {
                 ">
                   <Nav.Link
                     className={`
-                     ${location.pathname === '/reservationform' ? 'active-link' : ''}`}
-                    href="/reservationform"
+
+                     ${location.pathname === '/create-item' ? 'active-link' : ''}`}
+                    href="/create-item"
                   >
                     ADD ITEM
                   </Nav.Link>
@@ -86,8 +87,10 @@ const CustomNavbar = ({isMenuOpen}) => {
                 ">
                   <Nav.Link
                     className={`
-                     ${location.pathname === '/reservationform' ? 'active-link' : ''}`}
-                    href="/reservationform"
+
+               
+                   ${location.pathname === '/delete-items' ? 'active-link' : ''}`}
+                    href="/delete-items"
                   >
                     DELETE ITEM
                   </Nav.Link>
