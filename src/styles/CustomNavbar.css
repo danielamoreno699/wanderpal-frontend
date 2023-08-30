@@ -1,42 +1,75 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  width: 250px; /* Ancho de la barra de navegación en el lado izquierdo */
-  background-color: #f8f9fa; /* Color de fondo de la barra de navegación */
-  border-right: 1px solid #e9ecef; /* Borde derecho para separar el contenido */
+  background-color: #f8f9fa;
+  width: 250px;
+  height: 100vh;
+  justify-content: space-between;
 }
 
-.active-link {
-  font-weight: bold; /* Puedes aplicar cualquier estilo que desees */
+a.active-link.nav-link {
+  font-weight: bold;
   color: rgb(255, 255, 255);
-  background-color: #06913b;
-  /* Otros estilos para resaltar el enlace activo */
+  background-color: #5bbd23;
 }
 
 .app-container {
   display: flex;
-  height: 100vh; /* Ajusta según tus necesidades */
+  height: 100vh;
 }
 
 .content-container {
   flex: 1;
-  padding: 20px;
-  overflow: auto; /* Agrega desplazamiento si el contenido es largo */
-  background-color: #f8f8f8; /* Cambia el color de fondo según tu diseño */
+  background-color: #f8f9fa;
+  margin-left: 0;
+  overflow: auto;
 }
 
 .burger-icon {
   font-size: 24px;
   cursor: pointer;
-  display: none; /* Ocultar en pantallas grandes */
+  display: none;
 }
 
 @media (max-width: 768px) {
-  .burger-icon {
-    display: block; /* Mostrar en pantallas pequeñas */
+  .app-container {
+    flex-direction: column;
   }
 
-  .burger-icon.active {
-    /* Estilos para el icono activo (menú desplegado) */
+  .burger-icon {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 20;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: #ecebeafb;
+    z-index: 10;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .content-container {
+    padding: 20px;
+    overflow: auto;
+    background-color: #f8f8f8;
+    margin-left: 0;
+  }
+
+  .menu-open {
+    .sidebar {
+      transform: translateX(0);
+    }
+
+    .content-container {
+      margin-left: 0;
+    }
   }
 }
+
