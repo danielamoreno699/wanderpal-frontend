@@ -5,21 +5,25 @@
 }
 
 .sidebar {
-  
   display: flex;
   flex-direction: column;
-  width: 250px; /* Ancho de la barra de navegación en el lado izquierdo */
   background-color: #f8f9fa; /* Color de fondo de la barra de navegación */
-  border-right: 1px solid #e9ecef; /* Borde derecho para separar el contenido */
+  height: 100vh;
 }
 
-.active-link {
+a.active-link.nav-link  {
   font-weight: bold; /* Puedes aplicar cualquier estilo que desees */
   color: rgb(255, 255, 255);
-  background-color: #06913b;
+  background-color: #5bbd23;
   /* Otros estilos para resaltar el enlace activo */
 }
 
+a.nav-link {
+  display: flex;
+  justificontent: space-between;
+  color: #212529;
+  font-weight: bold;
+}
 .app-container {
   display: flex;
   height: 100vh; /* Ajusta según tus necesidades */
@@ -30,6 +34,7 @@
   padding: 20px;
   overflow: auto; /* Agrega desplazamiento si el contenido es largo */
   background-color: #f8f8f8; /* Cambia el color de fondo según tu diseño */
+  margin-left: 250px;
 }
 
 .burger-icon {
@@ -74,7 +79,11 @@
     }
   
     .content-container {
-      margin-left: 250px; /* Dar espacio para el Navbar */
+      margin-left: 0px; /* Dar espacio para el Navbar */
     }
+  }
+
+  .content-container {
+    margin-left: 0px; /* Dar espacio para el Navbar */
   }
 }
