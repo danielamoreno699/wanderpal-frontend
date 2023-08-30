@@ -80,6 +80,7 @@ const Login = () => {
                     />
                     <button>Sign in</button>
                 </form>
+                <div className="p-container">
                 <p>
                     Dont have an account? <br />
                     <span className="line">
@@ -92,6 +93,7 @@ const Login = () => {
                         <a href="/">home</a>
                     </span>
                 </p>
+                </div>
             </section>
             </div>
         </>
