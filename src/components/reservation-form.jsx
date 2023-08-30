@@ -109,7 +109,7 @@ const ReservationForm = () => {
                 </Form.Select>
 
                 <Button
-                  variant="light"
+                  variant="primary"
                   type="submit"
                   className="button-width rounded-border submit-btn"
                 >

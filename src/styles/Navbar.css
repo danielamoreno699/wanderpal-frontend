@@ -34,7 +34,7 @@
 }
 
 .translucent {
-  background-color: rgba(248, 249, 250, 0.96); /* White with 50% opacity */
+  background-color: rgba(248, 249, 250, 0.96);
 }
 
 .transparent {
@@ -46,3 +46,5 @@
     padding: 0 !important;
   }
 }
+
+

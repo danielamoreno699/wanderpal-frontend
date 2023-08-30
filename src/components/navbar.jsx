@@ -1,4 +1,4 @@
-import { useState } from 'react';  // Asegúrate de tener "useState" aquí
+import { useState } from 'react';  
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { useAuth } from '../context/AuthProvider';
@@ -9,9 +9,9 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const CustomNavbar = () => {
   const navigate = useNavigate();
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar el menú desplegable
+  const [isMenuOpen, setIsMenuOpen] = useState(false); 
   const { isLoggedIn, logout } = useAuth();
-  const location = useLocation(); // Obtén la ruta actual
+  const location = useLocation(); 
   
   const onLogout = () => {
     logout();

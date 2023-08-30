@@ -108,7 +108,7 @@ export const CreateItem = () => {
               </div>
   
               <Button
-                variant="light"
+                variant="primary"
                 type="submit"
                 className="button-width rounded-border submit-btn"
               >
