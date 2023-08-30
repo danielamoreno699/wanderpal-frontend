@@ -67,6 +67,18 @@ In essence, the "WanderPal Tours Front-End" app appears to be a web application 
 
 <!-- Features -->
 
+## Kanban Board
+
+### Current state
+
+[Link to the Kanban Board](https://github.com/users/danielamoreno699/projects/1)
+
+### Initial State
+
+![image](./app/assets/initial%20state.png)
+
+<br>
+
 ### Key Features <a name="key-features"></a>
 
 - **Public and Private Routes on the navigation panel:** The application employs a navigation panel that includes both public and private routes. Private routes are restricted and can only be accessed by logged-in users. The home page and other sections are accessible only when the user is logged in, ensuring that certain content is protected and reserved for authenticated users.
@@ -100,6 +112,9 @@ In summary, the "WanderPal" application encompasses a range of components and fe
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## Backend Repository Link
+<a href="https://github.com/danielamoreno699/WanderPal">WanderPal backend</a>
+
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -112,7 +127,7 @@ Ensure you have Ruby installed on your system. You can check by running the code
 ```sh
   ruby --version
 ```
-Ensure to clone backend repository from 
+Ensure to clone backend repository in order to run the database
 
 
 ```sh
@@ -191,7 +206,8 @@ To run the project, execute the following command:
 
 Contributions to the User Interface are welcome! If you find any issues or have suggestions for improvements, please feel free to submit a pull request or open an issue on the project repository.
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/danielamoreno699/WanderPal/issues).
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
