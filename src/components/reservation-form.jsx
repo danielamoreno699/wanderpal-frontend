@@ -28,7 +28,7 @@ const ReservationForm = () => {
     setSelectedTour((prev) => ({
       ...prev,
       [name]: parsedValue,
-      user_id: localStorage.getItem('user_id'),
+      user_id: localStorage.getItem("user_id"),
     }));
   };
 
@@ -42,17 +42,17 @@ const ReservationForm = () => {
     try {
       await dispatch(createReservation(selectedTour));
       Swal.fire({
-        icon: 'success',
-        title: 'Reservation Successful!',
-        text: 'Your reservation has been created successfully.',
+        icon: "success",
+        title: "Reservation Successful!",
+        text: "Your reservation has been created successfully.",
       });
-      navigate('/reservation');
+      navigate("/reservation");
     } catch (error) {
-      console.error('Error creating reservation:', error);
+      console.error("Error creating reservation:", error);
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'An error occurred while creating the reservation.',
+        icon: "error",
+        title: "Oops...",
+        text: "An error occurred while creating the reservation.",
       });
     }
   };

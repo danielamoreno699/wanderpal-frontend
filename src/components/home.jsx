@@ -43,9 +43,6 @@ const Home = () => {
     dispatch(selectedItem(id));
     navigate(`/items/${id}`);
   }
-
-
-
   
   return (
     <>
