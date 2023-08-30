@@ -3,7 +3,7 @@
 # Collectify: Your Personal Catalog
 
 # Application 
-<img src="https://github.com/microverseinc/curriculum-ruby/blob/main/group-capstone/images/catalog_of_my_things.png">
+<img src="">
 
 
 <!-- TABLE OF CONTENTS -->
@@ -30,7 +30,15 @@
 
 # 📚🎵🎮 WanderPal Tours Front-End <a name="about-project"></a>
 
-**WanderPal Tours Front-End** is an app build on react vite that allows users to book reservations for tours once the user is Logged in. The user can execute different type of requests. Like create, get and delete reservations and items.  
+**WanderPal Tours Front-End** The following  provides a brief overview of what the "WanderPal Tours Front-End" app is all about:
+
+The app is built using React with Vite, which are technologies used for creating web applications. React is a popular JavaScript library for building user interfaces, and Vite is a build tool that enhances the development experience.
+
+The primary functionality of the app is to allow users to book reservations for tours. To access this functionality, users need to be logged in, suggesting that there's likely a user authentication system in place.
+
+The app supports different types of requests that users can execute. These requests include creating, retrieving (getting), and deleting reservations and items. This indicates that the app has a comprehensive set of features related to managing reservations and items associated with tours.
+
+In essence, the "WanderPal Tours Front-End" app appears to be a web application that serves as the user interface for booking tours. It is built using React and Vite, and it offers various functionalities like logging in, creating reservations, getting reservation details, deleting reservations, and managing items related to the tours. The anchor tag mentioned at the beginning might indicate that more detailed information about the project can be found in a section labeled "About Project" within the webpage. 
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -61,31 +69,33 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Public and Private Routes on the navigation panel:** Wanderpal contains private routes. The home page and other sections are only accessible when the user is logged in.
+- **Public and Private Routes on the navigation panel:** The application employs a navigation panel that includes both public and private routes. Private routes are restricted and can only be accessed by logged-in users. The home page and other sections are accessible only when the user is logged in, ensuring that certain content is protected and reserved for authenticated users.
 
-- **Registration component:** Wanderpal contains a registration component which allows the user creation through the api call. The user only types the name and the name will be assigned to a specific id in the database. 
+- **Registration component:** WanderPal includes a registration component that facilitates user registration. Users can create an account through an API call. During registration, users provide their name, which is then associated with a specific ID in the database. This component essentially manages the user creation process.
 
-- **Login component:** The app includes a login component which is in charge of comparing the value of the name input field with the names already created in the database to allow access to the application.
+- **Login component:** The app features a login component responsible for authenticating users. It compares the name input provided by the user with the names already registered in the database. Successful authentication grants access to the application's features.
 
-- **Home component:** The app includes a home component which retrieves all the items avaiable from the database and display them for the user. from  this component, the user can navigate to the details component through a button.  
+- **Home component:** WanderPal includes a home component that retrieves and displays all available items from the database. This component likely serves as the main page users see upon logging in. Users can navigate to other sections, such as the details component, from this page via buttons or links.
 
-- **Details component**: The app includes an detail component,  which display all the details related to  the item that has been selected.  It displays additional information for the user like description and prices. Also it has a button to make reservation for that specific item.  
+- **Details component**: The details component offers additional information about a selected item. It displays details like descriptions and prices related to the chosen item. Moreover, it allows users to make a reservation for the specific item through a dedicated button. 
 
-- **Delete component**: The app includes an delete component which displays all the items available with a delete button. So  the user is able to delete the selected item. 
+- **Delete component**: This component provides users with the ability to delete items. It likely lists all available items and offers a delete button for each item. This feature empowers users to manage the content they have access to. 
 
-- **Reservation form component from navbar**: The app includes a reservation form. The user can create a reservation from the navigation link directly. where he can select the tour he wants to reserve. once he makes the reservation, a new reservation item is created.
+- **Reservation form component from navbar**: The navigation panel includes a reservation form component. Users can directly create a reservation from this form, selecting the tour they wish to reserve. When a reservation is made, a new reservation item is generated and stored.
 
-- **Reservation component**: The app includes a reservation component, which displays all the reservations created by the user. Also the user is allowed to  delete the reservation. 
+- **Reservation component**: The reservation component showcases all reservations created by a user. Users are given the option to delete their reservations. This functionality allows users to review and manage their reservations easily.
 
-- **Item form component**: The app includes an add-item  form component, where the user can create new items by placeing in the input the required values for the item creation.
+- **Item form component**: The app incorporates an "add-item" form component. Users can utilize this form to create new items. By inputting the required values, users can create and add new content to the application.
 
-- **Reservation form component from details page**: The app includes a reservation form that is located in the details page, where the user can create a new reservation from the selected item.
+- **Reservation form component from details page**:  In addition to the reservation form in the navigation panel, the details page also features a reservation form. This enables users to create reservations directly from the details page of a selected item.
 
-- **Reducer/Redux**: The app makes the different api calls through the redux feature. The reducers handles the different type of payload that is carried out by the api 
+- **Reducer/Redux**: The application employs Redux, a state management library, to handle API calls. The reducers within Redux manage the different types of data payloads exchanged between the application and the APIs. This helps maintain a predictable and organized flow of data.
 
-- **User-Friendly Interface:** The app features offers a simple and intuitive user interface, where the user can navigate very easyly through the different features.
+- **User-Friendly Interface:** WanderPal prides itself on offering a user-friendly interface. This design approach ensures that users can easily navigate through the application's various features without encountering unnecessary complexity.
 
-- **Responsive designe:** The app has a responsive design on different media queries .
+- **Responsive design:** The app boasts a responsive design that adapts to different screen sizes and media queries. This responsiveness ensures a seamless user experience across various devices, including smartphones, tablets, and desktops.
+
+In summary, the "WanderPal" application encompasses a range of components and features designed to provide users with a comprehensive and user-friendly experience. From user registration to item management, reservations, and responsive design, the app aims to deliver a cohesive and accessible platform for users interested in booking tours and managing related content.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -102,35 +112,55 @@ Ensure you have Ruby installed on your system. You can check by running the code
 ```sh
   ruby --version
 ```
+Ensure to clone backend repository from 
+
+
+```sh
+  cd Wanderpal
+
+  Run bundle install to install all the gems and dependencies
+  Run migrations to create migrations on DB on Postgress
+```
+
+
 ### Setup
 
-Clone or download the Collectify repository to your local machine.
+Clone or download this repository to your local machine.
 ```sh
-  git clone https://github.com/christianonoh/ruby-capstone.git
+  
+  git clone https://github.com/danielamoreno699/wanderpal-frontend
 ```
 Open your terminal and navigate to the cloned project directory.
 
 ### Install
 
-This project does not require additional dependencies, just Ruby interpreter. However, it uses RuboCop as a linter and you should set it up as well.
+- Install this project with:
 
 ```sh
-bundle install
+  cd wanderpal-frontend
+
+  npm install or npm i
 ```
 
 ### Usage
- - To run Collectify, execute the `main.rb file`:
+
+To run the project, execute the following command:
 
 ```sh
-  ruby main.rb
+  npm run dev
+
 ```
-The console app will present a menu of options for managing and interacting with your collections. Simply follow the prompts and provide the necessary information when prompted. The program will process and output your request.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Christian Onoh**
+👤 **Salman Ahmar**
+
+- GitHub: [@christianonoh](https://github.com/christianonoh)
+- LinkedIn: [Christian Onoh](https://www.linkedin.com/in/christianonoh)
+
+👤 **Felipe Haybar**
 
 - GitHub: [@christianonoh](https://github.com/christianonoh)
 - LinkedIn: [Christian Onoh](https://www.linkedin.com/in/christianonoh)
@@ -149,7 +179,9 @@ The console app will present a menu of options for managing and interacting with
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **User Interface**
+-**Add a robust authentication for the user login** .
+-**Display additional Item information** .
+-**Improve css design** .
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -175,7 +207,7 @@ If you like this project give us a star ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-Special thanks to our team and the Ruby community for their support and contributions.
+Special thanks to our team who made possible the completion of this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -184,7 +216,7 @@ Special thanks to our team and the Ruby community for their support and contribu
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./LICENSE.md) licensed.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
