@@ -157,13 +157,13 @@ To run the project, execute the following command:
 
 👤 **Salman Ahmar**
 
-- GitHub: [@christianonoh](https://github.com/christianonoh)
-- LinkedIn: [Christian Onoh](https://www.linkedin.com/in/christianonoh)
+- [GitHub](https://github.com/fpsapc)
+- [LinkedIn](https://www.linkedin.com/in/salman1987/)
 
 👤 **Felipe Haybar**
 
-- GitHub: [@christianonoh](https://github.com/christianonoh)
-- LinkedIn: [Christian Onoh](https://www.linkedin.com/in/christianonoh)
+- [GitHub](https://github.com/Feliverse)
+- [LinkedIn](https://www.linkedin.com/in/felipehaybar/)
 
 👤 **Daniela Moreno**
 
