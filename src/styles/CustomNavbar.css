@@ -10,7 +10,9 @@
 a.active-link.nav-link {
   font-weight: bold;
   color: rgb(255, 255, 255);
-  background-color: #5bbd23;
+  background-color: #ea8e72;;
+
+  /* Otros estilos para resaltar el enlace activo */
 }
 
 .app-container {

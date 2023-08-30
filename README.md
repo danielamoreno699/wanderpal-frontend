@@ -3,7 +3,7 @@
 # WanderPal Tours
 
 # Application 
-<img src="../wanderpal-frontend/src/assets/wanderpal.png" width="300" height="200">
+<img src="../wanderpal-frontend/src/assets/user.png" width="1000" height="500">
 
 
 <!-- TABLE OF CONTENTS -->
