@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-# Collectify: Your Personal Catalog
+# WanderPal Tours
 
 # Application 
 <img src="">
