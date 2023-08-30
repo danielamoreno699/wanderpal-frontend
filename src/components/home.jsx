@@ -110,7 +110,7 @@ const Home = () => {
             slidesPerView: 2,
           },
           992: {
-            slidesPerView: 3,
+            slidesPerView: 5,
           },
         }}
       >
