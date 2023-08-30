@@ -56,7 +56,7 @@ export const CreateItem = () => {
       <div className="form-width reservation-page">
         <div className="transparent-layer">
           <div className="form-container">
-            <h2 className="reservation-h2">Reservation Form</h2>
+            <h2 className="reservation-h2">Create an Item</h2>
             <hr className="hr-reservation" />
             <p className="description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos culpa
