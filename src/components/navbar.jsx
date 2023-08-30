@@ -4,7 +4,8 @@ import { useAuth } from '../context/AuthProvider';
 import { useNavigate, useLocation } from 'react-router-dom';
 import "../styles/CustomNavbar.css";
 
-const CustomNavbar = ({ isMenuOpen, setIsMenuOpen }) => {
+// eslint-disable-next-line react/prop-types
+const CustomNavbar = ({isMenuOpen}) => {
   const navigate = useNavigate();
   const { isLoggedIn, logout } = useAuth();
   const location = useLocation();

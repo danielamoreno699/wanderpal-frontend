@@ -4,10 +4,10 @@
   background-color: #f8f9fa;
   width: 250px;
   height: 100vh;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
-a.active-link.nav-link  {
+a.active-link.nav-link {
   font-weight: bold;
   color: rgb(255, 255, 255);
   background-color: #5bbd23;
@@ -15,20 +15,20 @@ a.active-link.nav-link  {
 
 .app-container {
   display: flex;
-  height: 100vh; 
+  height: 100vh;
 }
 
 .content-container {
   flex: 1;
-  background-color: #f8f9fa; 
-  margin-left: 250px;
+  background-color: #f8f9fa;
+  margin-left: 0;
   overflow: auto;
 }
 
 .burger-icon {
   font-size: 24px;
   cursor: pointer;
-  display: none; 
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -45,7 +45,7 @@ a.active-link.nav-link  {
   }
 
   .sidebar {
-    width: 100%; 
+    width: 100%;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -59,19 +59,16 @@ a.active-link.nav-link  {
     padding: 20px;
     overflow: auto;
     background-color: #f8f8f8;
+    margin-left: 0;
   }
 
   .menu-open {
     .sidebar {
       transform: translateX(0);
     }
-  
-    .content-container {
-      margin-left: 0px;
-    }
-  }
 
-  .content-container {
-    margin-left: 0px;
+    .content-container {
+      margin-left: 0;
+    }
   }
 }
