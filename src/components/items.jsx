@@ -22,6 +22,10 @@ const Items = () => {
     navigate(`/reservationItemForm/${id}`)
   }
 
+  const onNavigateBack = () => {
+    
+    navigate(-1);
+  };
 
   useEffect(() => {
     dispatch(fetchItemInfo(id));
@@ -45,7 +49,7 @@ const Items = () => {
           <p className='detail-desc'>{itemInfo.description}</p>
 
           <div className='btns-details'>
-           
+            <button className='btn-details' onClick={onNavigateBack}>Back</button>
             <button className='reserve-btn' onClick={onHandleReserve}>Reserve</button>
           </div>
 

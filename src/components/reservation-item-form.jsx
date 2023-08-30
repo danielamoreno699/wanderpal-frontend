@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Form,  Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
@@ -10,6 +11,8 @@ export const ReserveItem = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
+
+  console.log('id of reservation', id)
 
   const [reservation, setReservation] = useState({
     date: '',
@@ -37,7 +40,7 @@ export const ReserveItem = () => {
   
     try {
       const response = await dispatch(createReservationApi({ itemId, userId, date, city }));
-      
+      console.log(response)
   
       if (response) {
         Swal.fire({
