@@ -1,4 +1,11 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden; /* Evitar que el contenido desborde en pantallas pequeñas */
+}
+
 .sidebar {
+  
   display: flex;
   flex-direction: column;
   width: 250px; /* Ancho de la barra de navegación en el lado izquierdo */
@@ -59,7 +66,6 @@
     padding: 20px;
     overflow: auto;
     background-color: #f8f8f8;
-    margin-left: 250px; /* Espacio para el Navbar en el lado izquierdo */
   }
 
   .menu-open {
