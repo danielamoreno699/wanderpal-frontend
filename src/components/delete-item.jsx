@@ -66,6 +66,17 @@ const DeleteItems = () => {
             scrollbar={{ draggable: true }}
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log('slide change')}
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              992: {
+                slidesPerView: 4,
+              },
+            }}
           >
             {items.map((item) => (
               <SwiperSlide key={item.id} className='swiper-slide'>

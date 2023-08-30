@@ -12,10 +12,6 @@ import { useAuth } from '../context/AuthProvider';
 import CarouselSlide from './caroursel';
 import Banner from './banner';
 
-// import CarouselSlide from './caroursel';
-// import Banner from './banner';
-
-
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
