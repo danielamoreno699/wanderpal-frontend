@@ -86,7 +86,7 @@ export const ReserveItem = () => {
                   name="date"
                   className="bg-color rounded-border date-width"
                   placeholder="Date"
-                  value={reservation.date} 
+                  value={reservation.date}
                   onChange={onHandleChange}
                 />
   
@@ -96,7 +96,7 @@ export const ReserveItem = () => {
                   className="bg-color rounded-border"
                   placeholder="City"
                   onChange={onHandleChange}
-                  value={reservation.city} 
+                  value={reservation.city}
                 />
               </div>
   
@@ -107,15 +107,19 @@ export const ReserveItem = () => {
               >
                 Book Now
               </Button>
+            </Form>
+  
+            <div className="d-flex justify-content-center mt-5">
               <Button variant="secondary" onClick={handleBack} className="button-width back">
                 Back
               </Button>
-            </Form>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
+  
   
 };
 
