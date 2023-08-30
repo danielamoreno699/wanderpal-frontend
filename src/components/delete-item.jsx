@@ -5,6 +5,13 @@ import Card from 'react-bootstrap/Card';
 import { fetchItems, deleteItemReducer, deleteItem } from '../redux/itemsSlice'; // Import the deleteItem and deleteItemReducer actions
 import Swal from 'sweetalert2';
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "../styles/Home.css";
+
 const DeleteItems = () => {
   const dispatch = useDispatch();
 
@@ -50,23 +57,42 @@ const DeleteItems = () => {
         <h2 className='home-h2'>delete items</h2>
         <hr className='hr-home' />
         <div className='card-cont'>
-          {items.map((item) => (
-            <Card key={item.id} className='card-item'>
-              <Card.Img variant="top" src={item.image} className='card-img-item' alt='img' />
-              <Card.Body>
-                <Card.Title className='card-title-item'>{item.name}</Card.Title>
-                <Card.Text className='card-item-price'>{item.price}$</Card.Text>
-                <div className='card-btns'>
-                  <Button
-                    variant="danger"
-                    onClick={() => onHandleDelete(item.id)}
-                  >
-                    Delete
-                  </Button>
-                </div>
-              </Card.Body>
-            </Card>
-          ))}
+          <Swiper
+            spaceBetween={20}
+            slidesPerView={4}
+            navigation
+            onSwiper={(swiper) => console.log(swiper)}
+            onSlideChange={() => console.log('slide change')}
+          >
+            {items.map((item) => (
+              <SwiperSlide key={item.id} className='swiper-slide'>
+                <Card className='card-item'>
+                  <Card.Img
+                    variant='top'
+                    src={item.image}
+                    className='card-img-item'
+                    alt='img'
+                  />
+                  <Card.Body>
+                    <Card.Title className='card-title-item'>
+                      {item.name}
+                    </Card.Title>
+                    <Card.Text className='card-item-price'>
+                      {item.price}$
+                    </Card.Text>
+                    <div className='card-btns'>
+                      <Button
+                        variant='danger'
+                        onClick={() => onHandleDelete(item.id)}
+                      >
+                        Delete
+                      </Button>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </>
