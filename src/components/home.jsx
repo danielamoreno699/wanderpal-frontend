@@ -85,8 +85,15 @@ const Home = () => {
 
   
   return (
+
    
    
+
+
+    <>
+    <div className='flex-basis'>
+     <CarouselSlide />
+        < Banner />
 
     <div className='cards-home'>
       {/* {!isLoggedIn && <CarouselSlide />}
@@ -149,6 +156,16 @@ const Home = () => {
         submitReservation={handleSubmitReservation}
       />
     </div>
+
+    <ModalReservation 
+    show={showModal} 
+    setShow={setShowModal} 
+    itemName={selectedItemName} 
+    submitReservation={handleSubmitReservation}
+    />
+    </div>
+    </>
+
   );
 
 };
