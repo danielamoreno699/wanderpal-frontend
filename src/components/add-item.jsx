@@ -20,7 +20,8 @@ export const CreateItem = () => {
 
   const onHandleChange = (e) => {
     const { name, value } = e.target;
-    const newValue = name === 'price' ? parseInt(value) : value;
+    const newValue = name === 'price' ? parseFloat(value) : value;
+
     setItem((prevItem) => ({
       ...prevItem,
       [name]: newValue,
@@ -64,6 +65,7 @@ export const CreateItem = () => {
               placeholder="Item Name"
               onChange={onHandleChange}
               value={Item.name}
+              required
             />
           </FloatingLabel>
           <br />
@@ -75,17 +77,20 @@ export const CreateItem = () => {
               placeholder="Image URL"
               onChange={onHandleChange}
               value={Item.image}
+              required
             />
           </FloatingLabel>
           <br />
 
           <FloatingLabel label="Price" className="mb-3">
             <Form.Control
-              type="text"
+              type="number"
               name="price"
               placeholder="Price"
               onChange={onHandleChange}
               value={Item.price}
+              required
+              step="0.01"
             />
           </FloatingLabel>
           <br />
@@ -97,6 +102,7 @@ export const CreateItem = () => {
               placeholder="Description"
               onChange={onHandleChange}
               value={Item.description}
+             required
             />
           </FloatingLabel>
           <br />
