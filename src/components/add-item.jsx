@@ -1,9 +1,10 @@
 import  { useState } from 'react';
-import { Form, FloatingLabel, Button } from 'react-bootstrap';
+import { Form,  Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { createItem } from '../redux/itemsSlice';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import '../styles/add-item.css'
 
 export const CreateItem = () => {
 
@@ -52,68 +53,74 @@ export const CreateItem = () => {
 
   return (
     <div className="d-flex justify-content-center align-items-center">
-      <div className="cards-home form-width">
-        <h2 className="home-h2">Create Item Form</h2>
-        <hr className="hr-home" />
-        <br />
-
-        <Form onSubmit={handleSubmit}>
-          <FloatingLabel label="Name" className="mb-3">
-            <Form.Control
-              type="text"
-              name="name"
-              placeholder="Item Name"
-              onChange={onHandleChange}
-              value={Item.name}
-              required
-            />
-          </FloatingLabel>
-          <br />
-
-          <FloatingLabel label="Image URL" className="mb-3">
-            <Form.Control
-              type="text"
-              name="image"
-              placeholder="Image URL"
-              onChange={onHandleChange}
-              value={Item.image}
-              required
-            />
-          </FloatingLabel>
-          <br />
-
-          <FloatingLabel label="Price" className="mb-3">
-            <Form.Control
-              type="number"
-              name="price"
-              placeholder="Price"
-              onChange={onHandleChange}
-              value={Item.price}
-              required
-              step="0.01"
-            />
-          </FloatingLabel>
-          <br />
-
-          <FloatingLabel label="Description" className="mb-3">
-            <Form.Control
-              as="textarea"
-              name="description"
-              placeholder="Description"
-              onChange={onHandleChange}
-              value={Item.description}
-             required
-            />
-          </FloatingLabel>
-          <br />
-
-          <Button variant="primary" type="submit" className="button-width">
-            Submit
-          </Button>
-        </Form>
+      <div className="form-width reservation-page">
+        <div className="transparent-layer">
+          <div className="form-container">
+            <h2 className="reservation-h2">Reservation Form</h2>
+            <hr className="hr-reservation" />
+            <p className="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos culpa
+              enim quos unde, itaque nesciunt magnam laborum eum explicabo
+              aperiam necessitatibus fugit, modi recusandae exercitationem quod
+              obcaecati blanditiis reprehenderit in cum debitis vero aut?
+            </p>
+            <br />
+            <Form className="create-reservation-form" onSubmit={handleSubmit}>
+              <div className="date-city-item">
+                <Form.Control
+                  type="text"
+                  name="name"
+                  className="bg-color rounded-border date-width"
+                  placeholder="Name"
+                  value={Item.name} 
+                  onChange={onHandleChange}
+                  required
+                />
+  
+                <Form.Control
+                  type="text"
+                  name="image"
+                  className="bg-color rounded-border"
+                  placeholder="Place an Image Url"
+                  onChange={onHandleChange}
+                  value={Item.image} 
+                  required
+                />
+  
+                <Form.Control
+                  type="number"
+                  name="price"
+                  placeholder="Price"
+                  onChange={onHandleChange}
+                  value={Item.price} 
+                  required
+                  step="0.01"
+                />
+  
+                <Form.Control
+                  as="textarea"
+                  name="description"
+                  placeholder="Description"
+                  onChange={onHandleChange}
+                  value={Item.description} 
+                  required
+                />
+              </div>
+  
+              <Button
+                variant="light"
+                type="submit"
+                className="button-width rounded-border submit-btn"
+              >
+                Book Now
+              </Button>
+            </Form>
+          </div>
+        </div>
       </div>
     </div>
   );
+  
 };
 
 export default CreateItem;
