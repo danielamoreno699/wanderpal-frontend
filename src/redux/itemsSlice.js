@@ -51,6 +51,18 @@ const initialState = {
       return response.data;
     }
   );
+
+  //delete item 
+  export const deleteItem = createAsyncThunk('items/deleteItem', async (itemId) => {
+    const response = await axios.delete(`http://[::1]:3001/api/v1/items/${itemId}`);
+  
+    if (response.status ) {
+      return itemId; 
+    }
+  
+    throw new Error('Delete request failed!');
+  });
+
   
   export const itemsSlice = createSlice({
     name: 'items',
@@ -66,6 +78,10 @@ const initialState = {
       addItem: (state, action) => {
         const newItem = action.payload;
         state.items.push(newItem);
+      },
+      deleteItemReducer: (state, action) => {
+        const itemId = action.payload;
+        state.items = state.items.filter(item => item.id !== itemId);
       },
     },
     extraReducers: (builder) => {
@@ -101,5 +117,5 @@ const initialState = {
     },
   });
   
-  export const { selectedItem, addItem} = itemsSlice.actions;
+  export const { selectedItem, addItem, deleteItemReducer} = itemsSlice.actions;
   export default itemsSlice.reducer;
