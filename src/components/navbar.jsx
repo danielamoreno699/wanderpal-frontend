@@ -1,4 +1,4 @@
-import React, { useState } from 'react';  // Asegúrate de tener "useState" aquí
+import { useState } from 'react';  // Asegúrate de tener "useState" aquí
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { useAuth } from '../context/AuthProvider';
@@ -80,7 +80,7 @@ const CustomNavbar = () => {
                 ">
                   <Nav.Link
                     className={`
-                     ${location.pathname === '/reservationform' ? 'active-link' : ''}`}
+                     ${location.pathname === '/create-item' ? 'active-link' : ''}`}
                     href="/reservationform"
                   >
                     ADD ITEM

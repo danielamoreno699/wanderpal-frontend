@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const initialState = {
     status: 'idle',
@@ -28,6 +29,28 @@ const initialState = {
     }
       throw new Error('Request failed!');
   });
+
+  //create item
+  export const createItem = createAsyncThunk(
+    "reservationCreateItem/createReservationItem",
+  
+    async ({ user_id, name, image, price, description }) => {
+      const payload = {
+        user_id,
+        name,
+        image,
+        price,
+        description,
+      };
+      console.log(payload);
+  
+      const response = await axios.post(
+        `http://127.0.0.1:3001/api/v1/items`,
+        payload
+      );
+      return response.data;
+    }
+  );
   
   export const itemsSlice = createSlice({
     name: 'items',
@@ -39,6 +62,10 @@ const initialState = {
           ...state,
           itemInfo: selectedItem,
         };
+      },
+      addItem: (state, action) => {
+        const newItem = action.payload;
+        state.items.push(newItem);
       },
     },
     extraReducers: (builder) => {
@@ -74,5 +101,5 @@ const initialState = {
     },
   });
   
-  export const { selectedItem} = itemsSlice.actions;
+  export const { selectedItem, addItem} = itemsSlice.actions;
   export default itemsSlice.reducer;

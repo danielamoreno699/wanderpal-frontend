@@ -6,6 +6,7 @@ import Items from "../components/items";
 import ReservationForm from "../components/reservation-form";
 import Home from "../components/home";
 import ReserveItem from "../components/reservation-item-form";
+import CreateItem from "../components/add-item";
 
 
 
@@ -27,6 +28,8 @@ const WanderPalRoutes = () => (
 
                 <Route path="/reservationform" element={<ReservationForm />}/>
                 <Route path = "/reservationItemForm/:id" element={<ReserveItem/>} />
+
+                <Route path= "/create-item" element = { <CreateItem/>}/>
             </Routes>
         </div>
 

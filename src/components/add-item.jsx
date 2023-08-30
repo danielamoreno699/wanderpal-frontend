@@ -8,7 +8,7 @@ export const CreateItem = () => {
     const dispatch = useDispatch();
 
   const [Item, setItem] = useState({
-    
+    user_id: localStorage.getItem('user_id'),
     name: '',
     image: '',
     price: '',
@@ -25,6 +25,7 @@ export const CreateItem = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
       const response = await dispatch(createItem(Item)); 
       console.log('Item created:', response);
   };
