@@ -32,8 +32,31 @@
 }
 
 @media (max-width: 768px) {
+  .app-container {
+    flex-direction: column; /* Cambiar a disposición en columna para apilar los elementos */
+  }
+
   .burger-icon {
-    display: block; /* Mostrar en pantallas pequeñas */
+    display: block; /* Mostrar el ícono del menú hamburguesa */
+    position: fixed;
+    top: 10px;
+    right: 10px;
+  }
+
+  .sidebar {
+    width: 100%; /* Ocupar todo el ancho en pantallas pequeñas */
+    position: fixed;
+    top: 0;
+    bottom: 0; /* Ocupar todo el alto de la pantalla */
+    background-color: #ecebeafb;
+    z-index: 10; /* Asegurar que el Navbar esté por encima del contenido */
+  }
+
+  .content-container {
+    padding: 20px;
+    overflow: auto;
+    background-color: #f8f8f8;
+    margin-left: 250px; /* Espacio para el Navbar en el lado izquierdo */
   }
 
   .burger-icon.active {
