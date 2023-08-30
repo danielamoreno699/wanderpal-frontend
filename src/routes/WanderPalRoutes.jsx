@@ -6,7 +6,8 @@ import Items from "../components/items";
 import ReservationForm from "../components/reservation-form";
 import Home from "../components/home";
 import ReserveItem from "../components/reservation-item-form";
-
+import CreateItem from "../components/add-item";
+import DeleteItems from "../components/delete-item";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -36,5 +37,6 @@ const WanderPalRoutes = () => {
       </div>
     </div >
 );
+  }
 
 export default WanderPalRoutes;
