@@ -18,8 +18,8 @@ const CarouselSlide = () => {
               className="d-block w-100"
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Explore Exotic Destinations</h3>
+            <p>Embark on a journey to breathtaking landscapes and immerse yourself in new cultures.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item interval={500}>
@@ -29,8 +29,8 @@ const CarouselSlide = () => {
               className="d-block w-100"
             />
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Unforgettable Adventures Await</h3>
+            <p>Experience thrilling activities and create lasting memories with our guided tours.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -40,8 +40,8 @@ const CarouselSlide = () => {
               className="d-block w-100"
             />
             <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h3>Discover Hidden Gems</h3>
+            <p>From serene beaches to ancient ruins, let us take you to the worlds best-kept secrets.</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
