@@ -24,7 +24,9 @@ const Reservation = () => {
 
   useEffect(() => {
     if (status === "idle") {
-      dispatch(fetchReservations());
+      const userId = localStorage.getItem('user_id');
+      console.log(userId)
+      dispatch(fetchReservations(userId));
     }
   }, [status, dispatch]);
 
@@ -88,6 +90,7 @@ const Reservation = () => {
           }}
         >
           {reservations.map((reservation, index) => {
+         
             const itemDetails = reservationDetails[reservation.id];
 
             const isDeleted = deletedItems.some(

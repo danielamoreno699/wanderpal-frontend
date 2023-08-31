@@ -9,8 +9,10 @@ const initialState = {
 // fetch reservations
 export const fetchReservations = createAsyncThunk(
   "reservations/fetchReservations",
-  async () => {
-    const response = await fetch("http://[::1]:3001/api/v1/reservations");
+  
+  async (userId) => {
+   
+    const response = await fetch(`http://[::1]:3001/api/v1/users/${userId}/reservations`);
     if (response.ok) {
       const data = await response.json();
       return data;
