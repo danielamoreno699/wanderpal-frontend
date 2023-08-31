@@ -21,7 +21,7 @@ export const createReservation = createAsyncThunk(
     };
 
     const response = await axios.post(
-      `http://127.0.0.1:3001/api/v1/items/${itemId}/reservations`,
+      `https://wanderpalbackend.onrender.com/api/v1/items/${itemId}/reservations`,
       payload
     );
     return response.data;
