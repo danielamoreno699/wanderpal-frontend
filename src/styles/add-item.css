@@ -1,0 +1,18 @@
+.date-city-item {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.create-reservation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+button {
+  margin-top: 10px;
+  background-color: #007bff;
+}

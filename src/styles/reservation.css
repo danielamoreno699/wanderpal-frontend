@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300&family=Lobster&family=REM:wght@300&family=Shadows+Into+Light&display=swap");
+
+.reservation-page {
+  margin: auto;
+  background-image: url("../assets/carousel/dubai.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-position: 100% 100%;
+}
+
+.transparent-layer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(199, 161, 136, 0.74);
+  height: 100vh;
+  padding: 0;
+}
+
+.create-reservation-form {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.submit-btn {
+  background-color: aqua;
+}
+
+.bg-color {
+  cursor: pointer;
+}
+
+.rounded-border {
+  border-radius: 5rem !important;
+  margin-bottom: 0 !important;
+}
+
+.description {
+  color: white;
+  font-size: 1rem;
+}
+
+.reservation-h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  font-family: "REM", sans-serif;
+  font-weight: bold;
+}
+
+.hr-reservation {
+  width: 60%;
+  border: 1px solid #ce1616;
+  margin: 1rem auto;
+}
+
+.date-city {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.card-cont {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  width: 97%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card-item {
+  margin-top: 3rem;
+  width: calc(25% - 1rem);
+  height: 20rem;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.card-img-item {
+  width: 30rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.card-item:hover .card-img-item {
+  transform: scale(1.1);
+}
+
+.card-title-item {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.card-item-price {
+  font-size: 1rem;
+  color: #777;
+}
+
+.card-btns {
+  display: flex;
+  gap: 2rem;
+}
+
+.date-width {
+  width: 100%;
+}
+
+.form-width {
+  width: 85%;
+}
+
+.button-width {
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .card-cont {
+    display: block;
+  }
+
+  .card-item {
+    width: 21rem;
+    margin: 0 auto 1rem;
+  }
+
+  .transparent-layer {
+    padding: 2em 2em;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1080px) {
+  .transparent-layer {
+    padding: 6em 6em;
+  }
+
+  .card-item {
+    width: 21rem;
+    margin: 0 auto;
+  }
+
+  .date-width {
+    width: 40% !important;
+  }
+
+  .form-width {
+    width: 85%;
+  }
+
+  .button-width {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1080px) and (max-width: 2100px) {
+  .transparent-layer {
+    padding: 6em 6em;
+  }
+
+  .card-item {
+    width: 21rem;
+    margin: 0 auto;
+  }
+
+  .date-width {
+    width: 30% !important;
+  }
+
+  .form-width {
+    width: 85%;
+  }
+
+  .button-width {
+    width: 30%;
+  }
+}

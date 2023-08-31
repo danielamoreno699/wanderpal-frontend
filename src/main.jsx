@@ -1,10 +1,24 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { AuthProvider } from "./context/AuthProvider";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import "bootstrap/dist/css/bootstrap.min.css";
+import store from "../src/redux/store.js";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <BrowserRouter>
+    
+    <AuthProvider>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </AuthProvider>
+     
+    </BrowserRouter>
+  </React.StrictMode>
+);

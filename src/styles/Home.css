@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300&family=Lobster&family=REM:wght@300&family=Shadows+Into+Light&display=swap');
+
+.home-h2 {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
+  padding-top: 6rem;
+  color: #777;
+  font-family: 'REM', sans-serif;
+}
+
+.hr-home {
+  width: 20%;
+  border: 1px solid #ce1616;
+  margin: 1rem auto;
+}
+
+.card-cont {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  width: 97%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card-item card {
+  width: 16%;
+  height: 20%;
+}
+
+.card-img-item {
+  width: 30rem;
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.card-item:hover .card-img-item {
+  transform: scale(1.1);
+}
+
+.card-title-item {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.card-item-price {
+  font-size: 1rem;
+  color: #777;
+}
+
+.card-btns {
+  display: flex;
+  gap: 2rem;
+}
+
+.success-message {
+  background-color: #5cb85c;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+@media screen and (max-width: 767px) {
+  .card-cont {
+    display: block;
+  }
+
+  .card-item {
+    width: auto;
+  }
+
+  .swiper {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .card-item {
+    width: 21rem;
+    margin: 0 auto;
+  }
+}
+
+.swiper {
+  width: 90%;
+  margin: 0 auto;
+  height: 50vh;
+}
+
+.swiper-slide {
+  text-align: center;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-item {
+  width: auto;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: white;
+  fill: white;
+  width: 1rem;
+}
