@@ -13,7 +13,7 @@ export const initialState = {
 
 // fetching users
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
-    const response = await axios.get('http://127.0.0.1:3001/api/v1/users');
+    const response = await axios.get('https://wanderpalbackend.onrender.com/api/v1/users');
     return response.data;
 });
 
