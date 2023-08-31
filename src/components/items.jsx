@@ -4,8 +4,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import '../styles/Details.css';
 import { useEffect } from 'react'; 
 import { fetchItemInfo } from '../redux/itemsSlice';
-// import { selectedItem } from '../redux/itemsSlice';
-
 
 const Items = () => {
 
