@@ -12,7 +12,7 @@ export const fetchReservations = createAsyncThunk(
   
   async (userId) => {
    
-    const response = await fetch(`http://[::1]:3001/api/v1/users/${userId}/reservations`);
+    const response = await fetch(`https://wanderpalbackend.onrender.com/api/v1/users/${userId}/reservations`);
     if (response.ok) {
       const data = await response.json();
       return data;
@@ -25,7 +25,7 @@ export const fetchReservations = createAsyncThunk(
 export const fetchReservationDetails = createAsyncThunk(
   "reservations/fetchReservationDetails",
   async (reservationId) => {
-    const response = await fetch(`http://[::1]:3001/api/v1/reservations/${reservationId}/item_details`);
+    const response = await fetch(`https://wanderpalbackend.onrender.com/api/v1/reservations/${reservationId}/item_details`);
     if (response.ok) {
       const data = await response.json();
       return { reservationId, item: data[0] }; 
