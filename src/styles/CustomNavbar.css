@@ -16,6 +16,17 @@ a.active-link.nav-link {
   /* Otros estilos para resaltar el enlace activo */
 }
 
+.logo-container {
+  background-image: url(../assets/logo.png);
+  width: 15rem;
+  height: 15rem;
+  background-size: contain;
+}
+
+.navbar-icon{
+  font-size: 1rem;
+}
+
 .app-container {
   display: flex;
   height: 100vh;
@@ -74,4 +85,10 @@ a.active-link.nav-link {
       margin-left: 0;
     }
   }
+}
+
+
+
+.asdw{
+  display: flex;
 }

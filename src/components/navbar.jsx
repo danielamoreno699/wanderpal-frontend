@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import { useAuth } from '../context/AuthProvider';
 import { useNavigate, useLocation } from 'react-router-dom';
 import "../styles/CustomNavbar.css";
+import { AiTwotoneMail } from 'react-icons/ai';
 
 // eslint-disable-next-line react/prop-types
 const CustomNavbar = ({isMenuOpen}) => {
@@ -19,11 +20,8 @@ const CustomNavbar = ({isMenuOpen}) => {
     <header className="nav-container">
       <Navbar className={` p-0 d-flex  ${isMenuOpen ? 'menu-open' : ''}`}>
         <div className="sidebar">
-        <img
-        src="src/assets/logo.png"
-        alt="wanderpal logo"
-        style={{ maxWidth: '150px', margin: '0 auto' }} 
-      />
+          <div className="logo-container"/> 
+
           <Nav as="ul" className={`m-3 d-flex flex-column ${isMenuOpen ? 'active' : ''}`}>
             {isLoggedIn ? (
               <>
@@ -156,14 +154,10 @@ const CustomNavbar = ({isMenuOpen}) => {
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" className="fit-content">
-                    <Nav.Link className="fit-content" href="#" disabled>
-                      <img
-                        src="/src/assets/envelope.png"
-                        width="20"
-                        height="20"
-                        className="flaticon-nav m-1 fit-content"
-                        alt="icon"
-                      />
+                    <Nav.Link className="fit-content asdw" href="#" disabled>
+    
+
+                      {<AiTwotoneMail className='navbar-icon' />}
                       Contact@WanderPalTour.com
                     </Nav.Link>
                   </Nav.Item>
