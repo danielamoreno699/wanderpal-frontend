@@ -11,7 +11,7 @@ const initialState = {
   // fetch items 
   export const fetchItems = createAsyncThunk('items/fetchItems', 
     async () => {
-    const response = await fetch('http://[::1]:3001/api/v1/items');
+    const response = await fetch('https://wanderpalbackend.onrender.com/api/v1/items');
     if (response.ok){
       const data = await response.json();
       return data;
@@ -22,7 +22,7 @@ const initialState = {
   // fetch item info
   export const fetchItemInfo = createAsyncThunk('items/fetchItemInfo', 
     async (id) => {
-    const response = await fetch(`http://[::1]:3001/api/v1/items/${id}`);
+    const response = await fetch(`https://wanderpalbackend.onrender.com/api/v1/items/${id}`);
     if (response.ok){
       const data = await response.json();
       return data;
@@ -53,7 +53,7 @@ const initialState = {
 
   //delete item 
   export const deleteItem = createAsyncThunk('items/deleteItem', async (itemId) => {
-    const response = await axios.delete(`http://[::1]:3001/api/v1/items/${itemId}`);
+    const response = await axios.delete(`https://wanderpalbackend.onrender.com/api/v1/items/${itemId}`);
   
     if (response.status ) {
       return itemId; 
