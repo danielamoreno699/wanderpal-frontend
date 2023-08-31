@@ -183,7 +183,7 @@ const CustomNavbar = ({isMenuOpen}) => {
                   <Nav.Item as="li">
                     <Nav.Link href="#">
                       <img
-                        src="./assets/google.png"
+                        src="../assets/google.png"
                         width="20"
                         height="20"
                         className="flaticon-nav m-2 fit-content"
