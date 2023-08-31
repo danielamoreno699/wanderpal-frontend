@@ -7,7 +7,7 @@ import WanderPalRoutes from './routes/WanderPalRoutes';
 
 
 
-function App() {
+const App = () => {
   return (
     <Routes>
   
