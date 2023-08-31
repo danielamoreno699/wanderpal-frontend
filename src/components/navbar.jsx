@@ -5,6 +5,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import "../styles/CustomNavbar.css";
 import { AiTwotoneMail } from 'react-icons/ai';
 
+
+
 // eslint-disable-next-line react/prop-types
 const CustomNavbar = ({isMenuOpen}) => {
   const navigate = useNavigate();
@@ -121,7 +123,7 @@ const CustomNavbar = ({isMenuOpen}) => {
                     href="/registration"
                   >
                     <img
-                      src="/src/assets/user.png"
+                      src="../assets/user.png"
                       width="17"
                       height="17"
                       className="flaticon-nav m-1 
@@ -181,7 +183,7 @@ const CustomNavbar = ({isMenuOpen}) => {
                   <Nav.Item as="li">
                     <Nav.Link href="#">
                       <img
-                        src="/src/assets/google.png"
+                        src="./assets/google.png"
                         width="20"
                         height="20"
                         className="flaticon-nav m-2 fit-content"
