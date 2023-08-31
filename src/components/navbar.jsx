@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import { useAuth } from '../context/AuthProvider';
 import { useNavigate, useLocation } from 'react-router-dom';
 import "../styles/CustomNavbar.css";
-import { AiTwotoneMail } from 'react-icons/ai';
+import { AiFillGoogleCircle, AiTwotoneMail } from 'react-icons/ai';
 
 
 
@@ -182,13 +182,7 @@ const CustomNavbar = ({isMenuOpen}) => {
                   </Nav.Item>
                   <Nav.Item as="li">
                     <Nav.Link href="#">
-                      <img
-                        src="../assets/google.png"
-                        width="20"
-                        height="20"
-                        className="flaticon-nav m-2 fit-content"
-                        alt="google-plus"
-                      />
+                      {<AiFillGoogleCircle class="react-icon"/>}
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li">
