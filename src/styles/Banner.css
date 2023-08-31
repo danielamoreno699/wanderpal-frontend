@@ -5,7 +5,7 @@
   align-items: center;
   padding: 1rem;
   color: white;
-  margin-top: 4rem;
+  margin-top: 9rem;
  
 }
 
@@ -27,9 +27,25 @@
   margin-bottom: 10px;
 }
 
+@media (max-width: 784px) {
+  .banner-trip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+    margin-top: 0;
+   
+  }
+}
+
+
+
+
 @media (min-width: 784px) {
   .banner-trip {
     padding: 0;
+    
   }
 
   .banner-trip__content {
@@ -37,6 +53,7 @@
     justify-content: space-around;
     align-items: center;
     padding: 3rem;
+    
   }
 
   .destinations,
