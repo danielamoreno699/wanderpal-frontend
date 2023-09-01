@@ -140,6 +140,12 @@ Ensure to clone backend repository in order to run the database
 ```
 
 
+### Deployment
+
+[Visit the deployed site](https://grand-brigadeiros-e669d8.netlify.app/Home)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Setup
 
 Clone or download this repository to your local machine.
