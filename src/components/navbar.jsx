@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import { useAuth } from '../context/AuthProvider';
 import { useNavigate, useLocation } from 'react-router-dom';
 import "../styles/CustomNavbar.css";
-import { AiFillGoogleCircle, AiTwotoneMail } from 'react-icons/ai';
+import { AiFillFacebook, AiFillGoogleCircle, AiFillPhone, AiOutlineShop, AiOutlineShopping, AiOutlineTwitter, AiTwotoneMail } from 'react-icons/ai';
 
 
 
@@ -30,14 +30,7 @@ const CustomNavbar = ({isMenuOpen}) => {
                 <Nav.Item as="li">
                   <Nav.Link className="
                   " onClick={onLogout}>
-                    <img
-                      src="/src/assets/padlock.png"
-                      width="17"
-                      height="17"
-                      className="flaticon-nav m-1 
-                      "
-                      alt="logout"
-                    />
+                    {<AiOutlineShopping className='react-icon'/>}
                     Log out
                   </Nav.Link>
                 </Nav.Item>
@@ -104,14 +97,7 @@ const CustomNavbar = ({isMenuOpen}) => {
                      ${location.pathname === '/login' ? 'active-link' : ''}`}
                     href="/login"
                   >
-                    <img
-                      src="/src/assets/padlock.png"
-                      width="17"
-                      height="17"
-                      className="flaticon-nav m-1 
-                      "
-                      alt="login"
-                    />
+                    {<AiOutlineShopping className='react-icon'/>}
                     Login
                   </Nav.Link>
                 </Nav.Item>
@@ -122,14 +108,7 @@ const CustomNavbar = ({isMenuOpen}) => {
                      ${location.pathname === '/registration' ? 'active-link' : ''}`}
                     href="/registration"
                   >
-                    <img
-                      src="../assets/user.png"
-                      width="17"
-                      height="17"
-                      className="flaticon-nav m-1 
-                      "
-                      alt="signup"
-                    />
+                  {<AiOutlineShop className='react-icon'/>}
                     Sign Up
                   </Nav.Link>
                    
@@ -145,13 +124,7 @@ const CustomNavbar = ({isMenuOpen}) => {
                 <Nav as="ul" className="m-1 fit-content flex-column">
                   <Nav.Item as="li" className="fit-content">
                     <Nav.Link href="#" disabled className="fit-content">
-                      <img
-                        src="/src/assets/phone-call.png"
-                        width="17"
-                        height="17"
-                        className="flaticon-nav m-1 fit-content"
-                        alt="icon"
-                      />
+                      {<AiFillPhone className='icon-react'/>}
                       0.703.1352.411
                     </Nav.Link>
                   </Nav.Item>
@@ -160,7 +133,7 @@ const CustomNavbar = ({isMenuOpen}) => {
     
 
                       {<AiTwotoneMail className='navbar-icon' />}
-                      Contact@WanderPalTour.com
+                      WanderPalTour@email.com
                     </Nav.Link>
                   </Nav.Item>
                 </Nav>
@@ -171,29 +144,17 @@ const CustomNavbar = ({isMenuOpen}) => {
                 <Nav as="ul" className="m-1">
                   <Nav.Item as="li">
                     <Nav.Link href="#">
-                      <img
-                        src="/src/assets/facebook.png"
-                        width="20"
-                        height="20"
-                        className="flaticon-nav m-2 fit-content"
-                        alt="facebook-icon"
-                      />
+                      {<AiFillFacebook className="react-icon"/> }
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li">
                     <Nav.Link href="#">
-                      {<AiFillGoogleCircle class="react-icon"/>}
+                      {<AiFillGoogleCircle className="react-icon"/>}
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li">
                     <Nav.Link href="#">
-                      <img
-                        src="/src/assets/twitter.png"
-                        width="20"
-                        height="20"
-                        className="flaticon-nav m-2 fit-content"
-                        alt="twitter"
-                      />
+                      {<AiOutlineTwitter className='react-icon'/>}
                     </Nav.Link>
                   </Nav.Item>
                 </Nav>

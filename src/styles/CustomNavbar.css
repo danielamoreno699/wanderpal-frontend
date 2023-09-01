@@ -87,8 +87,7 @@ a.active-link.nav-link {
   }
 }
 
-
-
-.asdw{
-  display: flex;
+.react-icon{
+ width: 2rem;
+ height: 2rem ;
 }
