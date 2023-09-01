@@ -142,7 +142,7 @@ Ensure to clone backend repository in order to run the database
 
 ### Deployment
 
-[Visit the deployed site](https://grand-brigadeiros-e669d8.netlify.app/Home)
+[Visit the deployed site](https://fancy-toffee-1b590d.netlify.app/Home)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
